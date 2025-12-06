@@ -1,0 +1,96 @@
+<!-- 
+ I switched to Tailwind CSS using the CDN for quicker styling directly in the HTML.
+ We had to keep a custom CSS class for the unique fading border since it was too complex for 
+ standard Tailwind utilities. Finally, we added smooth hover animations using Tailwind to 
+ make the cards feel interactive and much more professional for a better user experience 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta-name content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Business Card</title>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <style>
+            .fading-border {
+                background: radial-gradient(50.51% 53.12% at 82.21% 11.15%, #262626 0%, #141414 100%);
+                border-top: 1.382px solid #44413f;
+                position: relative;
+                overflow: hidden;
+                border-radius: 22px;
+                transition: all 0.35s ease;
+            }
+
+            .fading-border::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                border: 1.382px solid #44413f;
+                pointer-events: none;
+                -webkit-mask: linear-gradient(to bottom, white 0%, white 50%, transparent 100%);
+                mask: linear-gradient(to bottom, white 0%, white 50%, transparent 100%);
+                transition: border-color 0.35s ease;
+            }
+
+
+            .fading-border:hover {
+                transform: translateY(-8px) scale(1.03);
+                box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+            }
+
+            .fading-border:hover::after {
+                border-color: #8f8f8f;
+            }
+        </style>
+</head>
+
+<body class="bg-[#262626] flex justify-center items-center min-h-screen">
+
+    <div class="flex gap-8 justify-center items-start">
+
+        <!-- CARD 1 -->
+        <div class="fading-border w-[380px] px-5 py-4 text-center shadow-xl">
+            <div class="flex flex-col justify-center items-center px-[32px] py-[36px] gap-8">
+                <div class="relative w-[60px] h-[60px] flex items-center justify-center">
+                    <img src="assets/Ellipse 3006.png" class="w-full h-full absolute inset-0" alt="Background">
+                    <img src="assets/Vector.png" class="absolute w-[30px] h-[30px] inset-0 m-auto" alt="Icon">
+                </div>
+            </div>
+
+            <h2 class="text-white text-[22px] font-semibold">Business Websites</h2>
+
+            <p class="text-[#A3A3A3] text-lg leading-[30px] font-normal mt-4 mb-6">
+                We build professional, high-impact websites trusted by hundreds of businesses,
+                government entities, and non-profit organizations. Every website comes with an intuitive
+                content editor, making it easy for you to update pages and manage content without effort.
+            </p>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="fading-border w-[380px] px-5 py-4 text-center shadow-xl">
+            <div class="flex flex-col justify-center items-center px-[32px] py-[36px] gap-8">
+                <div class="relative w-[60px] h-[60px] flex items-center justify-center">
+                    <img src="assets/Ellipse 3006.png" class="w-full h-full absolute inset-0" alt="Background">
+                    <img src="assets/Vector.png" class="absolute w-[30px] h-[30px] inset-0 m-auto" alt="Icon">
+                </div>
+            </div>
+
+            <h2 class="text-white text-[22px] font-semibold">Business Websites</h2>
+
+            <p class="text-[#A3A3A3] text-lg leading-[30px] font-normal mt-4 mb-6">
+                We build professional, high-impact websites trusted by hundreds of businesses,
+                government entities, and non-profit organizations. Every website comes with an intuitive
+                content editor, making it easy for you to update pages and manage content without effort.
+            </p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
