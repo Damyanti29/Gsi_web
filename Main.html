@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Sections</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* ---------- COMMON CARD (Both Sections) ---------- */
+        .fade-card {
+            position: relative;
+            border-radius: 22px;
+            background: radial-gradient(50.51% 53.12% at 82.21% 11.15%, #262626 0%, #141414 100%);
+            overflow: hidden;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+
+        .fade-card:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 0 28px rgba(255, 82, 28, 0.35);
+        }
+
+        .fade-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            border: 1.5px solid #3F3F3F;
+            pointer-events: none;
+            -webkit-mask: linear-gradient(to bottom, white 0%, white 50%, transparent 100%);
+            mask: linear-gradient(to bottom, white 0%, white 50%, transparent 100%);
+            transition: border-color 0.35s ease;
+        }
+
+        .fade-card:hover::after {
+            border-color: #FF521C;
+        }
+
+        /* ---------- BUTTON ---------- */
+        .custom-btn {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            padding: 6.275px 17.255px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 21.31px;
+            background: radial-gradient(37.68% 85.68% at 50.15% 6.82%, #4D2F26 0%, #070707 100%);
+            color: #D2D0D0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+        }
+
+        .custom-btn::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            border: 1.776px solid #FF521C;
+            pointer-events: none;
+            -webkit-mask: linear-gradient(to bottom, white 0%, white 45%, transparent 100%);
+            mask: linear-gradient(to bottom, white 0%, white 45%, transparent 100%);
+            opacity: 1;
+            transition: border-color 0.3s ease;
+        }
+
+        .custom-btn:hover {
+            transform: scale(1.06);
+            box-shadow: 0 0 18px rgba(255, 82, 28, 0.45);
+            color: #fff;
+        }
+
+        .custom-btn:hover::before {
+            border-color: #ff6a39;
+        }
+
+        /* BACKGROUND */
+        body {
+            background: radial-gradient(50% 50% at 50% 50%, #262626 0%, #141414 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-[#1A1A1A] min-h-screen flex flex-col justify-start items-center p-10 space-y-16">
+
+    <!-- ----------- SECTION 1 (TOP) ----------- -->
+    <div class="flex flex-col lg:flex-row gap-10 lg:gap-20">
+
+        <div class="fade-card p-10 w-full max-w-[487px]">
+            <div class="flex justify-center items-center mb-6">
+                <div class="relative w-[90px] h-[90px]">
+                    <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
+                    <img src="assets/Vector.png" class="absolute w-[32px] h-[32px] inset-0 m-auto">
+                </div>
+            </div>
+
+            <h2 class="text-[#FFF] text-center text-[28px]">
+                Shopify Dropshipping Development
+            </h2>
+
+            <ul class="text-[#A3A3A3] text-[20px] leading-[30px] mt-4 mb-8 space-y-2">
+                <li class="text-left pl-10">• Fastest to launch</li>
+                <li class="text-left pl-10">• Most reliable automation</li>
+                <li class="text-left pl-10">• Best for AliExpress & print-on-demand</li>
+                <li class="text-left pl-10">• Large app ecosystem</li>
+            </ul>
+
+            <button class="custom-btn w-[210px] font-semibold text-[19px] mx-auto">Get a Quote</button>
+        </div>
+
+        <div class="fade-card p-10 w-full max-w-[487px]">
+            <div class="flex justify-center items-center mb-6">
+                <div class="relative w-[90px] h-[90px]">
+                    <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
+                    <img src="assets/Vector.png" class="absolute w-[32px] h-[32px] inset-0 m-auto">
+                </div>
+            </div>
+
+            <h2 class="text-[#FFF] text-center text-[28px]">
+                Shopify Dropshipping Development
+            </h2>
+
+            <ul class="text-[#A3A3A3] text-[20px] leading-[30px] mt-4 mb-8 space-y-2">
+                <li class="text-left pl-10">• Fastest to launch</li>
+                <li class="text-left pl-10">• Most reliable automation</li>
+                <li class="text-left pl-10">• Best for AliExpress & print-on-demand</li>
+                <li class="text-left pl-10">• Large app ecosystem</li>
+            </ul>
+
+            <button class="custom-btn w-[210px] font-semibold text-[19px] mx-auto">Get a Quote</button>
+        </div>
+
+    </div>
+
+    <!-- ----------- SECTION 2 (BOTTOM) ----------- -->
+    <div class="flex flex-col md:flex-row justify-center gap-6">
+
+        <!-- CARD 1 -->
+        <div class="fade-card flex flex-col p-6 items-center text-center max-w-[280px] min-h-[430px]">
+            <div class="relative w-[68px] h-[68px] mb-6">
+                <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
+                <img src="assets/Vector.png" class="absolute w-[24px] h-[24px] inset-0 m-auto">
+            </div>
+
+            <h2 class="text-[#FFF] text-[19px] mt-3">Ecommerce consulting</h2>
+
+            <p class="text-[#A3A3A3] text-[13px] w-[150px] leading-[19px] mt-3">
+                We provide guidance, technology, and operational aspects to boost efficiency and customer experience.
+            </p>
+
+            <div class="mt-auto"></div>
+            <button class="custom-btn text-[14px] mb-2">Get a Quote</button>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="fade-card flex flex-col p-6 items-center text-center max-w-[280px] min-h-[430px]">
+            <div class="relative w-[68px] h-[68px] mb-6">
+                <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
+                <img src="assets/Vector.png" class="absolute w-[24px] h-[24px] inset-0 m-auto">
+            </div>
+
+            <h2 class="text-[#FFF] text-[19px] mt-3">Ecommerce consulting</h2>
+
+            <p class="text-[#A3A3A3] text-[13px] w-[150px] leading-[19px] mt-3">
+                We provide guidance, technology, and operational aspects to boost efficiency and customer experience.
+            </p>
+
+            <div class="mt-auto"></div>
+            <button class="custom-btn text-[14px] mb-2">Get a Quote</button>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="fade-card flex flex-col p-6 items-center text-center max-w-[280px] min-h-[430px]">
+            <div class="relative w-[68px] h-[68px] mb-6">
+                <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
+                <img src="assets/Vector.png" class="absolute w-[24px] h-[24px] inset-0 m-auto">
+            </div>
+
+            <h2 class="text-[#FFF] text-[19px] mt-3">Ecommerce consulting</h2>
+
+            <p class="text-[#A3A3A3] text-[13px] w-[150px] leading-[19px] mt-3">
+                We provide guidance, technology, and operational aspects to boost efficiency and customer experience.
+            </p>
+
+            <div class="mt-auto"></div>
+            <button class="custom-btn text-[14px] mb-2">Get a Quote</button>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
