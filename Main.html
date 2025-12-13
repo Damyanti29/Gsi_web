@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Combined Sections</title>
+    <title>Components for GSI web</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        /* ---------- COMMON CARD (Both Sections) ---------- */
         .fade-card {
             position: relative;
             border-radius: 22px;
@@ -39,8 +38,8 @@
             border-color: #FF521C;
         }
 
-        /* ---------- BUTTON ---------- */
-        .custom-btn {
+        /*  BUTTON  */
+        .cus-btn {
             position: relative;
             overflow: hidden;
             display: flex;
@@ -53,7 +52,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
         }
 
-        .custom-btn::before {
+        .cus-btn::before {
             content: "";
             position: absolute;
             inset: 0;
@@ -66,17 +65,78 @@
             transition: border-color 0.3s ease;
         }
 
-        .custom-btn:hover {
+        .cus-btn:hover {
             transform: scale(1.06);
             box-shadow: 0 0 18px rgba(255, 82, 28, 0.45);
             color: #fff;
         }
 
-        .custom-btn:hover::before {
+        .cus-btn:hover::before {
             border-color: #ff6a39;
         }
 
-        /* BACKGROUND */
+        /* FLEX FOR TEXT + ICON */
+        .btn-flex {
+            gap: 30px;
+            cursor: pointer;
+            width: fit-content;
+            white-space: nowrap;
+
+        }
+
+        /* TEXT */
+        .btn-text {
+            font-size: clamp(13px, 1.2vw, 15px);
+            font-weight: 500;
+            margin-right: 10px;
+            margin-left: 5px;
+        }
+
+
+        .btn-wrapper {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        /* GROUP */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* FLEX */
+        .btn-flex {
+            gap: 8px;
+            cursor: pointer;
+            width: fit-content;
+            white-space: nowrap;
+        }
+
+        /* TEXT */
+        .btn-text {
+            font-size: clamp(13px, 1.1vw, 15px);
+            font-weight: 500;
+        }
+
+        .btn-svg {
+            width: clamp(10px, 1.2vw, 14px);
+            height: clamp(10px, 1.2vw, 14px);
+            margin-top: 1px;
+            flex-shrink: 0;
+            color: #D2D0D0;
+            transition: transform 0.3s ease, color 0.3s ease;
+            margin-right: 3px;
+        }
+
+
+        .cus-btn:hover .btn-svg {
+            transform: translate(2px, -2px);
+            color: #ffffff;
+        }
+
+
         body {
             background: radial-gradient(50% 50% at 50% 50%, #262626 0%, #141414 100%);
         }
@@ -85,10 +145,12 @@
 
 <body class="bg-[#1A1A1A] min-h-screen flex flex-col justify-start items-center p-10 space-y-16">
 
-    <!-- ----------- SECTION 1 (TOP) ----------- -->
-    <div class="flex flex-col lg:flex-row gap-10 lg:gap-20">
+    <!--  SECTION 1  -->
+    <div class=" Card-services-subpages-with-cta flex flex-col lg:flex-row gap-10 lg:gap-20">
 
-        <div class="fade-card p-10 w-full max-w-[487px]">
+        <!-- Card 1 -->
+
+        <div class="Card-services-subpages-with-cta-card-1 fade-card p-10 w-full max-w-[487px]">
             <div class="flex justify-center items-center mb-6">
                 <div class="relative w-[90px] h-[90px]">
                     <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
@@ -107,10 +169,12 @@
                 <li class="text-left pl-10">• Large app ecosystem</li>
             </ul>
 
-            <button class="custom-btn w-[210px] font-semibold text-[19px] mx-auto">Get a Quote</button>
+            <button class="cus-btn w-[210px] font-semibold text-[19px] mx-auto">Get a Quote</button>
         </div>
 
-        <div class="fade-card p-10 w-full max-w-[487px]">
+        <!-- Card 2 -->
+
+        <div class="Card-services-subpages-with-cta-card-1 fade-card p-10 w-full max-w-[487px]">
             <div class="flex justify-center items-center mb-6">
                 <div class="relative w-[90px] h-[90px]">
                     <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
@@ -129,16 +193,18 @@
                 <li class="text-left pl-10">• Large app ecosystem</li>
             </ul>
 
-            <button class="custom-btn w-[210px] font-semibold text-[19px] mx-auto">Get a Quote</button>
+            <button class="cus-btn w-[210px] font-semibold text-[19px] mx-auto">Get a Quote</button>
         </div>
 
     </div>
 
-    <!-- ----------- SECTION 2 (BOTTOM) ----------- -->
-    <div class="flex flex-col md:flex-row justify-center gap-6">
+    <!--  SECTION 2 -->
+
+    <div class="Card-services-subpages flex flex-col md:flex-row justify-center gap-6">
 
         <!-- CARD 1 -->
-        <div class="fade-card flex flex-col p-6 items-center text-center max-w-[280px] min-h-[430px]">
+        <div
+            class="Card-services-subpages-card-1 fade-card flex flex-col p-6 items-center text-center max-w-[280px] min-h-[430px]">
             <div class="relative w-[68px] h-[68px] mb-6">
                 <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
                 <img src="assets/Vector.png" class="absolute w-[24px] h-[24px] inset-0 m-auto">
@@ -151,11 +217,12 @@
             </p>
 
             <div class="mt-auto"></div>
-            <button class="custom-btn text-[14px] mb-2">Get a Quote</button>
+            <button class="cus-btn text-[14px] mb-2">Get a Quote</button>
         </div>
 
         <!-- CARD 2 -->
-        <div class="fade-card flex flex-col p-6 items-center text-center max-w-[280px] min-h-[430px]">
+        <div
+            class="Card-services-subpages-card-2 fade-card flex flex-col p-6 items-center text-center max-w-[280px] min-h-[430px]">
             <div class="relative w-[68px] h-[68px] mb-6">
                 <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
                 <img src="assets/Vector.png" class="absolute w-[24px] h-[24px] inset-0 m-auto">
@@ -168,11 +235,12 @@
             </p>
 
             <div class="mt-auto"></div>
-            <button class="custom-btn text-[14px] mb-2">Get a Quote</button>
+            <button class="cus-btn text-[14px] mb-2">Get a Quote</button>
         </div>
 
         <!-- CARD 3 -->
-        <div class="fade-card flex flex-col p-6 items-center text-center max-w-[280px] min-h-[430px]">
+        <div
+            class="Card-services-subpages-card-3 fade-card flex flex-col p-6 items-center text-center max-w-[280px] min-h-[430px]">
             <div class="relative w-[68px] h-[68px] mb-6">
                 <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
                 <img src="assets/Vector.png" class="absolute w-[24px] h-[24px] inset-0 m-auto">
@@ -185,11 +253,317 @@
             </p>
 
             <div class="mt-auto"></div>
-            <button class="custom-btn text-[14px] mb-2">Get a Quote</button>
+            <button class="cus-btn text-[14px] mb-2">Get a Quote</button>
         </div>
 
     </div>
+    <!-- BUTTON -->
+    <div class="btn-wrapper">
 
+        <!-- Learn More -->
+        <div class="custom-btn btn-group">
+            <div class="custom-btn-button-1 cus-btn btn-flex">
+                <span class="btn-text">Learn More</span>
+                <svg class="btn-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none">
+                    <path d="M1.33329 1.33334L14.6666 14.6667M14.6666 14.6667H1.33329M14.6666 14.6667V1.33334"
+                        stroke="#D2D0D0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+
+            <div class="custom-btn-button-2 cus-btn btn-flex">
+                <span class="btn-text">Learn More</span>
+                <svg class="btn-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none">
+                    <path d="M1.33329 1.33334L14.6666 14.6667M14.6666 14.6667H1.33329M14.6666 14.6667V1.33334"
+                        stroke="#D2D0D0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Schedule a Call -->
+        <div class="btn-schedule-a-call btn-group">
+            <div class="btn-schedule-a-call-button-1 cus-btn btn-flex">
+                <span class="btn-text">Schedule a Call</span>
+                <svg class="btn-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none">
+                    <path
+                        d="M18.6666 9.33331L25.6666 2.33331M25.6666 2.33331V9.33331M25.6666 2.33331H18.6666M16.1373 19.3293C16.3782 19.44 16.6497 19.4652 16.9069 19.401C17.1641 19.3367 17.3918 19.1868 17.5524 18.9758L17.9666 18.4333C18.1839 18.1435 18.4658 17.9083 18.7898 17.7463C19.1137 17.5843 19.471 17.5 19.8333 17.5H23.3333C23.9521 17.5 24.5456 17.7458 24.9832 18.1834C25.4208 18.621 25.6666 19.2145 25.6666 19.8333V23.3333C25.6666 23.9522 25.4208 24.5456 24.9832 24.9832C24.5456 25.4208 23.9521 25.6666 23.3333 25.6666C17.7637 25.6666 12.4223 23.4542 8.48401 19.5159C4.54575 15.5776 2.33325 10.2362 2.33325 4.66665C2.33325 4.04781 2.57908 3.45432 3.01667 3.01673C3.45425 2.57915 4.04775 2.33331 4.66659 2.33331H8.16659C8.78542 2.33331 9.37892 2.57915 9.8165 3.01673C10.2541 3.45432 10.4999 4.04781 10.4999 4.66665V8.16665C10.4999 8.52888 10.4156 8.88615 10.2536 9.21014C10.0916 9.53414 9.85638 9.81597 9.56658 10.0333L9.02058 10.4428C8.8064 10.6064 8.65544 10.839 8.59334 11.1012C8.53124 11.3634 8.56183 11.6391 8.67992 11.8813C10.2744 15.1198 12.8967 17.7389 16.1373 19.3293Z"
+                        stroke="#D2D0D0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+
+            <div class="btn-schedule-a-call-button-2 cus-btn btn-flex">
+                <span class="btn-text">Schedule a Call</span>
+                <svg class="btn-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none">
+                    <path
+                        d="M18.6666 9.33331L25.6666 2.33331M25.6666 2.33331V9.33331M25.6666 2.33331H18.6666M16.1373 19.3293C16.3782 19.44 16.6497 19.4652 16.9069 19.401C17.1641 19.3367 17.3918 19.1868 17.5524 18.9758L17.9666 18.4333C18.1839 18.1435 18.4658 17.9083 18.7898 17.7463C19.1137 17.5843 19.471 17.5 19.8333 17.5H23.3333C23.9521 17.5 24.5456 17.7458 24.9832 18.1834C25.4208 18.621 25.6666 19.2145 25.6666 19.8333V23.3333C25.6666 23.9522 25.4208 24.5456 24.9832 24.9832C24.5456 25.4208 23.9521 25.6666 23.3333 25.6666C17.7637 25.6666 12.4223 23.4542 8.48401 19.5159C4.54575 15.5776 2.33325 10.2362 2.33325 4.66665C2.33325 4.04781 2.57908 3.45432 3.01667 3.01673C3.45425 2.57915 4.04775 2.33331 4.66659 2.33331H8.16659C8.78542 2.33331 9.37892 2.57915 9.8165 3.01673C10.2541 3.45432 10.4999 4.04781 10.4999 4.66665V8.16665C10.4999 8.52888 10.4156 8.88615 10.2536 9.21014C10.0916 9.53414 9.85638 9.81597 9.56658 10.0333L9.02058 10.4428C8.8064 10.6064 8.65544 10.839 8.59334 11.1012C8.53124 11.3634 8.56183 11.6391 8.67992 11.8813C10.2744 15.1198 12.8967 17.7389 16.1373 19.3293Z"
+                        stroke="#D2D0D0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Project Details -->
+        <div class=" btn-project-details btn-group">
+            <div class="btn-project-details-button-1 cus-btn btn-flex">
+                <span class="btn-text">Project Details</span>
+                <svg class="btn-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none">
+                    <path d="M1.33337 14.6667L14.6667 1.33334M14.6667 1.33334V14.6667M14.6667 1.33334H1.33337"
+                        stroke="#D2D0D0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+
+            <div class="btn-project-details-button-2 cus-btn btn-flex">
+                <span class="btn-text">Project Details</span>
+                <svg class="btn-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none">
+                    <path d="M1.33337 14.6667L14.6667 1.33334M14.6667 1.33334V14.6667M14.6667 1.33334H1.33337"
+                        stroke="#D2D0D0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Get a Quote -->
+        <div class="btn-get-a-quote btn-group">
+            <div class="btn-get-a-quote-button-1 cus-btn btn-flex">
+                <span class="btn-text">Get a Quote</span>
+                <svg class="btn-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none">
+                    <path d="M1.33337 14.6667L14.6667 1.33334M14.6667 1.33334V14.6667M14.6667 1.33334H1.33337"
+                        stroke="#D2D0D0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+
+            <div class="btn-get-a-quote-button-2 cus-btn btn-flex">
+                <span class="btn-text">Get a Quote</span>
+                <svg class="btn-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none">
+                    <path d="M1.33337 14.6667L14.6667 1.33334M14.6667 1.33334V14.6667M14.6667 1.33334H1.33337"
+                        stroke="#D2D0D0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="Small-showcase-left flex flex-col md:flex-row items-center gap-4 md:gap-[100px] mb-16 w-full max-w-4xl">
+
+        <!-- Image  -->
+        <div class="order-1 md:order-2 flex-shrink-0 flex justify-center w-full md:w-auto">
+            <div class="w-[290px] h-[218px] bg-white shadow-lg"></div>
+        </div>
+
+        <!-- Text -->
+        <div class="order-2 md:order-1 max-w-[500px] text-center md:text-left">
+
+            <h2 class="text-[#D9D9D9] text-3xl lg:text-4xl mb-4">
+                Specialized in landing pages & marketing sites
+            </h2>
+
+            <p class="text-[#FBEEEE]  lg:text-[22px] leading-normal lg:leading-[52px]">
+                we don't build “any website”, we focus on pages that support campaigns, funnels, and revenue.
+            </p>
+
+        </div>
+
+    </div>
+    <div class="Small-showcase-left flex flex-col md:flex-row items-center gap-4 md:gap-[100px] mb-16">
+
+        <!-- Image -->
+        <div class="order-1 flex-shrink-0 flex justify-center w-full md:w-auto">
+            <div class="w-[290px] h-[218px] bg-white shadow-lg"></div>
+        </div>
+
+        <!-- Text -->
+        <div class="order-2 max-w-[500px] text-center md:text-left">
+
+            <h2 class="text-[#D9D9D9]  text-3xl lg:text-4xl mb-4">
+                Marketer-first approach
+            </h2>
+
+            <p class="text-[#FBEEEE]  lg:text-[22px] leading-normal lg:leading-[52px]">
+                we think in terms of offer, hook, objection handling, and CTA, not just “sections and buttons”
+            </p>
+
+        </div>
+
+    </div>
+    <div class=" flex flex-wrap justify-center gap-10 mb-16">
+        <div class="Card-services-subpages-small fade-card p-4 w-full max-w-[200px] gap-[22.67px] overflow-hidden">
+            <div class="flex justify-center items-center mb-3">
+                <div class="relative w-12 h-12">
+                    <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
+                    <img src="assets/Vector.png" class="absolute w-[20px] h-[20px] inset-0 m-auto">
+                </div>
+            </div>
+
+            <h2 class="text-[#FFF] text-center text-sm leading-normal">
+                Professional UI/UX design
+            </h2>
+        </div>
+        <div class="Card-services-subpages-small fade-card p-4 w-full max-w-[200px] gap-[22.67px] overflow-hidden">
+            <div class="flex justify-center items-center mb-3">
+                <div class="relative w-12 h-12">
+                    <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
+                    <img src="assets/Vector.png" class="absolute w-[20px] h-[20px] inset-0 m-auto">
+                </div>
+            </div>
+
+            <h2 class="text-[#FFF] text-center text-sm leading-normal">
+                Mobile-responsive layouts
+            </h2>
+        </div>
+        <div class="Card-services-subpages-small fade-card p-4 w-full max-w-[200px] gap-[22.67px] overflow-hidden">
+            <div class="flex justify-center items-center mb-3">
+                <div class="relative w-12 h-12">
+                    <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
+                    <img src="assets/Vector.png" class="absolute w-[20px] h-[20px] inset-0 m-auto">
+                </div>
+            </div>
+
+            <h2 class="text-[#FFF] text-center text-sm leading-normal">
+                Product page optimization
+            </h2>
+        </div>
+        <div class="Card-services-subpages-small fade-card p-4 w-full max-w-[200px] gap-[22.67px] overflow-hidden">
+            <div class="flex justify-center items-center mb-3">
+                <div class="relative w-12 h-12">
+                    <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
+                    <img src="assets/Vector.png" class="absolute w-[20px] h-[20px] inset-0 m-auto">
+                </div>
+            </div>
+
+            <h2 class="text-[#FFF] text-center text-sm leading-normal">
+                Category architecture & navigation
+            </h2>
+        </div>
+        <div class="Card-services-subpages-small fade-card p-4 w-full max-w-[200px] gap-[22.67px] overflow-hidden">
+            <div class="flex justify-center items-center mb-3">
+                <div class="relative w-12 h-12">
+                    <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
+                    <img src="assets/Vector.png" class="absolute w-[20px] h-[20px] inset-0 m-auto">
+                </div>
+            </div>
+
+            <h2 class="text-[#FFF] text-center text-sm leading-normal">
+                Automated inventory syncing
+            </h2>
+        </div>
+        <div class="Card-services-subpages-small fade-card p-4 w-full max-w-[200px] gap-[22.67px] overflow-hidden">
+            <div class="flex justify-center items-center mb-3">
+                <div class="relative w-12 h-12">
+                    <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
+                    <img src="assets/Vector.png" class="absolute w-[20px] h-[20px] inset-0 m-auto">
+                </div>
+            </div>
+
+            <h2 class="text-[#FFF] text-center text-sm leading-normal">
+                Automated order forwarding
+            </h2>
+        </div>
+        <div class="Card-services-subpages-small fade-card p-4 w-full max-w-[200px] gap-[22.67px] overflow-hidden">
+            <div class="flex justify-center items-center mb-3">
+                <div class="relative w-12 h-12">
+                    <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
+                    <img src="assets/Vector.png" class="absolute w-[20px] h-[20px] inset-0 m-auto">
+                </div>
+            </div>
+
+            <h2 class="text-[#FFF] text-center text-sm leading-normal">
+                integration (AliExpress, CJ Dropshipping,
+                etc)
+            </h2>
+        </div>
+        <div class="Card-services-subpages-small fade-card p-4 w-full max-w-[200px] gap-[22.67px] overflow-hidden">
+            <div class="flex justify-center items-center mb-3">
+                <div class="relative w-12 h-12">
+                    <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
+                    <img src="assets/Vector.png" class="absolute w-[20px] h-[20px] inset-0 m-auto">
+                </div>
+            </div>
+
+            <h2 class="text-[#FFF] text-center text-sm leading-normal">
+                1-Click upsells / cross-sells
+            </h2>
+        </div>
+        <div class="Card-services-subpages-small fade-card p-4 w-full max-w-[200px] gap-[22.67px] overflow-hidden">
+            <div class="flex justify-center items-center mb-3">
+                <div class="relative w-12 h-12">
+                    <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
+                    <img src="assets/Vector.png" class="absolute w-[20px] h-[20px] inset-0 m-auto">
+                </div>
+            </div>
+
+            <h2 class="text-[#FFF] text-center text-sm leading-normal">
+                Payment gateway setup
+            </h2>
+        </div>
+        <div class="Card-services-subpages-small fade-card p-4 w-full max-w-[200px] gap-[22.67px] overflow-hidden">
+            <div class="flex justify-center items-center mb-3">
+                <div class="relative w-12 h-12">
+                    <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
+                    <img src="assets/Vector.png" class="absolute w-[20px] h-[20px] inset-0 m-auto">
+                </div>
+            </div>
+
+            <h2 class="text-[#FFF] text-center text-sm leading-normal">
+                Shipping rules & taxes setup
+            </h2>
+        </div>
+        <div class="Card-services-subpages-small fade-card p-4 w-full max-w-[200px] gap-[22.67px] overflow-hidden">
+            <div class="flex justify-center items-center mb-3">
+                <div class="relative w-12 h-12">
+                    <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
+                    <img src="assets/Vector.png" class="absolute w-[20px] h-[20px] inset-0 m-auto">
+                </div>
+            </div>
+
+            <h2 class="text-[#FFF] text-center text-sm leading-normal">
+                SEO optimization
+            </h2>
+        </div>
+        <div class="Card-services-subpages-small fade-card p-4 w-full max-w-[200px] gap-[22.67px] overflow-hidden">
+            <div class="flex justify-center items-center mb-3">
+                <div class="relative w-12 h-12">
+                    <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
+                    <img src="assets/Vector.png" class="absolute w-[20px] h-[20px] inset-0 m-auto">
+                </div>
+            </div>
+
+            <h2 class="text-[#FFF] text-center text-sm leading-normal">
+                Analytics & conversion tracking
+            </h2>
+        </div>
+        <div class="Card-services-subpages-small fade-card p-4 w-full max-w-[200px] gap-[22.67px] overflow-hidden">
+            <div class="flex justify-center items-center mb-3">
+                <div class="relative w-12 h-12">
+                    <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
+                    <img src="assets/Vector.png" class="absolute w-[20px] h-[20px] inset-0 m-auto">
+                </div>
+            </div>
+
+            <h2 class="text-[#FFF] text-center text-sm leading-normal">
+                Email automation & abandoned cart
+            </h2>
+        </div>
+        <div class="Card-services-subpages-small fade-card p-4 w-full max-w-[200px] gap-[22.67px] overflow-hidden">
+            <div class="flex justify-center items-center mb-3">
+                <div class="relative w-12 h-12">
+                    <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
+                    <img src="assets/Vector.png" class="absolute w-[20px] h-[20px] inset-0 m-auto">
+                </div>
+            </div>
+
+            <h2 class="text-[#FFF] text-center text-sm leading-normal">
+                Page speed optimization
+            </h2>
+        </div>
+        <div class="Card-services-subpages-small fade-card p-4 w-full max-w-[200px] gap-[22.67px] overflow-hidden">
+            <div class="flex justify-center items-center mb-3">
+                <div class="relative w-12 h-12">
+                    <img src="assets/Ellipse 3006.png" class="absolute inset-0 w-full h-full opacity-70">
+                    <img src="assets/Vector.png" class="absolute w-[20px] h-[20px] inset-0 m-auto">
+                </div>
+            </div>
+
+            <h2 class="text-[#FFF] text-center text-sm leading-normal">
+                Social media pixel integration
+            </h2>
+        </div>
+
+    </div>
 </body>
 
 </html>
