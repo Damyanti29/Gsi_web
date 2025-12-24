@@ -1,0 +1,827 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hero Replica</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+
+<style>
+/* ================= BASE ================= */
+body {
+  margin: 0;
+  background: radial-gradient(circle at top left, #141414, #050505 60%);
+  color: #fff;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* ================= HERO ================= */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* ================= TEXT ================= */
+.hero-left {
+  max-width: 520px;
+  z-index: 3;
+}
+
+h1 {
+  color: #DDD;
+  font-weight: 700;
+  font-size: clamp(2.4rem, 3.8vw, 54px);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.accent {
+  color: #FF5A18;
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.inline-desktop {
+  white-space: nowrap;
+}
+
+/* ================= BUTTONS ================= */
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 44px; /* MORE SPACE FROM TEXT */
+  z-index: 3;
+}
+
+.cus-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 22px;
+  background: radial-gradient(37.68% 85.68% at 50.15% 6.82%, #4D2F26 0%, #070707 100%);
+  color: #D2D0D0;
+  cursor: pointer;
+}
+
+.cus-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1.5px solid #FF521C;
+  pointer-events: none;
+  -webkit-mask: linear-gradient(to bottom, white 0%, white 45%, transparent 100%);
+  mask: linear-gradient(to bottom, white 0%, white 45%, transparent 100%);
+}
+
+.btn-secondary-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 26px;
+  border-radius: 20px;
+  border: 1.5px solid #593F37;
+  background: #141414;
+  color: #D2D0D0;
+  text-decoration: none;
+}
+
+/* ================= VISUAL ================= */
+.visual-wrap {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.visual-box {
+  width: 420px;
+  height: 420px;
+}
+
+.visual-box iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.arrow-wrapper {
+  width: 30px;
+  height: 60.5px;
+  margin: 24px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  animation: arrowFloat 2s ease-in-out infinite;
+}
+/* ===== FULLSCREEN HEADING ===== */
+.solutions-hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(circle at center, #141414, #050505 70%);
+  padding: 0 1.5rem;
+}
+
+.solutions-hero h2 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #ddd;
+}
+
+.accent {
+  color: #ff5a18;
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+}
+
+.accent-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #1db954;
+  color: #fff;
+  font-size: 18px;
+  margin: 0 4px;
+}
+
+/* ===== CARDS SECTION (VISIBLE ON SCROLL) ===== */
+.solutions-cards {
+  background: #050505;
+  padding: 6rem 4vw;
+}
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+/* ===== CARD STYLE ===== */
+.solution-card {
+  background: radial-gradient(
+    60% 60% at 50% 10%,
+    #1b1b1b,
+    #0b0b0b
+  );
+  border-radius: 22px;
+  padding: 2.5rem 2rem;
+  color: #cfcfcf;
+  text-align: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.solution-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px rgba(255, 90, 24, 0.25);
+}
+
+.solution-card h3 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.solution-card p {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+/* ===== BUTTON ===== */
+.solution-card button {
+  margin-top: 2rem;
+  padding: 8px 22px;
+  border-radius: 18px;
+  background: transparent;
+  border: 1.5px solid #ff5a18;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 991px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .solutions-cards {
+    padding-top: 4rem;
+  }
+}
+
+/* Optional: make SVG responsive inside */
+.arrow-wrapper svg {
+  display: block;
+}
+
+/* KEYFRAMES */
+@keyframes arrowFloat {
+  0% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(14px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+}
+
+/* ================= DESKTOP ================= */
+@media (min-width: 992px) {
+  .hero {
+    justify-content: space-between;
+    padding: 6rem clamp(3rem, 6vw, 7rem) 0; /* LEFT & RIGHT PADDING ADDED */
+  }
+
+  .hero-left {
+    padding-right: 40px;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 991px) {
+
+  .hero {
+    padding: 0;
+    flex-direction: column;
+    justify-content: center;
+    background: #050505;
+  }
+
+  .visual-wrap {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .visual-box {
+    width: 100%;
+    height: 100%;
+  }
+
+  .visual-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at center,
+      rgba(5,5,5,0.15) 0%,
+      rgba(5,5,5,0.75) 55%,
+      rgba(5,5,5,1) 100%
+    );
+    z-index: 2;
+  }
+
+  .hero-left {
+    position: relative;
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: clamp(2.3rem, 7vw, 3rem);
+    line-height: 1.25;
+  }
+
+  .subtext {
+    display: none;
+  }
+
+  .inline-desktop {
+    white-space: normal;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+    width: 100%;
+  }
+
+  .hero-buttons .cus-btn,
+  .hero-buttons .btn-secondary-dark {
+    width: 100%;
+    max-width:fit-content;
+   
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero container-fluid">
+  
+  <div class="hero-left">
+    <h1>
+      We Build Digital <span class="accent">foundations</span><br>
+      That work as hard as <span class="accent">you.</span>
+    </h1>
+
+    <div class="hero-buttons">
+      <div class="cus-btn">
+        Plan your Website with Us
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M1.333 14.667L14.667 1.333M14.667 1.333V14.667M14.667 1.333H1.333"
+            stroke="#D2D0D0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <a href="#" class="btn-secondary-dark">Get an Estimate</a>
+    </div>
+  </div>
+
+  <div class="visual-wrap">
+    <div class="visual-box">
+      <iframe
+        src="https://my.spline.design/webdevhero-4JfjLE9lYjwTbMoJqeeeJIdc/"
+        loading="lazy"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+</section>
+<div class="arrow-wrapper">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="63" viewBox="0 0 30 63" fill="none">
+      <path d="M13.3143 61.9142C14.0954 62.6953 15.3617 62.6953 16.1427 61.9142L28.8707 49.1863C29.6517 48.4052 29.6517 47.1389 28.8707 46.3579C28.0896 45.5768 26.8233 45.5768 26.0422 46.3579L14.7285 57.6716L3.41481 46.3579C2.63376 45.5768 1.36743 45.5768 0.58638 46.3579C-0.194669 47.1389 -0.194669 48.4052 0.58638 49.1863L13.3143 61.9142ZM14.7285 0H12.7285V60.5H14.7285H16.7285V0H14.7285Z"
+        fill="#6E4040"/>
+    </svg>
+  </div>
+  <section class="solutions-hero">
+    <h2>
+      What Web Solutions<br>
+      Do You <span class="accent">Need ?</span>
+    </h2>
+  </section>
+  
+  <section class="solutions-cards">
+    <div class="cards-wrapper">
+   
+      <div class="solution-card">
+        <h3>Business Websites</h3>
+        <p>We build professional, high-impact websites...</p>
+        <button>Read More</button>
+      </div>
+  
+     
+      <div class="solution-card">
+        <h3>Landing Pages</h3>
+        <p>We design high-converting landing pages...</p>
+        <button>Read More</button>
+      </div>
+  
+     
+      <div class="solution-card">
+        <h3>E-Commerce Development</h3>
+        <p>We create scalable e-commerce platforms...</p>
+        <button>Read More</button>
+      </div>
+    </div>
+  </section>
+  
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+
+<style>
+/* ================= BASE ================= */
+body {
+  margin: 0;
+  background: radial-gradient(circle at top left, #141414, #050505 60%);
+  color: #fff;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+/* ================= HERO ================= */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0 22px;
+}
+
+.hero-left {
+  max-width: 520px;
+  z-index: 3;
+}
+
+h1 {
+  color: #DDD;
+  font-weight: 700;
+  font-size: clamp(2.4rem, 3.8vw, 54px);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.accent {
+  color: #FF5A18;
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ================= BUTTONS ================= */
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 44px;
+}
+
+.cus-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 22px;
+  background: radial-gradient(37.68% 85.68% at 50.15% 6.82%, #4D2F26 0%, #070707 100%);
+  color: #D2D0D0;
+  cursor: pointer;
+}
+
+.cus-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1.5px solid #FF521C;
+  -webkit-mask: linear-gradient(to bottom, white 0%, white 45%, transparent 100%);
+}
+
+.btn-secondary-dark {
+  height: 48px;
+  padding: 0 26px;
+  border-radius: 20px;
+  border: 1.5px solid #593F37;
+  background: #141414;
+  color: #D2D0D0;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+/* ================= CARD IMAGE SPACE ================= */
+.solution-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Image placeholder / image wrapper */
+.solution-card .card-image {
+  width: 100%;
+  height: 140px;               /* space reserved for image */
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    #2a2a2a,
+    #101010
+  );
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+/* If real <img> is used */
+.solution-card .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ================= BUTTON SPACING ================= */
+.solution-card .cus-btn {
+  margin-top: auto;            /* pushes button to bottom */
+  align-self: center;
+}
+
+/* Optional: button hover polish */
+.solution-card .cus-btn:hover {
+  box-shadow: 0 0 18px rgba(255, 90, 24, 0.35);
+}
+
+/* ================= VISUAL ================= */
+.visual-wrap {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.visual-box {
+  width: 420px;
+  height: 420px;
+}
+
+.visual-box iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ================= ARROW ================= */
+.arrow-wrapper {
+  width: 30px;
+  height: 60px;
+  margin: 24px auto;
+  animation: arrowFloat 2s ease-in-out infinite;
+}
+
+/* ================= FULLSCREEN HEADING ================= */
+.solutions-hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(circle at center, #141414, #050505 70%);
+  transition: all 0.8s ease;
+}
+
+.solutions-hero h2 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: #ddd;
+}
+
+/* SHRINK STATE */
+.solutions-hero.shrink {
+  height: auto;
+  padding: 5rem 1.5rem 3rem;
+}
+
+.solutions-hero.shrink h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+/* ================= CARDS ================= */
+.solutions-cards {
+  background: #050505;
+  padding: 6rem 4vw;
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 1s ease;
+}
+
+.solutions-cards.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.solution-card {
+  background: radial-gradient(60% 60% at 50% 10%, #1b1b1b, #0b0b0b);
+  border-radius: 22px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.solution-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px rgba(255, 90, 24, 0.25);
+}
+
+.solution-card button {
+  margin-top: 2rem;
+  padding: 8px 22px;
+  border-radius: 18px;
+  background: transparent;
+  border: 1.5px solid #ff5a18;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 991px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+ 
+.hero {
+    padding: 0;
+    flex-direction: column;
+    justify-content: center;
+    background: #050505;
+  }
+
+  .visual-wrap {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .visual-box {
+    width: 100%;
+    height: 100%;
+  }
+
+  .visual-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at center,
+      rgba(5,5,5,0.15) 0%,
+      rgba(5,5,5,0.75) 55%,
+      rgba(5,5,5,1) 100%
+    );
+    z-index: 2;
+  }
+
+  .hero-left {
+    position: relative;
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: clamp(2.3rem, 7vw, 3rem);
+    line-height: 1.25;
+  }
+
+  .subtext {
+    display: none;
+  }
+
+  .inline-desktop {
+    white-space: normal;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+    width: 100%;
+  }
+
+  .hero-buttons .cus-btn,
+  .hero-buttons .btn-secondary-dark {
+    width: 100%;
+    max-width:fit-content;
+   
+  }
+}
+/* ================= KEYFRAMES ================= */
+@keyframes arrowFloat {
+  0% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(14px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 0.6; }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero container-fluid">
+  <div class="hero-left">
+    <h1>
+      We Build Digital <span class="accent">foundations</span><br>
+      That work as hard as <span class="accent">you.</span>
+    </h1>
+
+    <div class="hero-buttons">
+      <div class="cus-btn">
+        Plan your Website with Us
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M1.333 14.667L14.667 1.333M14.667 1.333V14.667M14.667 1.333H1.333"
+            stroke="#D2D0D0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <a href="#" class="btn-secondary-dark">Get an Estimate</a>
+    </div>
+  </div>
+
+  <div class="visual-wrap">
+    <div class="visual-box">
+      <iframe src="https://my.spline.design/webdevhero-4JfjLE9lYjwTbMoJqeeeJIdc/"></iframe>
+    </div>
+  </div>
+</section>
+
+
+<div class="arrow-wrapper">
+  <svg width="30" height="63" viewBox="0 0 30 63" fill="none">
+    <path d="M14 0V60M14 60L2 48M14 60L26 48" stroke="#6E4040" stroke-width="2"/>
+  </svg>
+</div>
+
+
+<section class="solutions-hero">
+  <h2>
+    What Web Solutions<br>
+    Do You <span class="accent">Need ?</span>
+  </h2>
+</section>
+
+<section class="solutions-cards">
+  <div class="cards-wrapper">
+    <div class="solution-card">
+        <div class="card-image">Image Area</div>
+      <h3>Business Websites</h3>
+      <p class="text-center text-secondary fw-normal lh-base fs-5 mb-0">We build professional, high-impact websites trusted by hundreds of businesses, government entities, and non-profit organizations for brand visibility and corporate presentation. Every website comes with an intuitive content editor, making it easy for you to update pages and manage content without technical effort..</p>
+      <div class=" cus-btn mt-3 ">
+                Read More
+                
+            </div>
+    </div>
+
+   
+    <div class="solution-card">
+       <div class="card-image">Image Area</div>
+      <h3>Landing Pages</h3>
+      <p class="text-center text-secondary fw-normal lh-base fs-5 mb-0">We design high-converting landing pages crafted to capture attention, deliver a clear message, and drive action. Every page is optimized for speed, mobile responsiveness, and seamless user flow, helping you generate leads, increase sales, or promote campaigns with maximum impact.
+</p>
+      <div class=" cus-btn mt-3 ">
+                Read More
+                
+            </div>
+    </div>
+  
+
+     <div class="solution-card">
+       <div class="card-image">Image Area</div>
+      <h3>E-Commerce Development</h3>
+      <p class="text-center text-secondary fw-normal lh-base fs-3 mb-0">We create powerful, scalable e-commerce platforms designed to help you sell more and manage your online store with ease. From product listings and secure payments to inventory control and customer engagement tools, our solutions are built to deliver smooth shopping experiences that boost conversions and support business growth.</p>
+      <div class=" cus-btn mt-3 ">
+                Read More
+                
+            </div>
+    </div>
+    <div class="solution-card">
+       <div class="card-image">Image Area</div>
+      <h3>Dropshipping  Website</h3>
+      <p class="text-center text-secondary fw-normal lh-base fs-3 mb-0">We build ready-to-launch dropshipping websites that make starting an online business simple and efficient. Our platforms include product sourcing integrations, automated order processing, secure payments, and user-friendly management tools ,giving you everything you need to run a profitable store without stocking inventory.</p>
+      <div class=" cus-btn mt-3 ">
+                Read More
+                
+            </div>
+    </div>
+    <div class="solution-card">
+       <div class="card-image">Image Area</div>
+      <h3>Custom Websites</h3>
+      <p class="text-center text-secondary fw-normal lh-base fs-5 mb-0">We develop fully tailored websites designed around your unique vision, goals, and brand identity. Whether you need special features, advanced functionality, or a completely original layout, our custom-built solutions give you complete flexibility and a digital presence that stands out from the rest.
+</p>
+      <div class=" cus-btn mt-3 ">
+                Read More
+                
+            </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+const hero = document.querySelector('.solutions-hero');
+const cards = document.querySelector('.solutions-cards');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > hero.offsetTop + 100) {
+    hero.classList.add('shrink');
+  }
+
+  if (window.scrollY > cards.offsetTop - window.innerHeight + 200) {
+    cards.classList.add('show');
+  }
+});
+</script>
+
+</body>
+</html>
