@@ -14,7 +14,7 @@
 /* ================= BASE ================= */
 body {
   margin: 0;
-  background: radial-gradient(circle at top left, #141414, #050505 60%);
+  background: radial-gradient(circle at top left, #141414, #050505 60%) ;
   color: #fff;
   font-family: "Plus Jakarta Sans", sans-serif;
   overflow-x: hidden;
@@ -181,7 +181,7 @@ h1 {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: radial-gradient(circle at center, #141414, #050505 70%);
+ 
   transition: all 0.8s ease;
 }
 
@@ -203,7 +203,7 @@ h1 {
 
 /* ================= CARDS ================= */
 .solutions-cards {
-  background: #050505; 
+
   padding: 6rem 4vw;
   opacity: 0;
   transform: translateY(80px);
@@ -310,7 +310,7 @@ h1 {
       align-items: center;
       justify-content: center;
       padding: 80px 20px;
-      background: radial-gradient(circle at top, #111 0%, #000 65%);
+     
     }
 
     .container {
@@ -541,6 +541,67 @@ h1 {
    
   }
 }
+
+ 
+/* main card */
+.project-card{
+  max-width:1598px;
+ margin:auto;
+
+  
+  border-top: 1.589px solid #FFF2EE;
+background: radial-gradient(71.58% 143.4% at 48.89% 27.75%, #262626 0%, #141414 100%);
+}
+
+/* left content */
+.card-content{
+  padding:32px;
+ 
+}
+
+/* title */
+.card-content h2{
+  font-size:30px;
+  font-weight:600;
+  line-height:normal;
+  
+}
+
+.card-content h2 span{
+  color:#FF5A18;
+   font-size:30px;
+  font-weight:600;
+}
+
+/* description */
+.card-content p{
+  font-size:15px;
+  color:#FBEEEE;
+  line-height:1.7;
+  margin-top: 60px;
+ 
+}
+
+
+
+/* right red block */
+.media-box{
+  background:#6b0f0f;
+  height:100%;
+  min-height:240px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-style:italic;
+  font-size:14px;
+}
+
+/* mobile */
+@media(max-width:768px){
+  .media-box{
+    min-height:180px;
+  }
+}
 /* ================= KEYFRAMES ================= */
 @keyframes arrowFloat {
   0% { transform: translateY(0); opacity: 0.6; }
@@ -687,48 +748,93 @@ h1 {
     </p>
   </div>
 </section>
-<div class="spacer"></div>
+<div class="container py-5">
 
-<section class="projects-section">
-   <h2 class="title">
-      <span class="highlight">GrowthSphere</span> <em>In <span class="italic-highlight">Budget</span>?</em>
-    </h2>
-  <div class="project-card" id="projectCard">
-    
-    <div class="project-media">
-      Product showcase video/image hereeeeeeeeeeeeeee
-    </div>
+  
+<div class="project-card">
+  <div class="row g-0">
 
-    <div class="project-content">
-      <h3 class="project-title">
-        <span>Zatscan</span> – Zatca invoicing manager
-      </h3>
+    <!-- LEFT CONTENT -->
+    <div class="col-md-7">
+      <div class="card-content h-100 d-flex flex-column justify-content-between">
 
-      <p class="project-desc">
-        Bohot mast product banaye ham loga aakhri hai wo itti mehnat kare aur wo bana to aisa hai de Bohot mast product banaye ham loga aakhri hai wo itti mehnat kare aur wo bana to aisa hai de
-      </p>
+        <div>
+          <h2>
+            <span>Zatscan</span> – Zatca invoicing manager
+          </h2>
 
-      <div class="hero-buttons">
-      <div class="cus-btn">
-       Project Details
+          <p>
+            Bohot mast product banaye ham log aakhir hai wo itti
+            mehnat kare aur wo bana to aisa hi de Bohot mast
+            product banaye ham log aakhir hai wo itti mehnat kare
+            aur wo bana to aisa hi de
+          </p>
+        </div>
+
+        <div class="d-flex gap-2 mt-4">
+           <div class="hero-buttons">
+            <div class="cus-btn">
+        Project Details
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
           <path d="M1.333 14.667L14.667 1.333M14.667 1.333V14.667M14.667 1.333H1.333"
             stroke="#D2D0D0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
-      <a href="#" class="btn-secondary-dark">Try our Product</a>
-    </div>
+      <a href="#" class="btn-secondary-dark">Try Our Product</a>
     </div>
   </div>
-</section>
+        </div>
 
-<div class="spacer"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT RED BOX -->
+    <div class="col-md-5">
+      <div class="media-box">
+        Product showcase video/image hereeeeeeeeeeeeeee
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+  <!-- SECOND BLOCK (STATIC) -->
+  <div class="project-card card-normal p-4">
+    <div class="row g-4 h-100">
+
+      <div class="col-md-7 d-flex flex-column justify-content-between">
+        <div>
+          <h4 class="text-warning">Zatscan</h4>
+          <p class="text-secondary small">
+            Bohot mast product banaya hum log aakhir hai wo itti
+            mehnat kare aur wo bana to aisa hi de.
+          </p>
+        </div>
+
+        <div class="d-flex gap-2">
+          <button class="custom-btn">Project Details →</button>
+          <button class="custom-btn">Try Our Product</button>
+        </div>
+      </div>
+
+      <div class="col-md-5">
+        <div class="media-box">
+          Product showcase video/image
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
 
 <script>
 const hero = document.querySelector('.solutions-hero');
 const cards = document.querySelector('.solutions-cards');
  const card = document.getElementById("projectCard");
-
+  const expandCard = document.getElementById("expandCard");
   function scaleOnScroll() {
     const rect = card.getBoundingClientRect();
     const windowHeight = window.innerHeight;
@@ -747,13 +853,28 @@ const cards = document.querySelector('.solutions-cards');
   });
 
   scaleOnScroll();
-window.addEventListener('scroll', () => {
+   window.addEventListener('scroll', () => {
   if (window.scrollY > hero.offsetTop + 100) {
     hero.classList.add('shrink');
   }
 
-  if (window.scrollY > cards.offsetTop - window.innerHeight + 200) {
-    cards.classList.add('show');
+ if (
+  window.scrollY + window.innerHeight >= cards.offsetTop + 100 &&
+  !cards.classList.contains('show')
+) {
+  cards.classList.add('show');
+}
+
+
+});
+
+window.addEventListener("scroll",()=>{
+  if(window.scrollY > 150){
+    card.classList.add("card-expanded");
+    card.classList.remove("card-normal");
+  }else{
+    card.classList.add("card-normal");
+    card.classList.remove("card-expanded");
   }
 });
 </script>
