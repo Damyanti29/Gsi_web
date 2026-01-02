@@ -29,7 +29,7 @@
             padding: 12px 17.255px;
             justify-content: center;
             align-items: center;
-           
+
             border-radius: 21.31px;
             background: radial-gradient(37.68% 85.68% at 50.15% 6.82%, #4D2F26 0%, #070707 100%);
             color: #D2D0D0;
@@ -67,7 +67,7 @@
             font-weight: 500;
             margin-right: 10px;
             margin-left: 5px;
-           
+
         }
 
 
@@ -109,7 +109,7 @@
         }
 
 
-       
+
 
         /* ================= HERO ================= */
         .hero {
@@ -303,7 +303,7 @@
             opacity: 0;
             transform: translateY(80px);
             transition: all 1s ease;
-           
+
         }
 
         .solutions-cards.show {
@@ -394,7 +394,7 @@
             .cards-wrapper {
                 grid-template-columns: repeat(2, 1fr);
             }
-          
+
             body {
                 background: var(--Background, #0C0C0C);
             }
@@ -625,36 +625,38 @@
                 justify-content: flex-start;
             }
         }
-.cus-btn:focus {
-    outline: none;
-}
+
+        .cus-btn:focus {
+            outline: none;
+        }
 
         /* ================= MOBILE ================= */
-       @media screen and (max-width: 768px) {
-    .cta-card {
-        background: transparent !important;
-        border: none !important;
-    }
+        @media screen and (max-width: 768px) {
+            .cta-card {
+                background: transparent !important;
+                border: none !important;
+            }
 
-    .cta-title {
-        font-size: 20px;
-    }
+            .cta-title {
+                font-size: 20px;
+            }
 
-    .cta-desc {
-        font-size: 16px;
-        margin-bottom: 20px;
-    }
+            .cta-desc {
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
 
-    .cus-btn {
-        padding: 10px 18px;
-        font-size: 14px;
-    }
+            .cus-btn {
+                padding: 10px 18px;
+                font-size: 14px;
+            }
 
-    .cus-btn .btn-svg {
-        width: 16px;
-        height: 16px;
-    }
-}
+            .cus-btn .btn-svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
         @media (max-width: 991px) {
             .cards-wrapper {
                 grid-template-columns: 1fr;
@@ -881,7 +883,7 @@
 
         /* NORMAL CARDS */
         .pricing-card {
-            height: 210px;
+            height: max-content;
             border-radius: 22px;
             padding: 26px 22px;
             text-align: center;
@@ -897,53 +899,48 @@
             border-color: #ff6b3d;
         }
 
-      
-.icon-circle {
-  position: relative;
-  width: 44px;
-  height: 44px;
-  margin: 0 auto 18px;
-  border-radius: 50%;
 
-  /* INNER FILL */
-  background: radial-gradient(
-    100.16% 77.67% at 50.15% 6.82%,
-    #4D2F26 0%,
-    #070707 100%
-  );
+        .icon-circle {
+            position: relative;
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+            /* INNER FILL */
+            background: radial-gradient(100.16% 77.67% at 50.15% 6.82%,
+                    #4D2F26 0%,
+                    #070707 100%);
 
-/* FADED STROKE */
-.icon-circle::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 1px solid #aa563c;
-  pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-  /* Fade border from bottom */
-  -webkit-mask: linear-gradient(
-    to bottom,
-    white 0%,
-    white 45%,
-    transparent 100%
-  );
-  mask: linear-gradient(
-    to bottom,
-    white 0%,
-    white 45%,
-    transparent 100%
-  );
-}
+        /* FADED STROKE */
+        .icon-circle::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 1px solid #aa563c;
+            pointer-events: none;
+
+            /* Fade border from bottom */
+            -webkit-mask: linear-gradient(to bottom,
+                    white 0%,
+                    white 45%,
+                    transparent 100%);
+            mask: linear-gradient(to bottom,
+                    white 0%,
+                    white 45%,
+                    transparent 100%);
+        }
+
         .icon-circle svg {
             width: 20px;
             height: 20px;
-            
+
         }
 
         /* TEXT */
@@ -1003,56 +1000,119 @@
         .schedule-btn:hover svg {
             transform: translate(2px, -2px);
         }
-.wd-section {
-  height: 160vh;
- 
-  padding-top: 120px;
-}
 
-.wd-heading {
-  position: sticky;
-  top: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
+        .wd-section {
+            height: 160vh;
 
-/* TEXT */
-.wd-text {
-  white-space: nowrap;
-  font-size: 32px;
-  font-weight: 600;
-  transition: transform 0.25s ease;
-}
+            padding-top: 120px;
+        }
 
-#wdRight {
-  color: #ff7a18;
-}
+        .wd-heading {
+            position: sticky;
+            top: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
 
-/* MIDDLE COLLAPSED INITIALLY */
-.wd-middle {
-  width: 0;
-  margin: 0;
-  opacity: 0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  transition: width 0.3s ease, opacity 0.3s ease;
-}
+        /* TEXT */
+        .wd-text {
+            white-space: nowrap;
+            font-size: 32px;
+            font-weight: 600;
+            transition: transform 0.25s ease;
+        }
 
-/* CARDS */
-.wd-card {
-  width: 320px;
+        #wdRight {
+            color: #ff7a18;
+        }
+
+        /* MIDDLE COLLAPSED INITIALLY
+        .wd-middle {
+            width: 0;
+            margin: 0;
+            opacity: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            transition: width 0.3s ease, opacity 0.3s ease;
+        } */
+
+        /* CARDS */
+ .wd-card {
+  width: auto;
   padding: 18px;
-  background: linear-gradient(180deg, #1c1c1c, #111);
   border-radius: 16px;
   text-align: center;
   font-size: 18px;
-  box-shadow:
-    0 10px 28px rgba(0,0,0,0.6),
-    inset 0 0 0 1px rgba(255,255,255,0.05);
+
+  height: auto;          /* ✅ let content decide height */
+  min-height: fit-content;
+  line-height: 1.4;      /* improves text fit */
+  word-wrap: break-word;
+}
+@media (max-width: 768px) {
+
+  /* Section */
+  .wd-section {
+    height: auto;
+    padding: 40px 0;
+  }
+
+  /* Main layout */
+  .wd-heading {
+    position: relative;        /* ❌ no sticky */
+    top: auto;
+    transform: none;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* LEFT TEXT - vertical */
+  .wd-text:first-child {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 14px;
+    letter-spacing: 2px;
+    opacity: 0.8;
+  }
+
+  /* RIGHT TEXT - vertical */
+  .wd-accent {
+    writing-mode: vertical-rl;
+    font-size: 14px;
+    letter-spacing: 2px;
+    opacity: 0.8;
+  }
+
+  /* CENTER GAP */
+  .wd-gap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* CENTER STACK (STATIC) */
+  .wd-middle {
+    transform: none !important;   /* ❌ disable animation */
+    opacity: 1 !important;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  /* CARD */
+  .wd-card {
+    width: 260px;
+    padding: 16px;
+    font-size: 14px;
+  }
 }
 
 
@@ -1599,9 +1659,13 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="pricing-card">
                             <div class="icon-circle">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43" fill="none">
-  <path d="M39.4173 21.4997C39.4173 31.3948 31.3958 39.4163 21.5007 39.4163M39.4173 21.4997C39.4173 11.6046 31.3958 3.58301 21.5007 3.58301M39.4173 21.4997H3.58398M21.5007 39.4163C11.6055 39.4163 3.58398 31.3948 3.58398 21.4997M21.5007 39.4163C16.9001 34.5857 14.334 28.1705 14.334 21.4997C14.334 14.8288 16.9001 8.41362 21.5007 3.58301M21.5007 39.4163C26.1012 34.5857 28.6673 28.1705 28.6673 21.4997C28.6673 14.8288 26.1012 8.41362 21.5007 3.58301M3.58398 21.4997C3.58398 11.6046 11.6055 3.58301 21.5007 3.58301" stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43"
+                                    fill="none">
+                                    <path
+                                        d="M39.4173 21.4997C39.4173 31.3948 31.3958 39.4163 21.5007 39.4163M39.4173 21.4997C39.4173 11.6046 31.3958 3.58301 21.5007 3.58301M39.4173 21.4997H3.58398M21.5007 39.4163C11.6055 39.4163 3.58398 31.3948 3.58398 21.4997M21.5007 39.4163C16.9001 34.5857 14.334 28.1705 14.334 21.4997C14.334 14.8288 16.9001 8.41362 21.5007 3.58301M21.5007 39.4163C26.1012 34.5857 28.6673 28.1705 28.6673 21.4997C28.6673 14.8288 26.1012 8.41362 21.5007 3.58301M3.58398 21.4997C3.58398 11.6046 11.6055 3.58301 21.5007 3.58301"
+                                        stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
                             </div>
                             <p class="price-text">From $20,000</p>
                             <p class="card-desc">
@@ -1614,9 +1678,13 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="pricing-card">
                             <div class="icon-circle">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43" fill="none">
-  <path d="M28.6673 19.7083L32.2507 23.2917L39.4173 16.125M28.6673 37.625V34.0417C28.6673 32.1409 27.9123 30.3181 26.5682 28.9741C25.2242 27.6301 23.4014 26.875 21.5007 26.875H10.7507C8.84993 26.875 7.02706 27.6301 5.68305 28.9741C4.33904 30.3181 3.58398 32.1409 3.58398 34.0417V37.625M23.2923 12.5417C23.2923 16.4997 20.0837 19.7083 16.1257 19.7083C12.1676 19.7083 8.95898 16.4997 8.95898 12.5417C8.95898 8.58363 12.1676 5.375 16.1257 5.375C20.0837 5.375 23.2923 8.58363 23.2923 12.5417Z" stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43"
+                                    fill="none">
+                                    <path
+                                        d="M28.6673 19.7083L32.2507 23.2917L39.4173 16.125M28.6673 37.625V34.0417C28.6673 32.1409 27.9123 30.3181 26.5682 28.9741C25.2242 27.6301 23.4014 26.875 21.5007 26.875H10.7507C8.84993 26.875 7.02706 27.6301 5.68305 28.9741C4.33904 30.3181 3.58398 32.1409 3.58398 34.0417V37.625M23.2923 12.5417C23.2923 16.4997 20.0837 19.7083 16.1257 19.7083C12.1676 19.7083 8.95898 16.4997 8.95898 12.5417C8.95898 8.58363 12.1676 5.375 16.1257 5.375C20.0837 5.375 23.2923 8.58363 23.2923 12.5417Z"
+                                        stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
                             </div>
                             <p class="price-text">From $70,000</p>
                             <p class="card-desc">
@@ -1629,9 +1697,13 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="pricing-card">
                             <div class="icon-circle">
-                               <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43" fill="none">
-  <path d="M3.67383 3.67285H7.25716L12.023 25.9254C12.1978 26.7403 12.6513 27.4688 13.3053 27.9855C13.9593 28.5022 14.773 28.7747 15.6063 28.7562H33.1288C33.9444 28.7549 34.735 28.4754 35.3703 27.964C36.0055 27.4525 36.4472 26.7397 36.6226 25.9433L39.5788 12.6312H9.17424M16.1259 37.6249C16.1259 38.6144 15.3238 39.4166 14.3342 39.4166C13.3447 39.4166 12.5426 38.6144 12.5426 37.6249C12.5426 36.6354 13.3447 35.8333 14.3342 35.8333C15.3238 35.8333 16.1259 36.6354 16.1259 37.6249ZM35.8342 37.6249C35.8342 38.6144 35.0321 39.4166 34.0426 39.4166C33.0531 39.4166 32.2509 38.6144 32.2509 37.6249C32.2509 36.6354 33.0531 35.8333 34.0426 35.8333C35.0321 35.8333 35.8342 36.6354 35.8342 37.6249Z" stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43"
+                                    fill="none">
+                                    <path
+                                        d="M3.67383 3.67285H7.25716L12.023 25.9254C12.1978 26.7403 12.6513 27.4688 13.3053 27.9855C13.9593 28.5022 14.773 28.7747 15.6063 28.7562H33.1288C33.9444 28.7549 34.735 28.4754 35.3703 27.964C36.0055 27.4525 36.4472 26.7397 36.6226 25.9433L39.5788 12.6312H9.17424M16.1259 37.6249C16.1259 38.6144 15.3238 39.4166 14.3342 39.4166C13.3447 39.4166 12.5426 38.6144 12.5426 37.6249C12.5426 36.6354 13.3447 35.8333 14.3342 35.8333C15.3238 35.8333 16.1259 36.6354 16.1259 37.6249ZM35.8342 37.6249C35.8342 38.6144 35.0321 39.4166 34.0426 39.4166C33.0531 39.4166 32.2509 38.6144 32.2509 37.6249C32.2509 36.6354 33.0531 35.8333 34.0426 35.8333C35.0321 35.8333 35.8342 36.6354 35.8342 37.6249Z"
+                                        stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
                             </div>
                             <p class="price-text">From $200,000</p>
                             <p class="card-desc">
@@ -1644,9 +1716,13 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="pricing-card">
                             <div class="icon-circle">
-                               <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43" fill="none">
-  <path d="M8.95898 28.6663V23.2913C8.95898 22.8162 9.14775 22.3604 9.48375 22.0244C9.81975 21.6884 10.2755 21.4997 10.7507 21.4997H32.2507C32.7258 21.4997 33.1815 21.6884 33.5176 22.0244C33.8536 22.3604 34.0423 22.8162 34.0423 23.2913V28.6663M21.5007 21.4997V14.333M30.459 28.6663H37.6257C38.6152 28.6663 39.4173 29.4685 39.4173 30.458V37.6247C39.4173 38.6142 38.6152 39.4163 37.6257 39.4163H30.459C29.4695 39.4163 28.6673 38.6142 28.6673 37.6247V30.458C28.6673 29.4685 29.4695 28.6663 30.459 28.6663ZM5.37565 28.6663H12.5423C13.5318 28.6663 14.334 29.4685 14.334 30.458V37.6247C14.334 38.6142 13.5318 39.4163 12.5423 39.4163H5.37565C4.38614 39.4163 3.58398 38.6142 3.58398 37.6247V30.458C3.58398 29.4685 4.38614 28.6663 5.37565 28.6663ZM17.9173 3.58301H25.084C26.0735 3.58301 26.8757 4.38516 26.8757 5.37467V12.5413C26.8757 13.5309 26.0735 14.333 25.084 14.333H17.9173C16.9278 14.333 16.1257 13.5309 16.1257 12.5413V5.37467C16.1257 4.38516 16.9278 3.58301 17.9173 3.58301Z" stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43"
+                                    fill="none">
+                                    <path
+                                        d="M8.95898 28.6663V23.2913C8.95898 22.8162 9.14775 22.3604 9.48375 22.0244C9.81975 21.6884 10.2755 21.4997 10.7507 21.4997H32.2507C32.7258 21.4997 33.1815 21.6884 33.5176 22.0244C33.8536 22.3604 34.0423 22.8162 34.0423 23.2913V28.6663M21.5007 21.4997V14.333M30.459 28.6663H37.6257C38.6152 28.6663 39.4173 29.4685 39.4173 30.458V37.6247C39.4173 38.6142 38.6152 39.4163 37.6257 39.4163H30.459C29.4695 39.4163 28.6673 38.6142 28.6673 37.6247V30.458C28.6673 29.4685 29.4695 28.6663 30.459 28.6663ZM5.37565 28.6663H12.5423C13.5318 28.6663 14.334 29.4685 14.334 30.458V37.6247C14.334 38.6142 13.5318 39.4163 12.5423 39.4163H5.37565C4.38614 39.4163 3.58398 38.6142 3.58398 37.6247V30.458C3.58398 29.4685 4.38614 28.6663 5.37565 28.6663ZM17.9173 3.58301H25.084C26.0735 3.58301 26.8757 4.38516 26.8757 5.37467V12.5413C26.8757 13.5309 26.0735 14.333 25.084 14.333H17.9173C16.9278 14.333 16.1257 13.5309 16.1257 12.5413V5.37467C16.1257 4.38516 16.9278 3.58301 17.9173 3.58301Z"
+                                        stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
                             </div>
                             <p class="price-text">From $400,000</p>
                             <p class="card-desc">
@@ -1686,62 +1762,174 @@
                 </div>
             </div>
         </section>
-</div>
-<br><br><br>
-<section>
-    <h2 class="title">
-            <span>Ensuring</span><em class=" highlight">Success.</em> 
-            
-        </h2>
-<!-- FIXED TITLE -->
-<section class="wd-section">
-  <div class="wd-heading">
-    <span id="wdLeft" class="wd-text">Web Development</span>
-
-    <div class="wd-middle" id="wdMiddle">
-      <div class="wd-card">Scalability</div>
-      <div class="wd-card">Customization</div>
-      <div class="wd-card">Better UX</div>
-      <div class="wd-card">Security</div>
     </div>
+    <br><br><br>
+    <section>
+        <h2 class="title">
+            <span>Ensuring</span><em class=" highlight">Success.</em>
 
-    <span id="wdRight" class="wd-text">Advantages</span>
-  </div>
-</section>
+        </h2>
+        <!-- FIXED TITLE -->
+        <section class="wd-section">
+            <div class="wd-heading">
+                <span id="wdLeft" class="wd-text">Web Development</span>
+
+                <div class="wd-middle" id="wdMiddle">
+                      <div class="wd-card col-lg-4 col-md-6">
+                        <div class="pricing-card">
+                            <div class="icon-circle">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43" fill="none">
+  <path d="M39.4173 21.4997C39.4173 31.3948 31.3958 39.4163 21.5007 39.4163M39.4173 21.4997C39.4173 11.6046 31.3958 3.58301 21.5007 3.58301M39.4173 21.4997H32.2507M21.5007 39.4163C11.6055 39.4163 3.58398 31.3948 3.58398 21.4997M21.5007 39.4163V32.2497M3.58398 21.4997C3.58398 11.6046 11.6055 3.58301 21.5007 3.58301M3.58398 21.4997H10.7507M21.5007 3.58301V10.7497" stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+                            </div>
+                            <p class="price-text">Scoping</p>
+                            <p class="card-desc">
+                             This page explains our approach to requirements engineering, feasibility assessment, and project scoping. It also highlights how we manage scope changes and control scope creep to keep your project on track.
+                            </p>
+
+                        </div>
+                    </div>
+                      <div class="wd-card col-lg-4 col-md-6">
+                        <div class="pricing-card">
+                            <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43" fill="none">
+  <path d="M8.95703 26.8754C10.8297 25.6788 13.0056 25.043 15.2279 25.043C17.4502 25.043 19.6261 25.6788 21.4987 26.8754C23.3713 28.0721 25.5472 28.7079 27.7695 28.7079C29.9918 28.7079 32.1677 28.0721 34.0404 26.8754M8.95703 16.1254C10.8297 14.9288 13.0056 14.293 15.2279 14.293C17.4502 14.293 19.6261 14.9288 21.4987 16.1254C23.3713 17.3221 25.5472 17.9579 27.7695 17.9579C29.9918 17.9579 32.1677 17.3221 34.0404 16.1254" stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+                            </div>
+                            <p class="price-text">Cost Estimation</p>
+                            <p class="card-desc">
+                            The page lists the factors ScienceSoft’s teams consider to estimate costs, shares sample top-down and bottom-up estimates, and overviews our cost optimization best practices.
+
+                            </p>
+
+                        </div>
+                    </div>
+                      <div class="wd-card col-lg-4 col-md-6">
+                        <div class="pricing-card">
+                            <div class="icon-circle">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43" fill="none">
+  <path d="M16.1243 21.5005L19.7077 25.0838L26.8743 17.9171M35.8327 23.2921C35.8327 32.2505 29.5618 36.7296 22.1085 39.3276C21.7182 39.4598 21.2943 39.4535 20.9081 39.3096C13.4368 36.7296 7.16602 32.2505 7.16602 23.2921V10.7505C7.16602 10.2753 7.35478 9.81958 7.69078 9.48358C8.02679 9.14758 8.4825 8.95881 8.95768 8.95881C12.541 8.95881 17.0202 6.80881 20.1377 4.08548C20.5173 3.76119 21.0001 3.58301 21.4993 3.58301C21.9986 3.58301 22.4814 3.76119 22.861 4.08548C25.9964 6.82673 30.4577 8.95881 34.041 8.95881C34.5162 8.95881 34.9719 9.14758 35.3079 9.48358C35.6439 9.81958 35.8327 10.2753 35.8327 10.7505V23.2921Z" stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+                            </div>
+                            <p class="price-text">Quality Management</p>
+                            <p class="card-desc">
+                              Our solution architects carefully design every functional component of your web solution, selecting the most effective technologies to ensure your business logic is fully achievable and robust. They also plan and map all API connections both within the system and with external platforms to guarantee seamless integration and smooth performance.
+                            </p>
+
+                        </div>
+                    </div>
+                      <div class="wd-card col-lg-4 col-md-6">
+                        <div class="pricing-card">
+                            <div class="icon-circle">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43" fill="none">
+  <path d="M28.6673 37.625V34.0417C28.6673 32.1409 27.9123 30.3181 26.5682 28.9741C25.2242 27.6301 23.4014 26.875 21.5007 26.875H10.7507C8.84993 26.875 7.02706 27.6301 5.68305 28.9741C4.33904 30.3181 3.58398 32.1409 3.58398 34.0417V37.625M28.6673 5.60433C30.2041 6.00275 31.5651 6.90018 32.5367 8.15578C33.5083 9.41138 34.0355 10.9541 34.0355 12.5417C34.0355 14.1293 33.5083 15.672 32.5367 16.9276C31.5651 18.1832 30.2041 19.0806 28.6673 19.479M39.4173 37.625V34.0417C39.4161 32.4538 38.8876 30.9112 37.9148 29.6562C36.9419 28.4012 35.5798 27.5049 34.0423 27.1079M23.2923 12.5417C23.2923 16.4997 20.0837 19.7083 16.1257 19.7083C12.1676 19.7083 8.95898 16.4997 8.95898 12.5417C8.95898 8.58363 12.1676 5.375 16.1257 5.375C20.0837 5.375 23.2923 8.58363 23.2923 12.5417Z" stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+                            </div>
+                            <p class="price-text">Collaboration</p>
+                            <p class="card-desc">
+                             Our solution architects carefully design every functional component of your web solution, selecting the most effective technologies to ensure your business logic is fully achievable and robust. They also plan and map all API connections both within the system and with external platforms to guarantee seamless integration and smooth performance.
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="wd-card col-lg-4 col-md-6">
+                        <div class="pricing-card">
+                            <div class="icon-circle">
+                               <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43" fill="none">
+  <path d="M12.5397 17.9163V12.5413C12.5397 10.1654 13.4835 7.88686 15.1635 6.20684C16.8436 4.52683 19.1221 3.58301 21.498 3.58301C23.8739 3.58301 26.1525 4.52683 27.8325 6.20684C29.5126 7.88686 30.4564 10.1654 30.4564 12.5413V17.9163M23.2897 28.6663C23.2897 29.6559 22.4876 30.458 21.498 30.458C20.5085 30.458 19.7064 29.6559 19.7064 28.6663C19.7064 27.6768 20.5085 26.8747 21.498 26.8747C22.4876 26.8747 23.2897 27.6768 23.2897 28.6663ZM8.95638 17.9163H34.0397C36.0187 17.9163 37.623 19.5207 37.623 21.4997V35.833C37.623 37.812 36.0187 39.4163 34.0397 39.4163H8.95638C6.97736 39.4163 5.37305 37.812 5.37305 35.833V21.4997C5.37305 19.5207 6.97736 17.9163 8.95638 17.9163Z" stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+                            </div>
+                            <p class="price-text">Security management</p>
+                            <p class="card-desc">
+                              We outline the scope of our cybersecurity activities and describe the robust security management practices we follow throughout the development project to protect your data and ensure safe, reliable solutions.
+
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="wd-card col-lg-4 col-md-6">
+                        <div class="pricing-card">
+                            <div class="icon-circle">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43" fill="none">
+  <path d="M21.5007 12.5417V37.625M21.5007 12.5417C21.5007 10.6409 20.7456 8.81808 19.4016 7.47407C18.0576 6.13006 16.2347 5.375 14.334 5.375H5.37565C4.90047 5.375 4.44475 5.56376 4.10875 5.89977C3.77275 6.23577 3.58398 6.69149 3.58398 7.16667V30.4583C3.58398 30.9335 3.77275 31.3892 4.10875 31.7252C4.44475 32.0612 4.90047 32.25 5.37565 32.25H16.1257C17.5512 32.25 18.9183 32.8163 19.9264 33.8243C20.9344 34.8323 21.5007 36.1995 21.5007 37.625M21.5007 12.5417C21.5007 10.6409 22.2557 8.81808 23.5997 7.47407C24.9437 6.13006 26.7666 5.375 28.6673 5.375H37.6257C38.1008 5.375 38.5565 5.56376 38.8926 5.89977C39.2286 6.23577 39.4173 6.69149 39.4173 7.16667V30.4583C39.4173 30.9335 39.2286 31.3892 38.8926 31.7252C38.5565 32.0612 38.1008 32.25 37.6257 32.25H26.8757C25.4501 32.25 24.083 32.8163 23.075 33.8243C22.0669 34.8323 21.5007 36.1995 21.5007 37.625M28.6673 21.5H32.2507M28.6673 14.3333H32.2507M10.7507 21.5H14.334M10.7507 14.3333H14.334" stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+                            </div>
+                            <p class="price-text">Knowledge management</p>
+                            <p class="card-desc">
+         We explain our knowledge management and transfer process and provide examples of the software documentation we deliver at different stages of development.
+
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="wd-card col-lg-4 col-md-6">
+                        <div class="pricing-card">
+                            <div class="icon-circle">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43" fill="none">
+  <path d="M28.6673 14.333H17.9173C16.967 14.333 16.0555 14.7105 15.3835 15.3825C14.7115 16.0545 14.334 16.966 14.334 17.9163C14.334 18.8667 14.7115 19.7781 15.3835 20.4501C16.0555 21.1221 16.967 21.4997 17.9173 21.4997H25.084C26.0343 21.4997 26.9458 21.8772 27.6178 22.5492C28.2898 23.2212 28.6673 24.1326 28.6673 25.083C28.6673 26.0334 28.2898 26.9448 27.6178 27.6168C26.9458 28.2888 26.0343 28.6663 25.084 28.6663H14.334M21.5007 32.2497V10.7497M39.4173 21.4997C39.4173 31.3948 31.3958 39.4163 21.5007 39.4163C11.6055 39.4163 3.58398 31.3948 3.58398 21.4997C3.58398 11.6046 11.6055 3.58301 21.5007 3.58301C31.3958 3.58301 39.4173 11.6046 39.4173 21.4997Z" stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+                            </div>
+                            <p class="price-text">Budget Management</p>
+                            <p class="card-desc">
+                          
+         This page outlines our approach to project cost estimation and explains how we carefully manage expenses throughout the project to ensure we stay within the agreed budget.                   </p>
+
+                        </div>
+                    </div>
+                    <div class="wd-card col-lg-4 col-md-6">
+                        <div class="pricing-card">
+                            <div class="icon-circle">
+                               <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43" fill="none">
+  <path d="M8.95703 39.4163H34.0404M8.95703 3.58301H34.0404M30.457 39.4163V31.9415C30.4568 30.9912 30.0792 30.0799 29.4071 29.4081L21.4987 21.4997M21.4987 21.4997L13.5903 29.4081C12.9182 30.0799 12.5406 30.9912 12.5404 31.9415V39.4163M21.4987 21.4997L13.5903 13.5913C12.9182 12.9194 12.5406 12.0081 12.5404 11.0578V3.58301M21.4987 21.4997L29.4071 13.5913C30.0792 12.9194 30.4568 12.0081 30.457 11.0578V3.58301" stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+                            </div>
+                            <p class="price-text">Deadline management</p>
+                            <p class="card-desc">
+                               We highlight our key practices for managing project timelines and ensuring your goals are achieved as quickly and efficiently as possible.
+
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <span id="wdRight" class="wd-text">Advantages</span>
+            </div>
+        </section>
 
 
 
-</section>
+    </section>
     <script>
         const hero = document.querySelector('.solutions-hero');
         const cards = document.querySelector('.solutions-cards');
         const card = document.getElementById("projectCard");
-   const section = document.querySelector(".wd-section");
-const left = document.getElementById("wdLeft");
-const right = document.getElementById("wdRight");
-const middle = document.getElementById("wdMiddle");
+        const section = document.querySelector(".wd-section");
+        const left = document.getElementById("wdLeft");
+        const right = document.getElementById("wdRight");
+        const middle = document.getElementById("wdMiddle");
+if (window.innerWidth > 768) {
+        window.addEventListener("scroll", () => {
+            const rect = section.getBoundingClientRect();
+            const progress = Math.min(
+                Math.max(-rect.top / rect.height, 0),
+                1
+            );
 
-window.addEventListener("scroll", () => {
-  const rect = section.getBoundingClientRect();
-  const progress = Math.min(
-    Math.max(-rect.top / rect.height, 0),
-    1
-  );
+            /* SPLIT TEXT */
+            left.style.transform = `translateX(${-progress * 160}px)`;
+            right.style.transform = `translateX(${progress * 160}px)`;
 
-  /* SPLIT TEXT */
-  left.style.transform = `translateX(${-progress * 160}px)`;
-  right.style.transform = `translateX(${progress * 160}px)`;
-
-  /* OPEN GAP + SHOW MIDDLE */
-  if (progress > 0.2) {
-    middle.style.width = "360px";
-    middle.style.opacity = 1;
-  } else {
-    middle.style.width = "0";
-    middle.style.opacity = 0;
-  }
-});
-
+            /* OPEN GAP + SHOW MIDDLE */
+            if (progress > 0.2) {
+                middle.style.width = "360px";
+                middle.style.opacity = 1;
+            } else {
+                middle.style.width = "0";
+                middle.style.opacity = 0;
+            }
+        });
+    }
 
 
 
