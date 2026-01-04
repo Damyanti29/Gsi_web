@@ -93,7 +93,7 @@
             position: absolute;
             inset: 0;
             border-radius: inherit;
-            border: 1.776px solid #FF521C;
+            border:2px solid #9f553e;
             pointer-events: none;
             -webkit-mask: linear-gradient(to bottom, white 0%, white 45%, transparent 100%);
             mask: linear-gradient(to bottom, white 0%, white 45%, transparent 100%);
@@ -386,6 +386,7 @@
             opacity: 0;
             transform: translateY(80px);
             transition: all 1s ease;
+            width:100%;
 
         }
 
@@ -412,7 +413,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
-            /* keeps button at bottom */
+           gap:15px;
             border-radius: 22px;
             border: 1.382px solid #4a4645;
             background: radial-gradient(50.51% 53.12% at 82.21% 11.15%, #262626 0%, #141414 100%);
@@ -476,6 +477,7 @@
         @media (max-width: 992px) {
             .cards-wrapper {
                 grid-template-columns: repeat(2, 1fr);
+                justify-items: center;
             }
 
             body {
@@ -488,6 +490,7 @@
         @media (max-width: 600px) {
             .cards-wrapper {
                 grid-template-columns: 1fr;
+                justify-content: center;
             }
         }
 
@@ -748,6 +751,7 @@
         @media (max-width: 991px) {
             .cards-wrapper {
                 grid-template-columns: 1fr;
+                justify-content: center;
             }
 
             .service-path {
@@ -768,7 +772,7 @@
             .visual-wrap {
                 position: absolute;
                 inset: 0;
-                width: 100%;
+                width: 425px;
                 height: 100%;
                 z-index: 1;
             }
@@ -1132,7 +1136,7 @@
 
         /* CTA CARD */
         .cta-card {
-            height: 210px;
+            height: 180px;
             border-radius: 22px;
             padding: 32px;
             background: radial-gradient(60% 60% at 20% 10%,
@@ -1379,7 +1383,7 @@
 
     <section class="hero container-fluid">
         <div class="hero-left">
-            <p class="service-path mb-0">
+            <p class="service-path mb-0 reveal delay-1">
                 Services → Web development Services
             </p>
 
