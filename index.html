@@ -1,0 +1,2556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Instrument+Serif:ital@1&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ================= BASE ================= */
+        body {
+            margin: 0;
+            background: var(--Background, #0C0C0C);
+            color: #fff;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            overflow-x: hidden;
+        }
+.page-spacer {
+    height: 125px;
+    width: 100%;
+}
+
+        /*  BUTTON  */
+        .cus-btn {
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            padding: 12px 17.255px;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 21.31px;
+            background: radial-gradient(37.68% 85.68% at 50.15% 6.82%, #4D2F26 0%, #070707 100%);
+            color: #D2D0D0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-center {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .wrapper-box {
+            display: flex;
+            justify-content: center;
+            margin: 24px 0;
+        }
+
+        .responsive-box {
+            width: clamp(80px, 10vw, 136px);
+            aspect-ratio: 136 / 161;
+            background: #D9D9D9;
+        }
+
+        .Card-services-subpages {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: min(75%, 1300px);
+            aspect-ratio: 1382 / 741;
+            margin: 24px auto;
+
+            border-radius: 22px;
+            border: 1.4px solid #35302e;
+
+            background: radial-gradient(50.51% 53.12% at 82.21% 11.15%,
+                    #262626 0%,
+                    #141414 100%);
+
+
+        }
+
+        .inner-box {
+            width: min(95%, 1276px);
+            aspect-ratio: 1276 / 676;
+
+            border-radius: 60px;
+            background: #3c3a3a;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+
+        }
+
+
+        .cus-btn::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            border: 2px solid #9f553e;
+            pointer-events: none;
+            -webkit-mask: linear-gradient(to bottom, white 0%, white 45%, transparent 100%);
+            mask: linear-gradient(to bottom, white 0%, white 45%, transparent 100%);
+            opacity: 1;
+            transition: border-color 0.3s ease;
+        }
+
+
+
+
+        /* FLEX FOR TEXT + ICON */
+        .btn-flex {
+            gap: 30px;
+            cursor: pointer;
+            width: fit-content;
+            white-space: nowrap;
+
+        }
+
+        /* TEXT */
+        .btn-text {
+            font-size: clamp(13px, 1.2vw, 15px);
+            font-weight: 500;
+            margin-right: 10px;
+            margin-left: 5px;
+
+        }
+
+
+        .btn-wrapper {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        /* GROUP */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* FLEX */
+        .btn-flex {
+            gap: 8px;
+            cursor: pointer;
+            width: fit-content;
+            white-space: nowrap;
+        }
+
+        /* TEXT */
+        .btn-text {
+            font-size: clamp(13px, 1.1vw, 15px);
+            font-weight: 500;
+        }
+
+        .btn-svg {
+            width: clamp(10px, 1.2vw, 14px);
+            height: clamp(10px, 1.2vw, 14px);
+            margin-top: 1px;
+            flex-shrink: 0;
+            color: #D2D0D0;
+            transition: transform 0.3s ease, color 0.3s ease;
+            margin-right: 3px;
+        }
+
+
+
+
+        /* ================= HERO ================= */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 0 30px;
+            gap: 80px;
+        }
+
+        @media (min-width: 992px) {
+            .hero {
+                flex: 0 1 45%;
+                justify-content: space-between;
+                padding: 6rem clamp(3rem, 6vw, 7rem) 0;
+                /* LEFT & RIGHT PADDING ADDED */
+            }
+
+            .hero-left {
+                flex: 0 1 55%;
+                padding-right: 40px;
+            }
+
+        }
+
+        .hero-left {
+            max-width: 520px;
+            z-index: 3;
+        }
+
+        h1 {
+            color: #DDD;
+            font-weight: 700;
+            font-size: clamp(2.4rem, 3.8vw, 54px);
+            line-height: 1.45;
+            margin: 0;
+        }
+
+        .accent {
+            color: #FF5A18;
+            font-family: "Instrument Serif", serif;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .waccent {
+            color: #FFf;
+            font-family: "Instrument Serif", serif;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+
+        /* ================= BUTTONS ================= */
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-top: 44px;
+        }
+
+        .cus-btn {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            border-radius: 22px;
+            background: radial-gradient(37.68% 85.68% at 50.15% 6.82%, #4D2F26 0%, #070707 100%);
+            color: #D2D0D0;
+            cursor: pointer;
+            width: fit-content;
+        }
+
+        .cus-btn::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            border: 1.5px solid #FF521C;
+            -webkit-mask: linear-gradient(to bottom, white 0%, white 45%, transparent 100%);
+        }
+
+        .btn-secondary-dark {
+            height: 48px;
+            padding: 0 26px;
+            border-radius: 20px;
+            border: 1.5px solid #593F37;
+            background: #141414;
+            color: #D2D0D0;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        /* ================= CARD IMAGE SPACE ================= */
+        .solution-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Image placeholder / image wrapper */
+        .solution-card .card-image {
+            width: 100%;
+            height: 140px;
+            /* space reserved for image */
+            border-radius: 14px;
+            background: var(--Background, #0C0C0C);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        /* If real <img> is used */
+        .solution-card .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ================= BUTTON SPACING ================= */
+        .solution-card .cus-btn {
+            margin-top: auto;
+            /* pushes button to bottom */
+            align-self: center;
+        }
+
+        /* Optional: button hover polish */
+        .solution-card .cus-btn:hover {
+            box-shadow: 0 0 18px rgba(255, 90, 24, 0.35);
+        }
+
+        /* ================= VISUAL ================= */
+        .visual-wrap {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .visual-box {
+            width: 425px;
+            height: 425px;
+        }
+
+        .visual-box iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ================= ARROW ================= */
+
+        .arrow-wrapper {
+            position: absolute;
+            bottom: 30px;
+            /* adjust spacing from bottom */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            pointer-events: none;
+            /* optional, prevents click blocking */
+        }
+
+        /* Optional subtle bounce animation */
+        .arrow-wrapper svg {
+            animation: arrowBounce 1.8s infinite ease-in-out;
+        }
+
+        @keyframes arrowBounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(10px);
+            }
+        }
+
+        /* ================= SOLUTIONS WRAPPER ================= */
+        .solutions-wrapper {
+            position: relative;
+        }
+
+        /* ================= FULLSCREEN HEADING ================= */
+        .solutions-hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .solutions-hero h2 {
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 700;
+            color: #ddd;
+            transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+        }
+
+        /* ================= CARDS ================= */
+        .solutions-cards {
+            padding: 6rem 4vw;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            background: var(--Background, #0C0C0C);
+             display: flex;                 /* 🔥 */
+    justify-content: center; 
+        }
+
+        .solutions-cards .solution-card {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .solutions-cards .solution-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Grid wrapper */
+        .cards-wrapper {
+           display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+           
+    
+        }
+        .last-row {
+  display: block;       /* cards stack vertically */
+  gap: 0;               /* no spacing on mobile */
+  grid-column: auto;  
+  /* remove grid spanning on mobile */
+}
+.last-row .solution-card {
+  margin-bottom: 25px;   /* 10px space between cards */
+}
+
+/* Remove margin on the last card so it doesn’t add extra space */
+.last-row .solution-card:last-child {
+  margin-bottom: 0;
+}
+        @media (min-width: 768px) {
+.last-row {
+    grid-column: 1 / -1; /* span full row */
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+        }
+        /* Individual card */
+        .solution-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            gap: 10px;
+            border-radius: 16px;
+            border: 1px solid #4a4645;
+            background: radial-gradient(50.51% 53.12% at 82.21% 11.15%, #262626 0%, #141414 100%);
+            padding: 2rem 2rem;
+            text-align: center;
+            min-height:auto;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            width: 360px;
+             max-width: none;
+        }
+
+        .solution-card>img,
+        .solution-card>svg {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+        }
+
+        /* Image area */
+        .card-image {
+            height: clamp(100px, 12vw, 180px);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .card-image img,
+        .card-image svg {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Headings and text */
+        .solution-card h3 {
+            /* margin-bottom: 0.5rem; */ margin: 12px 0 8px;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .solution-card p {
+            color: #d9d9d9;
+            font-weight: 300;
+            line-height: 1.5;
+            font-size: 0.85rem;
+            margin:0;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(255, 90, 24, 0.2);
+        }
+      
+
+        .solution-card button {
+            margin-top: 1rem;
+            padding: 6px 16px;
+            border-radius: 14px;
+            background: transparent;
+            border: 1.5px solid #ff5a18;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        @media (max-width: 992px) {
+            .cards-wrapper {
+                grid-template-columns: repeat(2, 1fr);
+                justify-items: center;
+            }
+
+            body {
+                background: var(--Background, #0C0C0C);
+            }
+
+        }
+
+        /* Small screens: 1 column */
+        @media (max-width: 600px) {
+            .cards-wrapper {
+                grid-template-columns: 1fr;
+                justify-content: center;
+            }
+        }
+
+        .service-path {
+            color: var(--Text---Secondary, #D9D9D9);
+            font-family: Inter, sans-serif;
+            font-size: 20px;
+            font-style: italic;
+            font-weight: 300;
+            line-height: 50px;
+        }
+
+        .growthsphere-section {
+            min-height: 300vh;
+            position: relative;
+        }
+
+        .gs-sticky {
+            position: sticky;
+            top: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--Background, #0C0C0C);
+        }
+
+        .gs-highlight-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .gs-line {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            line-height: 1.6;
+            margin: 0;
+            color: #555;
+            transition: color 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+        }
+
+        .gs-line.active {
+            color: #fff;
+            opacity: 1;
+        }
+
+        .gs-line.greyed {
+            color: #555;
+            opacity: 1;
+        }
+
+        .gs-content {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .gs-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .container {
+            max-width: 1500px;
+            width: 100%;
+        }
+
+        /* ===== HEADINGS (CENTERED) ===== */
+        .title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #ffffff;
+        }
+
+        .title_small {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 24px;
+            color: #ffffff;
+        }
+
+        .highlight {
+            color: #FF5A18;
+
+        }
+
+        .title em {
+            font-style: italic;
+            font-weight: 400;
+        }
+
+
+        .subtitle {
+            text-align: center;
+            font-size: 15px;
+            line-height: 1.5;
+            margin-bottom: 28px;
+            color: #cfcfcf;
+        }
+
+        .subtitle strong {
+            color: #fff;
+        }
+
+        .tl-dr {
+            text-align: left;
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: #fff;
+        }
+
+        .tl-dr strong {
+            color: #fff;
+        }
+
+        /* ===== BODY TEXT (LEFT ALIGNED) ===== */
+        .normal-text {
+            text-align: left;
+            font-size: 19px;
+            line-height: 1.85;
+            margin-bottom: 22px;
+            color: #d6d6d6;
+        }
+
+        .normal-text strong {
+            color: #ffffff;
+        }
+
+        .mission-text {
+            text-align: left;
+            font-size: 22px;
+            font-style: italic;
+            font-weight: 600;
+            color: #FF5A18;
+            margin: 8px 0 26px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 32px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+        }
+
+        .spacer {
+            height: 80vh;
+        }
+
+        /* SECTION */
+        .projects-section {
+            padding: 100px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        /* MAIN CARD */
+        .project-card {
+            width: 100%;
+            display: flex;
+            overflow: hidden;
+            min-height: 500px;
+            background: radial-gradient(71.58% 143.4% at 48.89% 27.75%,
+                    #262626 0%,
+                    #141414 100%);
+        }
+
+        /* LEFT RED BLOCK */
+        .project-media {
+            flex: 0 0 38%;
+            background: #6b0f0f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            font-size: 14px;
+            color: #f2f2f2;
+        }
+
+        /* RIGHT CONTENT */
+        .project-content {
+            flex: 1;
+            padding: 48px 56px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* TITLE */
+        .project-title {
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .zatscanSubtitle {
+            color: #FBEEEE;
+
+            text-align: center;
+
+            margin: 35px auto 0 auto;
+            max-width: 60%;
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 40px;
+        }
+
+        .project-title span {
+            color: #FF5A18;
+
+            font-style: italic;
+        }
+
+        /* DESCRIPTION */
+        .project-desc {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #E6E6E6;
+            max-width: 90%;
+        }
+
+        /* BUTTON ROW */
+        .project-content .hero-buttons {
+            margin-top: 32px;
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        /* MOBILE */
+        @media (max-width: 991px) {
+            .project-card {
+                flex-direction: column;
+            }
+
+            .project-media {
+                min-height: 220px;
+                width: 100%;
+                order: 0;
+            }
+
+            .project-content {
+                padding: 32px 24px;
+                order: 1;
+            }
+
+            .project-desc {
+                max-width: 100%;
+            }
+
+            .project-content .hero-buttons {
+                justify-content: flex-start;
+            }
+        }
+
+        .cus-btn:focus {
+            outline: none;
+        }
+
+        /* ================= MOBILE ================= */
+        @media screen and (max-width: 768px) {
+            .cta-card {
+                background: transparent !important;
+                border: none !important;
+            }
+
+            .cta-title {
+                font-size: 20px;
+            }
+
+            .cta-desc {
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+
+            .cus-btn {
+                padding: 10px 18px;
+                font-size: 14px;
+            }
+
+            .cus-btn .btn-svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .cards-wrapper {
+                grid-template-columns: 1fr;
+                justify-content: center;
+            }
+
+            .service-path {
+                display: none;
+            }
+
+            .zatscanSubtitle {
+                display: none;
+            }
+
+            .hero {
+                padding: 0;
+                flex-direction: column;
+                justify-content: center;
+
+            }
+
+            .visual-wrap {
+                position: absolute;
+                inset: 0;
+                width: 450px;
+                height: 100%;
+                z-index: 1;
+            }
+
+            .visual-box {
+                width: 100%;
+                height: 100%;
+            }
+
+            .visual-wrap::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(circle at center,
+                        rgba(5, 5, 5, 0.15) 0%,
+                        rgba(5, 5, 5, 0.75) 55%,
+                        rgba(5, 5, 5, 1) 100%);
+                z-index: 2;
+            }
+
+            .hero-left {
+                position: relative;
+                text-align: center;
+                max-width: 90%;
+                margin: 0 auto;
+            }
+
+            h1 {
+                font-size: clamp(2.3rem, 7vw, 3rem);
+                line-height: 1.25;
+            }
+
+            .subtext {
+                display: none;
+            }
+
+            .inline-desktop {
+                white-space: normal;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                margin-top: 80px;
+                width: 100%;
+            }
+
+            .hero-buttons .cus-btn,
+            .hero-buttons .btn-secondary-dark {
+                width: 100%;
+                max-width: fit-content;
+
+            }
+        }
+
+        .marquee-wrapper {
+            position: relative;
+            width: 80%;
+            left: 50%;
+            transform: translateX(-50%);
+            overflow: hidden;
+            padding: 28px 0;
+
+
+            /* 🔥 Center-focused fade + hide */
+            mask-image: linear-gradient(to right,
+                    transparent 0%,
+                    rgba(0, 0, 0, 0.35) 20%,
+                    black 40%,
+                    black 60%,
+                    rgba(0, 0, 0, 0.35) 80%,
+                    transparent 100%);
+            -webkit-mask-image: linear-gradient(to right,
+                    transparent 0%,
+                    rgba(0, 0, 0, 0.35) 20%,
+                    black 40%,
+                    black 60%,
+                    rgba(0, 0, 0, 0.35) 80%,
+                    transparent 100%);
+        }
+
+        /* ================= INNER ================= */
+        .marquee-inner {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* ================= COMPANY ================= */
+        .company {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: auto;
+            margin-bottom: 12px;
+        }
+
+        .company-logo {
+            opacity: 0.9;
+        }
+
+        .company-name {
+            font-size: 25px;
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        /* ================= MARQUEE TRACK ================= */
+        .marquee-track {
+            display: flex;
+            gap: 28px;
+            width: max-content;
+            align-items: stretch;
+            animation: scroll 25s linear infinite;
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ===== FADE IN - HOLD - FADE OUT ===== */
+        @keyframes fadeCycle {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            15% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            70% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+        }
+
+        .fade-cycle {
+            animation: fadeCycle 6s ease-in-out infinite;
+        }
+
+        /* Delay for subtitle so it feels staged */
+        .delay-1 {
+            animation-delay: 0.8s;
+        }
+
+        /* ===== ONE TIME SEQUENTIAL FADE IN ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(14px);
+            animation: revealText 0.8s ease-out forwards;
+            /* Scroll driven */
+            animation-timeline: view();
+            animation-range: entry 20% cover 40%;
+        }
+
+
+        @keyframes revealText {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== DELAYS ===== */
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-3 {
+            animation-delay: 1s;
+        }
+
+        .delay-4 {
+            animation-delay: 1.4s;
+        }
+
+        .delay-5 {
+            animation-delay: 1.8s;
+        }
+
+        .delay-6 {
+            animation-delay: 2.2s;
+        }
+
+        .delay-7 {
+            animation-delay: 2.6s;
+        }
+
+        .delay-8 {
+            animation-delay: 3s;
+        }
+
+        /* ================= CARD ================= */
+        .testimonial-card {
+            width: 320px;
+            height: 550px;
+            padding: 24px;
+            flex-shrink: 0;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            border-radius: 33px;
+            background: rgba(96, 96, 96, 0.12);
+        }
+
+        /* ================= TEXT ================= */
+        .testimonial-card p {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #cfcfcf;
+        }
+
+        /* ================= PROFILE ================= */
+        .profile {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .profile h4 {
+            font-size: 18px;
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .profile span {
+            font-size: 15px;
+            color: #9a9a9a;
+        }
+
+        /* ================= KEYFRAMES ================= */
+        @keyframes arrowFloat {
+            0% {
+                transform: translateY(0);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: translateY(14px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 0.6;
+            }
+        }
+
+        /* SECTION */
+        .pricing-section {
+
+            padding: 60px 50px;
+            max-width: 1000px;
+            margin: auto;
+            align-items: center;
+        }
+
+        /* NORMAL CARDS */
+        .pricing-card {
+            height: max-content;
+            border-radius: 22px;
+            padding: 26px 22px;
+            text-align: center;
+            background: radial-gradient(60% 60% at 20% 10%,
+                    #1f1f1f 0%,
+                    #0f0f0f 100%);
+            border: 1px solid #1f1f1f;
+            transition: 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-6px);
+            border-color: #ff6b3d;
+        }
+
+
+        .icon-circle {
+            position: relative;
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+
+            /* INNER FILL */
+            background: radial-gradient(100.16% 77.67% at 50.15% 6.82%,
+                    #4D2F26 0%,
+                    #070707 100%);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* FADED STROKE */
+        .icon-circle::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 1px solid #aa563c;
+            pointer-events: none;
+
+            /* Fade border from bottom */
+            -webkit-mask: linear-gradient(to bottom,
+                    white 0%,
+                    white 45%,
+                    transparent 100%);
+            mask: linear-gradient(to bottom,
+                    white 0%,
+                    white 45%,
+                    transparent 100%);
+        }
+
+        .icon-circle svg {
+            width: 20px;
+            height: 20px;
+
+        }
+
+        /* TEXT */
+        .price-text {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #ffffff;
+        }
+
+        .card-desc {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #a3a3a3;
+            max-width: 240px;
+            margin: 0 auto;
+        }
+
+        /* CTA CARD */
+        .cta-card {
+            height: 180px;
+            border-radius: 22px;
+            padding: 32px;
+            background: radial-gradient(60% 60% at 20% 10%,
+                    #1f1f1f 0%,
+                    #0f0f0f 100%);
+            border: 1px solid #1f1f1f;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .cta-title {
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .cta-desc {
+            font-size: 13px;
+            color: #a3a3a3;
+            margin-bottom: 20px;
+        }
+
+        /* ONLY affects Schedule Call button */
+        .schedule-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* SVG animation only */
+        .schedule-btn svg {
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover effect */
+        .schedule-btn:hover svg {
+            transform: translate(2px, -2px);
+        }
+
+        /* SCROLL SPACE */
+        .wd-scroll-track {
+            height: 350vh;
+            position: relative;
+        }
+
+        /* STICKY VIEW */
+        .wd-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: hidden;
+            --wdScroll: 0;
+        }
+
+        .title {
+            position: relative;
+            z-index: 5;
+        }
+
+        /* HEADING WRAP */
+        .wd-heading {
+            position: relative;
+            margin-right: 20px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* SPLIT TEXT */
+        .wd-text {
+            position: absolute;
+
+            top: 18%;
+            font-size: 2.5rem;
+            font-weight: 400;
+            white-space: nowrap;
+            will-change: transform;
+        }
+
+        .wd-text.left {
+            left: 55%;
+            transform: translateX(calc(-100% - 12px + (var(--wdScroll) * -40vw)));
+        }
+
+        .right {
+            right: 33%;
+            transform: translateX(calc(12px + (var(--wdScroll) * 40vw)));
+
+        }
+
+        /* CENTER CARDS */
+        .wd-middle {
+            position: absolute;
+            left: 50%;
+            top: 55%;
+            transform: translate(-50%, -50%);
+            width: min(980px, 92vw);
+            height: 360px;
+            /* gives space for absolute cards to animate */
+            z-index: 2;
+        }
+
+        /* ✅ Make cards absolute like your demo */
+        .wd-card {
+            position: absolute !important;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) translateY(200px);
+            opacity: 0;
+            width: min(420px, 92vw);
+            /* IMPORTANT so Bootstrap cols don't mess sizing */
+            max-width: 100%;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer {
+
+            color: #cfcfcf;
+            padding: 80px 120px;
+
+        }
+
+        .footer-title {
+            font-size: 20px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 32px;
+        }
+
+        /* SERVICES (2 columns) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 90px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 17px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 14px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section li {
+            font-size: 15px;
+            line-height: 1.9;
+            color: #bdbdbd;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .footer a,
+        .footer a:link,
+        .footer a:visited,
+        .footer a:hover,
+        .footer a:active,
+        .footer a:focus {
+            color: #bdbdbd !important;
+            text-decoration: none !important;
+        }
+
+
+        /* Hidden heading for alignment */
+        .sr-only {
+            visibility: hidden;
+        }
+
+        /* INSIGHTS */
+        .insights {
+            max-width: 420px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .footer {
+                padding: 48px 24px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                row-gap: 32px;
+            }
+
+            .sr-only {
+                display: none;
+            }
+
+            .insights {
+                margin-top: 36px;
+                max-width: 100%;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .wd-heading {
+                position: relative;
+                min-height: 320px;
+            }
+
+            .wd-text {
+                position: absolute;
+                top: 50%;
+                transform-origin: center;
+                font-size: 12px;
+                letter-spacing: 1px;
+                white-space: nowrap;
+                opacity: 0.9;
+            }
+
+            .wd-text.left {
+                left: -38px;
+                transform: translateY(-50%) rotate(-90deg);
+                color: #a0a0a0;
+            }
+
+            .wd-text.right {
+                right: -38px;
+                transform: translateY(-50%) rotate(90deg);
+                color: #ff6a00;
+                font-style: italic;
+            }
+
+
+            .wd-middle {
+                padding: 0 44px;
+                /* space for vertical text */
+            }
+
+            .wd-card {
+                position: static !important;
+                transform: none !important;
+                opacity: 1 !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <section class="hero container-fluid">
+        <div class="hero-left">
+            <p class="service-path mb-0 reveal delay-1">
+                Services → Web development Services
+            </p>
+
+            <h1>
+                We Build Digital <span class="accent">foundations</span><br>
+                That work as hard as <span class="accent">you.</span>
+            </h1>
+
+            <div class="hero-buttons">
+                <div class="cus-btn">
+                    Plan your Website with Us
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                        <path d="M1.333 14.667L14.667 1.333M14.667 1.333V14.667M14.667 1.333H1.333" stroke="#D2D0D0"
+                            stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <a href="#" class="btn-secondary-dark">Get an Estimate</a>
+            </div>
+        </div>
+        <div class="arrow-wrapper">
+            <svg width="30" height="63" viewBox="0 0 30 63" fill="none">
+                <path d="M14 0V60M14 60L2 48M14 60L26 48" stroke="#6E4040" stroke-width="2" />
+            </svg>
+        </div>
+        <div class="visual-wrap">
+            <div class="visual-box">
+                <iframe src="https://my.spline.design/webdevhero-4JfjLE9lYjwTbMoJqeeeJIdc/"></iframe>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+
+    <div class="solutions-wrapper">
+        <section class="solutions-hero">
+            <h2>
+                What Web Solutions<br>
+                Do You <span class="accent">Need ?</span>
+            </h2>
+        </section>
+
+        <section class="solutions-cards">
+            <div class="cards-wrapper">
+                <div class="solution-card">
+                    <img src="assets/web-dev.svg">
+                    <h3>Business Websites</h3>
+                    <p class="text-center text-secondary fw-normal lh-base fs-5 mb-0">We build high-impact, professional
+                        websites trusted by businesses, government agencies, and non-profits. Each website includes an
+                        intuitive content editor, allowing you to easily update pages and manage content without
+                        technical effort.</p>
+                    <div class=" cus-btn mt-3 ">
+                        Read More
+
+                    </div>
+                </div>
+
+
+                <div class="solution-card">
+                    <img src="assets/web-dev.svg">
+                    <h3>Landing Pages</h3>
+                    <p class="text-center text-secondary fw-normal lh-base fs-5 mb-0">We design high-converting landing
+                        pages that capture attention, communicate clearly, and drive action. Each page is optimized for
+                        speed, mobile responsiveness, and seamless user flow to maximize leads, sales, and campaign
+                        performance.
+                    </p>
+                    <div class=" cus-btn mt-3 ">
+                        Read More
+
+                    </div>
+                </div>
+
+
+                <div class="solution-card">
+                    <img src="assets/web-dev.svg">
+                    <h3>E-Commerce Development</h3>
+                    <p class="text-center text-secondary fw-normal lh-base fs-5 mb-0">We build powerful, scalable
+                        e-commerce platforms that make selling and store management easy. From product listings and
+                        secure payments to inventory and customer engagement, our solutions deliver smooth shopping
+                        experiences that drive conversions and growth.</p>
+                    <div class=" cus-btn mt-3 ">
+                        Read More
+
+                    </div>
+                </div>
+              
+  <div class="last-row">
+                <div class="solution-card">
+                    <img src="assets/web-dev.svg">
+                    <h3>Dropshipping Website</h3>
+                    <p class="text-center text-secondary fw-normal lh-base fs-5 mb-0">We build ready-to-launch
+                        dropshipping websites that make starting an online business simple. Our platforms include
+                        product sourcing, automated order processing, secure payments, and easy management
+                        tools, everything you need to run a profitable store without holding inventory.</p>
+                    <div class=" cus-btn mt-3 ">
+                        Read More
+
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <img src="assets/web-dev.svg">
+                    <h3>Custom Websites</h3>
+                    <p class="text-center text-secondary fw-normal lh-base fs-5 mb-0">We develop fully custom websites
+                        built around your vision, goals, and brand identity. From unique layouts to advanced
+                        functionality, our tailored solutions offer complete flexibility and a standout digital
+                        presence.
+                    </p>
+                    <div class=" cus-btn mt-3 ">
+                        Read More
+
+                    </div>
+                </div>
+               </div>
+            </div>
+        </section>
+      
+    </div>
+      <div class="page-spacer"></div>
+    <section class="growthsphere-section" id="gsSection">
+        <div class="gs-sticky">
+            <div class="container">
+                <h2 class="title gs-title" id="gsTitle">
+                    <span>GrowthSphere In</span> <em> <span class="waccent highlight">Budget?</span></em>
+                </h2>
+
+                <div class="gs-highlight-container">
+                    <p class="gs-line gs-line-1" id="gsLine1">
+                        At GrowthSphere Industries,
+                    </p>
+                    <p class="gs-line gs-line-2" id="gsLine2">
+                        We Believe Every Business Deserves a Chance to Grow.
+                    </p>
+                </div>
+
+                <div class="gs-content" id="gsContent">
+                    <p class="tl-dr">
+                        <em><strong>TL;DR :</strong> Affordable, high-quality digital solutions to help small businesses
+                            grow.</em>
+                    </p>
+
+                    <p class="normal-text">
+                        No matter how small your budget is, GrowthSphere Industries delivers professional, reliable, and
+                        high-quality digital solutions tailored to your goals. We understand that many startups, small
+                        businesses, and growing companies need strong online presence but may not have the resources to
+                        invest
+                        heavily. That's why we focus on providing affordable services without compromising on quality.
+                    </p>
+
+                    <p class="normal-text">
+                        Our mission is simple:
+                    </p>
+
+                    <p class="mission-text">
+                        "Help businesses in need, support their journey, and grow together."
+                    </p>
+
+                    <p class="normal-text">
+                        With the skills we have and the solutions we can offer, we ensure every client receives
+                        exceptional
+                        value, whether it's a basic website or a complete digital setup. GrowthSphere Industries is
+                        built on
+                        trust, commitment, and the belief that great results don't always require a big budget.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+  <div class="page-spacer"></div>
+
+    <section class="projects-section">
+        <h2 class="title">
+            <em class=" accent">Our Projects: </em> <span class="reveal delay-2">New Launches and App Makeovers</span>
+            <p class="zatscanSubtitle reveal delay-3">Explore our web development case studies to see how we deliver
+                transformative
+                solutions that drive real results. Each project highlights our strategic approach and the value we bring
+                to clients. Use the industry filter to find the most relevant examples for your needs.</p>
+        </h2>
+        <br><br>
+        <div class="project-card" id="projectCard">
+
+            <div class="project-media">
+                Product showcase video/image hereeeeeeeeeeeeeee
+            </div>
+
+            <div class="project-content">
+                <h3 class="project-title">
+                    <span>Zatscan</span> – Zatca invoicing manager
+                </h3>
+
+                <p class="project-desc">
+                    Bohot mast product banaye ham loga aakhri hai wo itti mehnat kare aur wo bana to aisa hai de Bohot
+                    mast product banaye ham loga aakhri hai wo itti mehnat kare aur wo bana to aisa hai de
+                </p>
+
+                <div class="hero-buttons">
+                    <div class="cus-btn">
+                        Project Details
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                            <path d="M1.333 14.667L14.667 1.333M14.667 1.333V14.667M14.667 1.333H1.333" stroke="#D2D0D0"
+                                stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <a href="#" class="btn-secondary-dark">Try our Product</a>
+                </div>
+            </div>
+        </div>
+         
+        <div class="project-card" id="projectCard">
+            <div class="project-content">
+                <h3 class="project-title">
+                    <span>Zatscan</span> – Zatca invoicing manager
+                </h3>
+
+                <p class="project-desc">
+                    Bohot mast product banaye ham loga aakhri hai wo itti mehnat kare aur wo bana to aisa hai de Bohot
+                    mast product banaye ham loga aakhri hai wo itti mehnat kare aur wo bana to aisa hai de
+                </p>
+
+                <div class="hero-buttons">
+                    <div class="cus-btn">
+                        Project Details
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                            <path d="M1.333 14.667L14.667 1.333M14.667 1.333V14.667M14.667 1.333H1.333" stroke="#D2D0D0"
+                                stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <a href="#" class="btn-secondary-dark">Try our Product</a>
+                </div>
+            </div>
+            <div class="project-media">
+                Product showcase video/image hereeeeeeeeeeeeeee
+            </div>
+        </div>
+    </section>
+ <div class="page-spacer"></div>
+    <section>
+        <h2 class="title">
+            <em class=" accent">Feedback: </em> <span>Companies from various Industries </span>
+
+        </h2>
+        <div class="marquee-wrapper">
+            <div class="marquee-inner">
+                <div class="marquee-track">
+
+                    <!-- CARD 1 -->
+                    <div class="testimonial-card">
+                        <p>
+                            “We had the pleasure of working with GrowthSphere Industries on content for BinDawood, and
+                            their work exceeded expectations, capturing our brand voice with precision and creativity.
+                            Highly recommended for impactful, high-quality content that enhances customer engagement.”
+                        </p>
+                        <div class="company">
+                            <!-- SVG LOGO -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="29" viewBox="0 0 23 29"
+                                fill="none">
+                                <g clip-path="url(#clip0_486_22522)">
+                                    <path
+                                        d="M9.61017 11.5053C13.1272 9.39389 16.5001 14.4049 13.2602 16.8726L13.3627 22.8934C13.3686 23.2267 13.732 23.4293 14.0186 23.2594L18.8222 20.4079L21.8012 18.6397C21.9329 18.5616 22.0139 18.4195 22.0136 18.2662L22.0121 7.73287C22.0119 7.5753 21.9266 7.42965 21.7886 7.35332L8.58661 0.0315559C8.44914 -0.0447655 8.28085 -0.0404413 8.1473 0.0422279L0.27067 4.92949C-0.00250014 5.09897 -0.00313588 5.49637 0.269363 5.66665L9.61017 11.5053Z"
+                                        fill="white" />
+                                    <path
+                                        d="M13.2613 16.8725C9.72815 18.9573 6.39354 13.9206 9.65232 11.4777L9.59584 5.45624C9.59274 5.12296 9.2308 4.91761 8.94277 5.08512L1.12481 9.64606C0.992234 9.72316 0.910769 9.86478 0.90963 10.0177L0.831181 20.5509C0.830008 20.7084 0.914443 20.8545 1.05191 20.9322L14.1974 28.354C14.3344 28.4312 14.5027 28.4283 14.6367 28.3466L22.5505 23.5195C22.8251 23.3519 22.8285 22.955 22.5574 22.7824L13.2613 16.8725Z"
+                                        fill="#B8B8B8" />
+                                    <path
+                                        d="M18.8228 20.4085L13.2824 16.8571L13.2655 16.8699L13.3428 22.5276C13.3462 22.7628 13.3437 22.9762 13.575 23.1173C13.8064 23.2585 14.1207 23.1874 14.313 23.0735L18.8223 20.408L18.8228 20.4085Z"
+                                        fill="#F2F2F2" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_486_22522">
+                                        <rect width="22.8252" height="28.3868" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+                            <span class="company-name">ZatScan</span>
+                        </div>
+                        <div class="profile">
+                            <img src="https://i.pravatar.cc/100?img=11">
+                            <div>
+                                <h4>ZatScan</h4>
+                                <span>Product Lead</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 2 -->
+                    <div class="testimonial-card">
+                        <p>
+                            “Their strategic insight and creative execution significantly boosted customer engagement.”
+                        </p>
+                        <div class="company">
+                            <!-- SVG LOGO -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="29" viewBox="0 0 23 29"
+                                fill="none">
+                                <g clip-path="url(#clip0_486_22522)">
+                                    <path
+                                        d="M9.61017 11.5053C13.1272 9.39389 16.5001 14.4049 13.2602 16.8726L13.3627 22.8934C13.3686 23.2267 13.732 23.4293 14.0186 23.2594L18.8222 20.4079L21.8012 18.6397C21.9329 18.5616 22.0139 18.4195 22.0136 18.2662L22.0121 7.73287C22.0119 7.5753 21.9266 7.42965 21.7886 7.35332L8.58661 0.0315559C8.44914 -0.0447655 8.28085 -0.0404413 8.1473 0.0422279L0.27067 4.92949C-0.00250014 5.09897 -0.00313588 5.49637 0.269363 5.66665L9.61017 11.5053Z"
+                                        fill="white" />
+                                    <path
+                                        d="M13.2613 16.8725C9.72815 18.9573 6.39354 13.9206 9.65232 11.4777L9.59584 5.45624C9.59274 5.12296 9.2308 4.91761 8.94277 5.08512L1.12481 9.64606C0.992234 9.72316 0.910769 9.86478 0.90963 10.0177L0.831181 20.5509C0.830008 20.7084 0.914443 20.8545 1.05191 20.9322L14.1974 28.354C14.3344 28.4312 14.5027 28.4283 14.6367 28.3466L22.5505 23.5195C22.8251 23.3519 22.8285 22.955 22.5574 22.7824L13.2613 16.8725Z"
+                                        fill="#B8B8B8" />
+                                    <path
+                                        d="M18.8228 20.4085L13.2824 16.8571L13.2655 16.8699L13.3428 22.5276C13.3462 22.7628 13.3437 22.9762 13.575 23.1173C13.8064 23.2585 14.1207 23.1874 14.313 23.0735L18.8223 20.408L18.8228 20.4085Z"
+                                        fill="#F2F2F2" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_486_22522">
+                                        <rect width="22.8252" height="28.3868" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+                            <span class="company-name">ZatScan</span>
+                        </div>
+                        <div class="profile">
+                            <img src="https://i.pravatar.cc/100?img=12">
+                            <div>
+                                <h4>Atharva Gadekar</h4>
+                                <span>Product Lead</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 3 -->
+                    <div class="testimonial-card">
+                        <p>
+                            “Highly recommend for brands seeking impactful, customer-centric storytelling.”
+                        </p>
+                        <div class="company">
+                            <!-- SVG LOGO -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="29" viewBox="0 0 23 29"
+                                fill="none">
+                                <g clip-path="url(#clip0_486_22522)">
+                                    <path
+                                        d="M9.61017 11.5053C13.1272 9.39389 16.5001 14.4049 13.2602 16.8726L13.3627 22.8934C13.3686 23.2267 13.732 23.4293 14.0186 23.2594L18.8222 20.4079L21.8012 18.6397C21.9329 18.5616 22.0139 18.4195 22.0136 18.2662L22.0121 7.73287C22.0119 7.5753 21.9266 7.42965 21.7886 7.35332L8.58661 0.0315559C8.44914 -0.0447655 8.28085 -0.0404413 8.1473 0.0422279L0.27067 4.92949C-0.00250014 5.09897 -0.00313588 5.49637 0.269363 5.66665L9.61017 11.5053Z"
+                                        fill="white" />
+                                    <path
+                                        d="M13.2613 16.8725C9.72815 18.9573 6.39354 13.9206 9.65232 11.4777L9.59584 5.45624C9.59274 5.12296 9.2308 4.91761 8.94277 5.08512L1.12481 9.64606C0.992234 9.72316 0.910769 9.86478 0.90963 10.0177L0.831181 20.5509C0.830008 20.7084 0.914443 20.8545 1.05191 20.9322L14.1974 28.354C14.3344 28.4312 14.5027 28.4283 14.6367 28.3466L22.5505 23.5195C22.8251 23.3519 22.8285 22.955 22.5574 22.7824L13.2613 16.8725Z"
+                                        fill="#B8B8B8" />
+                                    <path
+                                        d="M18.8228 20.4085L13.2824 16.8571L13.2655 16.8699L13.3428 22.5276C13.3462 22.7628 13.3437 22.9762 13.575 23.1173C13.8064 23.2585 14.1207 23.1874 14.313 23.0735L18.8223 20.408L18.8228 20.4085Z"
+                                        fill="#F2F2F2" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_486_22522">
+                                        <rect width="22.8252" height="28.3868" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+                            <span class="company-name">ZatScan</span>
+                        </div>
+                        <div class="profile">
+                            <img src="https://i.pravatar.cc/100?img=13">
+                            <div>
+                                <h4>ZatScan</h4>
+                                <span>Product Lead</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DUPLICATE FOR SMOOTH LOOP -->
+                    <div class="testimonial-card">
+                        <p>
+                            “We had the pleasure of working with GrowthSphere Industries on content for BizNova, and
+                            their work exceeded expectations.”
+                        </p>
+                        <div class="company">
+                            <!-- SVG LOGO -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="29" viewBox="0 0 23 29"
+                                fill="none">
+                                <g clip-path="url(#clip0_486_22522)">
+                                    <path
+                                        d="M9.61017 11.5053C13.1272 9.39389 16.5001 14.4049 13.2602 16.8726L13.3627 22.8934C13.3686 23.2267 13.732 23.4293 14.0186 23.2594L18.8222 20.4079L21.8012 18.6397C21.9329 18.5616 22.0139 18.4195 22.0136 18.2662L22.0121 7.73287C22.0119 7.5753 21.9266 7.42965 21.7886 7.35332L8.58661 0.0315559C8.44914 -0.0447655 8.28085 -0.0404413 8.1473 0.0422279L0.27067 4.92949C-0.00250014 5.09897 -0.00313588 5.49637 0.269363 5.66665L9.61017 11.5053Z"
+                                        fill="white" />
+                                    <path
+                                        d="M13.2613 16.8725C9.72815 18.9573 6.39354 13.9206 9.65232 11.4777L9.59584 5.45624C9.59274 5.12296 9.2308 4.91761 8.94277 5.08512L1.12481 9.64606C0.992234 9.72316 0.910769 9.86478 0.90963 10.0177L0.831181 20.5509C0.830008 20.7084 0.914443 20.8545 1.05191 20.9322L14.1974 28.354C14.3344 28.4312 14.5027 28.4283 14.6367 28.3466L22.5505 23.5195C22.8251 23.3519 22.8285 22.955 22.5574 22.7824L13.2613 16.8725Z"
+                                        fill="#B8B8B8" />
+                                    <path
+                                        d="M18.8228 20.4085L13.2824 16.8571L13.2655 16.8699L13.3428 22.5276C13.3462 22.7628 13.3437 22.9762 13.575 23.1173C13.8064 23.2585 14.1207 23.1874 14.313 23.0735L18.8223 20.408L18.8228 20.4085Z"
+                                        fill="#F2F2F2" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_486_22522">
+                                        <rect width="22.8252" height="28.3868" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+                            <span class="company-name">ZatScan</span>
+                        </div>
+                        <div class="profile">
+                            <img src="https://i.pravatar.cc/100?img=11">
+                            <div>
+                                <h4>ZatScan</h4>
+                                <span>Product Lead</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p>
+                            “We had the pleasure of working with GrowthSphere Industries on content for BinDawood, and
+                            their work exceeded expectations, capturing our brand voice with precision and creativity.
+                            Highly recommended for impactful, high-quality content that enhances customer engagement.”
+                        </p>
+                        <div class="company">
+                            <!-- SVG LOGO -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="29" viewBox="0 0 23 29"
+                                fill="none">
+                                <g clip-path="url(#clip0_486_22522)">
+                                    <path
+                                        d="M9.61017 11.5053C13.1272 9.39389 16.5001 14.4049 13.2602 16.8726L13.3627 22.8934C13.3686 23.2267 13.732 23.4293 14.0186 23.2594L18.8222 20.4079L21.8012 18.6397C21.9329 18.5616 22.0139 18.4195 22.0136 18.2662L22.0121 7.73287C22.0119 7.5753 21.9266 7.42965 21.7886 7.35332L8.58661 0.0315559C8.44914 -0.0447655 8.28085 -0.0404413 8.1473 0.0422279L0.27067 4.92949C-0.00250014 5.09897 -0.00313588 5.49637 0.269363 5.66665L9.61017 11.5053Z"
+                                        fill="white" />
+                                    <path
+                                        d="M13.2613 16.8725C9.72815 18.9573 6.39354 13.9206 9.65232 11.4777L9.59584 5.45624C9.59274 5.12296 9.2308 4.91761 8.94277 5.08512L1.12481 9.64606C0.992234 9.72316 0.910769 9.86478 0.90963 10.0177L0.831181 20.5509C0.830008 20.7084 0.914443 20.8545 1.05191 20.9322L14.1974 28.354C14.3344 28.4312 14.5027 28.4283 14.6367 28.3466L22.5505 23.5195C22.8251 23.3519 22.8285 22.955 22.5574 22.7824L13.2613 16.8725Z"
+                                        fill="#B8B8B8" />
+                                    <path
+                                        d="M18.8228 20.4085L13.2824 16.8571L13.2655 16.8699L13.3428 22.5276C13.3462 22.7628 13.3437 22.9762 13.575 23.1173C13.8064 23.2585 14.1207 23.1874 14.313 23.0735L18.8223 20.408L18.8228 20.4085Z"
+                                        fill="#F2F2F2" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_486_22522">
+                                        <rect width="22.8252" height="28.3868" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+                            <span class="company-name">ZatScan</span>
+                        </div>
+                        <div class="profile">
+                            <img src="https://i.pravatar.cc/100?img=12">
+                            <div>
+                                <h4>Atharva Gadekar</h4>
+                                <span>Product Lead</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="page-spacer"></div>
+    <section>
+        <h2 class="title reveal delay-2">
+            <span>Full Scale</span><em class=" accent">Web Development</em> <span> By GrowthSphere Industries.</span>
+
+        </h2>
+        <p class="zatscanSubtitle reveal delay-3">Across all our web development services, GrowthSphere Industries
+            follows a strict
+            quality-first approach to ensure reliability, consistency, and long-term performance. We maintain strong
+            internal standards, clear processes, and continuous improvement practices to deliver dependable results for
+            every project.</p>
+        <p class="zatscanSubtitle reveal delay-4">We also take security seriously. Our development workflow includes
+            solid security
+            measures, careful data handling, and modern protection techniques to keep your website and your users safe.
+            Even without formal certifications, we operate with the same level of responsibility and attention that you
+            would expect from a trusted digital partner.</p>
+
+        <br><br>
+        <section>
+            <div class="cards-wrapper">
+                <div class="solution-card">
+                    <img src="assets/web-dev.svg"><br>
+                    <h3>Business analysis</h3>
+                    <p class="text-center text-secondary fw-normal lh-base fs-5 mb-0">Our business analysts take the
+                        time to understand your target audience and define clear project requirements that support your
+                        goals. They carefully outline the scope of your solution and ensure every detail is aligned with
+                        your vision. By acting as a bridge between your business team and our technical experts, they
+                        keep communication smooth, remove confusion, and make sure everyone stays on the same page
+                        throughout the entire project</p>
+
+                </div>
+
+
+                <div class="solution-card">
+                    <img src="assets/web-dev.svg">
+                    <h3>UX and UI design</h3>
+                    <p class="text-center text-secondary fw-normal lh-base fs-5 mb-0">
+                        We begin designing a web application by analyzing your target audience and mapping out user
+                        journeys that are intuitive, fast, and seamless. Our UI designers then step in to transform
+                        these journeys into a visually appealing, stylish interface that combines functionality with
+                        engaging design.
+                    </p>
+
+                </div>
+
+
+                <div class="solution-card">
+                    <img src="assets/web-dev.svg">
+                    <h3>Architecture</h3>
+                    <p class="text-center text-secondary fw-normal lh-base fs-5 mb-0">
+                        Our solution architects carefully design every functional component of your web solution,
+                        selecting the most effective technologies to ensure your business logic is fully achievable and
+                        robust. They also plan and map all API connections both within the system and with external
+                        platforms to guarantee seamless integration and smooth performance.</p>
+
+                </div>
+                <div class="solution-card">
+                    <img src="assets/web-dev.svg">
+                    <h3>Testing and QA</h3>
+                    <p class="text-center text-secondary fw-normal lh-base fs-5 mb-0">
+                        We ensure your web solution performs flawlessly, loads quickly, remains user-friendly, and stays
+                        secure. Our team of skilled testing engineers rigorously evaluates every feature to make sure we
+                        deliver on these promises.
+                    </p>
+
+                </div>
+                <div class="solution-card">
+                    <img src="assets/web-dev.svg"><br>
+                    <h3>Continuous Support and evolution</h3>
+                    <p class="text-center text-secondary fw-normal lh-base fs-5 mb-0">We enhance your web-based software
+                        to keep it efficient, competitive, and aligned with your evolving business needs. Our
+                        established DevOps processes allow us to deploy urgent updates within 1–2 days and release new,
+                        planned features every 2–6 weeks, ensuring your application stays modern and fully optimized.
+                    </p>
+
+                </div>
+                <div class="solution-card">
+                    <img src="assets/web-dev.svg">
+                    <h3>Help desk</h3>
+                    <p class="text-center text-secondary fw-normal lh-base fs-5 mb-0">We offer L1, L2, and L3 support to
+                        quickly address any issues in usage, technology, or code. Our team delivers hot-fixes within 24
+                        hours, ensuring your web application remains highly available, reliable, and trouble-free at all
+                        times.
+                    </p>
+
+                </div>
+            </div>
+        </section>
+    </section>
+  <div class="page-spacer"></div>
+    <div>
+        <h2 class="title reveal delay-1">
+            <span>Average Cost of Different Web </span><em class=" accent">Solutions.</em>
+
+        </h2>
+        <p class="zatscanSubtitle reveal delay-2">
+            Web solutions vary greatly in functionality and scale, from simple corporate websites to complex enterprise
+            systems,
+            so costs naturally differ as well.Explore some examples from our portfolio and feel free to request a free
+            quote
+            that is tailored specifically to your project.</p>
+
+
+        <section class="pricing-section reveal delay-3">
+            <div class="container">
+                <div class="row g-4 justify-content-center">
+
+                    <!-- CARD 1 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-card">
+                            <div class="icon-circle">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43"
+                                    fill="none">
+                                    <path
+                                        d="M39.4173 21.4997C39.4173 31.3948 31.3958 39.4163 21.5007 39.4163M39.4173 21.4997C39.4173 11.6046 31.3958 3.58301 21.5007 3.58301M39.4173 21.4997H3.58398M21.5007 39.4163C11.6055 39.4163 3.58398 31.3948 3.58398 21.4997M21.5007 39.4163C16.9001 34.5857 14.334 28.1705 14.334 21.4997C14.334 14.8288 16.9001 8.41362 21.5007 3.58301M21.5007 39.4163C26.1012 34.5857 28.6673 28.1705 28.6673 21.4997C28.6673 14.8288 26.1012 8.41362 21.5007 3.58301M3.58398 21.4997C3.58398 11.6046 11.6055 3.58301 21.5007 3.58301"
+                                        stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <p class="price-text">From $20,000</p>
+                            <p class="card-desc">
+                                For a Custom branded corporate Website
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CARD 2 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-card">
+                            <div class="icon-circle">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43"
+                                    fill="none">
+                                    <path
+                                        d="M28.6673 19.7083L32.2507 23.2917L39.4173 16.125M28.6673 37.625V34.0417C28.6673 32.1409 27.9123 30.3181 26.5682 28.9741C25.2242 27.6301 23.4014 26.875 21.5007 26.875H10.7507C8.84993 26.875 7.02706 27.6301 5.68305 28.9741C4.33904 30.3181 3.58398 32.1409 3.58398 34.0417V37.625M23.2923 12.5417C23.2923 16.4997 20.0837 19.7083 16.1257 19.7083C12.1676 19.7083 8.95898 16.4997 8.95898 12.5417C8.95898 8.58363 12.1676 5.375 16.1257 5.375C20.0837 5.375 23.2923 8.58363 23.2923 12.5417Z"
+                                        stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <p class="price-text">From $70,000</p>
+                            <p class="card-desc">
+                                For a sales Service Customer Web Portal
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CARD 3 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-card">
+                            <div class="icon-circle">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43"
+                                    fill="none">
+                                    <path
+                                        d="M3.67383 3.67285H7.25716L12.023 25.9254C12.1978 26.7403 12.6513 27.4688 13.3053 27.9855C13.9593 28.5022 14.773 28.7747 15.6063 28.7562H33.1288C33.9444 28.7549 34.735 28.4754 35.3703 27.964C36.0055 27.4525 36.4472 26.7397 36.6226 25.9433L39.5788 12.6312H9.17424M16.1259 37.6249C16.1259 38.6144 15.3238 39.4166 14.3342 39.4166C13.3447 39.4166 12.5426 38.6144 12.5426 37.6249C12.5426 36.6354 13.3447 35.8333 14.3342 35.8333C15.3238 35.8333 16.1259 36.6354 16.1259 37.6249ZM35.8342 37.6249C35.8342 38.6144 35.0321 39.4166 34.0426 39.4166C33.0531 39.4166 32.2509 38.6144 32.2509 37.6249C32.2509 36.6354 33.0531 35.8333 34.0426 35.8333C35.0321 35.8333 35.8342 36.6354 35.8342 37.6249Z"
+                                        stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <p class="price-text">From $200,000</p>
+                            <p class="card-desc">
+                                For an E-commerce with custom UI and BI Tools
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CARD 4 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-card">
+                            <div class="icon-circle">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43"
+                                    fill="none">
+                                    <path
+                                        d="M8.95898 28.6663V23.2913C8.95898 22.8162 9.14775 22.3604 9.48375 22.0244C9.81975 21.6884 10.2755 21.4997 10.7507 21.4997H32.2507C32.7258 21.4997 33.1815 21.6884 33.5176 22.0244C33.8536 22.3604 34.0423 22.8162 34.0423 23.2913V28.6663M21.5007 21.4997V14.333M30.459 28.6663H37.6257C38.6152 28.6663 39.4173 29.4685 39.4173 30.458V37.6247C39.4173 38.6142 38.6152 39.4163 37.6257 39.4163H30.459C29.4695 39.4163 28.6673 38.6142 28.6673 37.6247V30.458C28.6673 29.4685 29.4695 28.6663 30.459 28.6663ZM5.37565 28.6663H12.5423C13.5318 28.6663 14.334 29.4685 14.334 30.458V37.6247C14.334 38.6142 13.5318 39.4163 12.5423 39.4163H5.37565C4.38614 39.4163 3.58398 38.6142 3.58398 37.6247V30.458C3.58398 29.4685 4.38614 28.6663 5.37565 28.6663ZM17.9173 3.58301H25.084C26.0735 3.58301 26.8757 4.38516 26.8757 5.37467V12.5413C26.8757 13.5309 26.0735 14.333 25.084 14.333H17.9173C16.9278 14.333 16.1257 13.5309 16.1257 12.5413V5.37467C16.1257 4.38516 16.9278 3.58301 17.9173 3.58301Z"
+                                        stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <p class="price-text">From $400,000</p>
+                            <p class="card-desc">
+                                For complex ERP solutions and custom workflows
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CTA CARD -->
+                    <div class="col-lg-8 col-md-12">
+                        <div class="cta-card">
+                            <p class="cta-title">
+                                Want to know the exact cost of your solution?
+                            </p>
+                            <p class="cta-desc">
+                                Our experts will consult you and give you an exact cost.
+                                Schedule a call with us now.
+                            </p>
+
+                            <div class="cus-btn btn-flex">
+                                <span class="btn-text">Schedule a Call</span>
+
+                                <!-- SVG ICON -->
+                                <svg class="btn-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none">
+                                    <path
+                                        d="M18.6666 9.33331L25.6666 2.33331M25.6666 2.33331V9.33331M25.6666 2.33331H18.6666M16.1373 19.3293C16.3782 19.44 16.6497 19.4652 16.9069 19.401C17.1641 19.3367 17.3918 19.1868 17.5524 18.9758L17.9666 18.4333C18.1839 18.1435 18.4658 17.9083 18.7898 17.7463C19.1137 17.5843 19.471 17.5 19.8333 17.5H23.3333C23.9521 17.5 24.5456 17.7458 24.9832 18.1834C25.4208 18.621 25.6666 19.2145 25.6666 19.8333V23.3333C25.6666 23.9522 25.4208 24.5456 24.9832 24.9832C24.5456 25.4208 23.9521 25.6666 23.3333 25.6666C17.7637 25.6666 12.4223 23.4542 8.48401 19.5159C4.54575 15.5776 2.33325 10.2362 2.33325 4.66665C2.33325 4.04781 2.57908 3.45432 3.01667 3.01673C3.45425 2.57915 4.04775 2.33331 4.66659 2.33331H8.16659C8.78542 2.33331 9.37892 2.57915 9.8165 3.01673C10.2541 3.45432 10.4999 4.04781 10.4999 4.66665V8.16665C10.4999 8.52888 10.4156 8.88615 10.2536 9.21014C10.0916 9.53414 9.85638 9.81597 9.56658 10.0333L9.02058 10.4428C8.8064 10.6064 8.65544 10.839 8.59334 11.1012C8.53124 11.3634 8.56183 11.6391 8.67992 11.8813C10.2744 15.1198 12.8967 17.7389 16.1373 19.3293Z"
+                                        stroke="#D2D0D0" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+     <div class="page-spacer"></div>
+    <section class="wd-scroll-track" id="wdTrack">
+
+        <div class="wd-sticky">
+
+            <h2 class="title">
+                <span>Ensuring </span><em class="accent">Success.</em>
+            </h2>
+            <br><br><br><br>
+            <section class="wd-section">
+
+                <div class="wd-heading">
+
+                    <span id="wdLeft" class="wd-text left">Web Development</span>
+
+
+                    <div class="wd-middle" id="wdMiddle">
+                        <div class="wd-card col-lg-4 col-md-6">
+                            <div class="pricing-card">
+                                <div class="icon-circle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43"
+                                        fill="none">
+                                        <path
+                                            d="M39.4173 21.4997C39.4173 31.3948 31.3958 39.4163 21.5007 39.4163M39.4173 21.4997C39.4173 11.6046 31.3958 3.58301 21.5007 3.58301M39.4173 21.4997H32.2507M21.5007 39.4163C11.6055 39.4163 3.58398 31.3948 3.58398 21.4997M21.5007 39.4163V32.2497M3.58398 21.4997C3.58398 11.6046 11.6055 3.58301 21.5007 3.58301M3.58398 21.4997H10.7507M21.5007 3.58301V10.7497"
+                                            stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <p class="price-text">Scoping</p>
+                                <p class="card-desc">
+                                    This page explains our approach to requirements engineering, feasibility assessment,
+                                    and project scoping. It also highlights how we manage scope changes and control
+                                    scope creep to keep your project on track.
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="wd-card col-lg-4 col-md-6">
+                            <div class="pricing-card">
+                                <div class="icon-circle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43"
+                                        fill="none">
+                                        <path
+                                            d="M8.95703 26.8754C10.8297 25.6788 13.0056 25.043 15.2279 25.043C17.4502 25.043 19.6261 25.6788 21.4987 26.8754C23.3713 28.0721 25.5472 28.7079 27.7695 28.7079C29.9918 28.7079 32.1677 28.0721 34.0404 26.8754M8.95703 16.1254C10.8297 14.9288 13.0056 14.293 15.2279 14.293C17.4502 14.293 19.6261 14.9288 21.4987 16.1254C23.3713 17.3221 25.5472 17.9579 27.7695 17.9579C29.9918 17.9579 32.1677 17.3221 34.0404 16.1254"
+                                            stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <p class="price-text">Cost Estimation</p>
+                                <p class="card-desc">
+                                    The page lists the factors ScienceSoft’s teams consider to estimate costs, shares
+                                    sample top-down and bottom-up estimates, and overviews our cost optimization best
+                                    practices.
+
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="wd-card col-lg-4 col-md-6">
+                            <div class="pricing-card">
+                                <div class="icon-circle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43"
+                                        fill="none">
+                                        <path
+                                            d="M16.1243 21.5005L19.7077 25.0838L26.8743 17.9171M35.8327 23.2921C35.8327 32.2505 29.5618 36.7296 22.1085 39.3276C21.7182 39.4598 21.2943 39.4535 20.9081 39.3096C13.4368 36.7296 7.16602 32.2505 7.16602 23.2921V10.7505C7.16602 10.2753 7.35478 9.81958 7.69078 9.48358C8.02679 9.14758 8.4825 8.95881 8.95768 8.95881C12.541 8.95881 17.0202 6.80881 20.1377 4.08548C20.5173 3.76119 21.0001 3.58301 21.4993 3.58301C21.9986 3.58301 22.4814 3.76119 22.861 4.08548C25.9964 6.82673 30.4577 8.95881 34.041 8.95881C34.5162 8.95881 34.9719 9.14758 35.3079 9.48358C35.6439 9.81958 35.8327 10.2753 35.8327 10.7505V23.2921Z"
+                                            stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <p class="price-text">Quality Management</p>
+                                <p class="card-desc">
+                                    Our solution architects carefully design every functional component of your web
+                                    solution, selecting the most effective technologies to ensure your business logic is
+                                    fully achievable and robust. They also plan and map all API connections both within
+                                    the system and with external platforms to guarantee seamless integration and smooth
+                                    performance.
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="wd-card col-lg-4 col-md-6">
+                            <div class="pricing-card">
+                                <div class="icon-circle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43"
+                                        fill="none">
+                                        <path
+                                            d="M28.6673 37.625V34.0417C28.6673 32.1409 27.9123 30.3181 26.5682 28.9741C25.2242 27.6301 23.4014 26.875 21.5007 26.875H10.7507C8.84993 26.875 7.02706 27.6301 5.68305 28.9741C4.33904 30.3181 3.58398 32.1409 3.58398 34.0417V37.625M28.6673 5.60433C30.2041 6.00275 31.5651 6.90018 32.5367 8.15578C33.5083 9.41138 34.0355 10.9541 34.0355 12.5417C34.0355 14.1293 33.5083 15.672 32.5367 16.9276C31.5651 18.1832 30.2041 19.0806 28.6673 19.479M39.4173 37.625V34.0417C39.4161 32.4538 38.8876 30.9112 37.9148 29.6562C36.9419 28.4012 35.5798 27.5049 34.0423 27.1079M23.2923 12.5417C23.2923 16.4997 20.0837 19.7083 16.1257 19.7083C12.1676 19.7083 8.95898 16.4997 8.95898 12.5417C8.95898 8.58363 12.1676 5.375 16.1257 5.375C20.0837 5.375 23.2923 8.58363 23.2923 12.5417Z"
+                                            stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <p class="price-text">Collaboration</p>
+                                <p class="card-desc">
+                                    Our solution architects carefully design every functional component of your web
+                                    solution, selecting the most effective technologies to ensure your business logic is
+                                    fully achievable and robust. They also plan and map all API connections both within
+                                    the system and with external platforms to guarantee seamless integration and smooth
+                                    performance.
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="wd-card col-lg-4 col-md-6">
+                            <div class="pricing-card">
+                                <div class="icon-circle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43"
+                                        fill="none">
+                                        <path
+                                            d="M12.5397 17.9163V12.5413C12.5397 10.1654 13.4835 7.88686 15.1635 6.20684C16.8436 4.52683 19.1221 3.58301 21.498 3.58301C23.8739 3.58301 26.1525 4.52683 27.8325 6.20684C29.5126 7.88686 30.4564 10.1654 30.4564 12.5413V17.9163M23.2897 28.6663C23.2897 29.6559 22.4876 30.458 21.498 30.458C20.5085 30.458 19.7064 29.6559 19.7064 28.6663C19.7064 27.6768 20.5085 26.8747 21.498 26.8747C22.4876 26.8747 23.2897 27.6768 23.2897 28.6663ZM8.95638 17.9163H34.0397C36.0187 17.9163 37.623 19.5207 37.623 21.4997V35.833C37.623 37.812 36.0187 39.4163 34.0397 39.4163H8.95638C6.97736 39.4163 5.37305 37.812 5.37305 35.833V21.4997C5.37305 19.5207 6.97736 17.9163 8.95638 17.9163Z"
+                                            stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <p class="price-text">Security management</p>
+                                <p class="card-desc">
+                                    We outline the scope of our cybersecurity activities and describe the robust
+                                    security management practices we follow throughout the development project to
+                                    protect your data and ensure safe, reliable solutions.
+
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="wd-card col-lg-4 col-md-6">
+                            <div class="pricing-card">
+                                <div class="icon-circle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43"
+                                        fill="none">
+                                        <path
+                                            d="M21.5007 12.5417V37.625M21.5007 12.5417C21.5007 10.6409 20.7456 8.81808 19.4016 7.47407C18.0576 6.13006 16.2347 5.375 14.334 5.375H5.37565C4.90047 5.375 4.44475 5.56376 4.10875 5.89977C3.77275 6.23577 3.58398 6.69149 3.58398 7.16667V30.4583C3.58398 30.9335 3.77275 31.3892 4.10875 31.7252C4.44475 32.0612 4.90047 32.25 5.37565 32.25H16.1257C17.5512 32.25 18.9183 32.8163 19.9264 33.8243C20.9344 34.8323 21.5007 36.1995 21.5007 37.625M21.5007 12.5417C21.5007 10.6409 22.2557 8.81808 23.5997 7.47407C24.9437 6.13006 26.7666 5.375 28.6673 5.375H37.6257C38.1008 5.375 38.5565 5.56376 38.8926 5.89977C39.2286 6.23577 39.4173 6.69149 39.4173 7.16667V30.4583C39.4173 30.9335 39.2286 31.3892 38.8926 31.7252C38.5565 32.0612 38.1008 32.25 37.6257 32.25H26.8757C25.4501 32.25 24.083 32.8163 23.075 33.8243C22.0669 34.8323 21.5007 36.1995 21.5007 37.625M28.6673 21.5H32.2507M28.6673 14.3333H32.2507M10.7507 21.5H14.334M10.7507 14.3333H14.334"
+                                            stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <p class="price-text">Knowledge management</p>
+                                <p class="card-desc">
+                                    We explain our knowledge management and transfer process and provide examples of the
+                                    software documentation we deliver at different stages of development.
+
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="wd-card col-lg-4 col-md-6">
+                            <div class="pricing-card">
+                                <div class="icon-circle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43"
+                                        fill="none">
+                                        <path
+                                            d="M28.6673 14.333H17.9173C16.967 14.333 16.0555 14.7105 15.3835 15.3825C14.7115 16.0545 14.334 16.966 14.334 17.9163C14.334 18.8667 14.7115 19.7781 15.3835 20.4501C16.0555 21.1221 16.967 21.4997 17.9173 21.4997H25.084C26.0343 21.4997 26.9458 21.8772 27.6178 22.5492C28.2898 23.2212 28.6673 24.1326 28.6673 25.083C28.6673 26.0334 28.2898 26.9448 27.6178 27.6168C26.9458 28.2888 26.0343 28.6663 25.084 28.6663H14.334M21.5007 32.2497V10.7497M39.4173 21.4997C39.4173 31.3948 31.3958 39.4163 21.5007 39.4163C11.6055 39.4163 3.58398 31.3948 3.58398 21.4997C3.58398 11.6046 11.6055 3.58301 21.5007 3.58301C31.3958 3.58301 39.4173 11.6046 39.4173 21.4997Z"
+                                            stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <p class="price-text">Budget Management</p>
+                                <p class="card-desc">
+
+                                    This page outlines our approach to project cost estimation and explains how we
+                                    carefully manage expenses throughout the project to ensure we stay within the agreed
+                                    budget. </p>
+
+                            </div>
+                        </div>
+                        <div class="wd-card col-lg-4 col-md-6">
+                            <div class="pricing-card">
+                                <div class="icon-circle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43"
+                                        fill="none">
+                                        <path
+                                            d="M8.95703 39.4163H34.0404M8.95703 3.58301H34.0404M30.457 39.4163V31.9415C30.4568 30.9912 30.0792 30.0799 29.4071 29.4081L21.4987 21.4997M21.4987 21.4997L13.5903 29.4081C12.9182 30.0799 12.5406 30.9912 12.5404 31.9415V39.4163M21.4987 21.4997L13.5903 13.5913C12.9182 12.9194 12.5406 12.0081 12.5404 11.0578V3.58301M21.4987 21.4997L29.4071 13.5913C30.0792 12.9194 30.4568 12.0081 30.457 11.0578V3.58301"
+                                            stroke="#D9D9D9" stroke-width="3.58333" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <p class="price-text">Deadline management</p>
+                                <p class="card-desc">
+                                    We highlight our key practices for managing project timelines and ensuring your
+                                    goals are achieved as quickly and efficiently as possible.
+
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <span id="wdRight" class="wd-text right accent">Advantages</span>
+
+                </div>
+
+            </section>
+
+        </div>
+    </section>
+ <div class="page-spacer"></div>
+    <section>
+
+        <h2 class="title">
+            <span>What makes </span><em class="accent">GrowthSphere Industries </em><span>different? </span>
+        </h2>
+        <div class="wrapper-box reveal delay-1">
+            <div class="responsive-box"></div>
+        </div>
+        <h3 class="title_small reveal delay-2">
+            <span>We achieve project success </span><em class="accent">no matter what </em>
+        </h3>
+        <p class="zatscanSubtitle reveal delay-3">
+            Project success is our standard. We drive project to their goals by overcoming constraints, designing
+            architectures that prioritize business value, and bringing in experts trained for clients’ specific
+            industries, workflows and technologies.</p>
+        <br><br>
+        <div class="btn-center reveal delay-4">
+            <div class="cus-btn   ">
+                <span class="btn-text">Schedule a Call</span>
+
+                <!-- SVG ICON -->
+                <svg class="btn-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none">
+                    <path
+                        d="M18.6666 9.33331L25.6666 2.33331M25.6666 2.33331V9.33331M25.6666 2.33331H18.6666M16.1373 19.3293C16.3782 19.44 16.6497 19.4652 16.9069 19.401C17.1641 19.3367 17.3918 19.1868 17.5524 18.9758L17.9666 18.4333C18.1839 18.1435 18.4658 17.9083 18.7898 17.7463C19.1137 17.5843 19.471 17.5 19.8333 17.5H23.3333C23.9521 17.5 24.5456 17.7458 24.9832 18.1834C25.4208 18.621 25.6666 19.2145 25.6666 19.8333V23.3333C25.6666 23.9522 25.4208 24.5456 24.9832 24.9832C24.5456 25.4208 23.9521 25.6666 23.3333 25.6666C17.7637 25.6666 12.4223 23.4542 8.48401 19.5159C4.54575 15.5776 2.33325 10.2362 2.33325 4.66665C2.33325 4.04781 2.57908 3.45432 3.01667 3.01673C3.45425 2.57915 4.04775 2.33331 4.66659 2.33331H8.16659C8.78542 2.33331 9.37892 2.57915 9.8165 3.01673C10.2541 3.45432 10.4999 4.04781 10.4999 4.66665V8.16665C10.4999 8.52888 10.4156 8.88615 10.2536 9.21014C10.0916 9.53414 9.85638 9.81597 9.56658 10.0333L9.02058 10.4428C8.8064 10.6064 8.65544 10.839 8.59334 11.1012C8.53124 11.3634 8.56183 11.6391 8.67992 11.8813C10.2744 15.1198 12.8967 17.7389 16.1373 19.3293Z"
+                        stroke="#D2D0D0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+        </div>
+    </section>
+     <div class="page-spacer"></div>
+    <section>
+        <br><br>
+        <h2 class="title reveal delay-1">
+            <span>Winning Web Design for </span><em class="accent">30+ Industries </em>
+        </h2>
+
+        <div class="Card-services-subpages reveal delay-2">
+            <div class="inner-box"></div>
+        </div>
+    </section>
+    <footer class="footer">
+        <h3 class="footer-title reveal delay-1">More about Web</h3>
+
+        <!-- SERVICES -->
+        <div class="services-grid">
+            <div class="footer-section reveal delay-2">
+                <h4>Services</h4>
+                <ul>
+                    <a href="#">Web Development Consulting</a>
+                    <li>Web Application vs. Website</li>
+                    <li>Web Application Architecture</li>
+                    <li>Mobile Web Apps</li>
+                    <li>Live Support for Web Applications</li>
+                </ul>
+            </div>
+
+            <div class="footer-section reveal delay-3">
+                <h4 class="sr-only">Services</h4>
+                <ul>
+                    <li>Web App Development</li>
+                    <li>Custom Web App Development</li>
+                    <li>Web Application and Website Testing</li>
+                    <li>Progressive Web Apps</li>
+                    <li>Responsive Web App Examples</li>
+                    <li>Web Application Framework</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- INSIGHTS -->
+        <div class="footer-section insights reveal delay-4">
+            <h4>Insights</h4>
+            <ul>
+                <li>How to Hire Web Developers</li>
+                <li>Web Development Outsourcing</li>
+                <li>Good Web Development Team</li>
+                <li>Live Support for Web Applications</li>
+                <li>5 Web Development Trends</li>
+                <li>Web Application Development Best Practices</li>
+                <li>Web Application Development Cost</li>
+            </ul>
+        </div>
+    </footer>
+
+
+    <script>
+
+        const hero = document.querySelector('.solutions-hero');
+        const cards = document.querySelector('.solutions-cards');
+        const card = document.getElementById("projectCard");
+        const wdTrack = document.getElementById("wdTrack");
+        const wdSticky = wdTrack.querySelector(".wd-sticky");
+        const wdCards = wdTrack.querySelectorAll(".wd-card");
+        const total = wdCards.length;
+
+        window.addEventListener("scroll", () => {
+            const scrollTop = window.scrollY;
+            const trackTop = wdTrack.offsetTop;
+            const trackHeight = wdTrack.offsetHeight - window.innerHeight;
+
+            let progress = (scrollTop - trackTop) / trackHeight;
+            progress = Math.min(Math.max(progress, 0), 1);
+
+            // ✅ text split (cap at 0.5 like your demo)
+            const textProgress = Math.min(progress, 0.5);
+            wdSticky.style.setProperty("--wdScroll", textProgress);
+
+            wdCards.forEach((card, i) => {
+                const start = i / total;
+                const end = (i + 1) / total;
+
+                let p = (progress - start) / (end - start);
+                p = Math.min(Math.max(p, 0), 1);
+
+                // ❌ Hide cards that are not active
+                if (p === 0 || p === 1) {
+                    card.style.opacity = 0;
+                    return;
+                }
+
+                // ✅ Show ONLY active card
+                card.style.opacity = 1;
+
+                // bottom → center → top
+                const translateY = 160 - (p * 320);
+
+                card.style.transform =
+                    `translate(-50%, -50%) translateY(${translateY}px)`;
+            });
+
+        });
+
+
+
+
+
+        function scaleOnScroll() {
+            const rect = card.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            if (rect.top < windowHeight && rect.bottom > 0) {
+                // Multiply by 3 to make animation 3x faster
+                const visible = Math.min(1, (1 - rect.top / windowHeight) * 2);
+
+                /* SCALE RANGE */
+                const scale = Math.min(1.05, Math.max(0.9, 0.9 + (visible * 0.15)));
+                card.style.transform = `scale(${scale})`;
+            }
+        }
+
+        window.addEventListener("scroll", () => {
+            requestAnimationFrame(scaleOnScroll);
+        });
+
+        scaleOnScroll();
+        // Smooth scroll animation for solutions section
+        const heroText = hero.querySelector('h2');
+        const solutionCards = cards.querySelectorAll('.solution-card');
+
+        window.addEventListener('scroll', () => {
+            const heroRect = hero.getBoundingClientRect();
+            const heroTop = heroRect.top;
+            const heroHeight = heroRect.height;
+
+            // Calculate progress: 0 = hero fully visible, 1 = hero scrolled out
+            const scrollProgress = Math.max(0, Math.min(1, -heroTop / (heroHeight * 0.5)));
+
+            // Animate the hero text: scale down and fade out as you scroll
+            if (heroText) {
+                const scale = 1 - (scrollProgress * 0.15); // Scale from 1 to 0.85
+                const opacity = 1 - scrollProgress;
+                const translateY = scrollProgress * -30; // Move up slightly
+                heroText.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+                heroText.style.opacity = opacity;
+            }
+
+            // Animate cards with staggered reveal
+            solutionCards.forEach((card, index) => {
+                const cardRect = card.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+
+                // Card becomes visible when it enters the viewport
+                const cardVisible = cardRect.top < windowHeight * 0.85;
+
+                if (cardVisible) {
+                    // Add delay based on index for stagger effect
+                    setTimeout(() => {
+                        card.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        });
+
+        // Trigger initial check
+        window.dispatchEvent(new Event('scroll'));
+
+        // GrowthSphere section scroll animation
+        const gsSection = document.getElementById('gsSection');
+        const gsLine1 = document.getElementById('gsLine1');
+        const gsLine2 = document.getElementById('gsLine2');
+        const gsContent = document.getElementById('gsContent');
+
+        if (gsSection && gsLine1 && gsLine2 && gsContent) {
+            window.addEventListener('scroll', () => {
+                const sectionTop = gsSection.offsetTop;
+                const sectionHeight = gsSection.offsetHeight;
+                const scrollTop = window.scrollY;
+                const windowHeight = window.innerHeight;
+
+                // Calculate progress within the section (0 to 1)
+                const relativeScroll = scrollTop - sectionTop + windowHeight;
+                const progress = Math.max(0, Math.min(1, relativeScroll / sectionHeight));
+
+                // Phase 1 (0-0.25): Title only visible (already visible by default)
+                // Phase 2 (0.25-0.45): Line 1 highlights
+                // Phase 3 (0.45-0.65): Line 2 highlights, Line 1 greys out
+                // Phase 4 (0.65-1): Content appears
+
+                if (progress > 0.25 && progress <= 0.45) {
+                    // Phase 2: Line 1 active
+                    gsLine1.classList.add('active');
+                    gsLine1.classList.remove('greyed');
+                    gsLine2.classList.remove('active', 'greyed');
+                    gsContent.classList.remove('visible');
+                } else if (progress > 0.45 && progress <= 0.65) {
+                    // Phase 3: Line 2 active, Line 1 greyed
+                    gsLine1.classList.remove('active');
+                    gsLine1.classList.add('greyed');
+                    gsLine2.classList.add('active');
+                    gsLine2.classList.remove('greyed');
+                    gsContent.classList.remove('visible');
+                } else if (progress > 0.65) {
+                    // Phase 4: Both lines greyed, content visible
+                    gsLine1.classList.remove('active');
+                    gsLine1.classList.add('greyed');
+                    gsLine2.classList.remove('active');
+                    gsLine2.classList.add('greyed');
+                    gsContent.classList.add('visible');
+                } else {
+                    // Phase 1: Only title
+                    gsLine1.classList.remove('active', 'greyed');
+                    gsLine2.classList.remove('active', 'greyed');
+                    gsContent.classList.remove('visible');
+                }
+            });
+        }
+
+
+    </script>
+
+</body>
+
+</html>
