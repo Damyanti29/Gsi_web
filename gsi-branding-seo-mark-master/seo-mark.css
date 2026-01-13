@@ -188,21 +188,36 @@ body {
     align-items: center;
     gap: 10px;
     padding: 14px 28px;
-    background: transparent;
-    border: 1px solid var(--text-primary);
-    border-radius: 6px;
-    color: var(--text-primary);
+
     font-family: var(--font-primary);
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+
+
+    border-radius: 21.31px;
+    background: radial-gradient(37.68% 85.68% at 50.15% 6.82%, #4D2F26 0%, #070707 100%);
+    color: #D2D0D0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.cta-button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 2px solid #9f553e;
+    pointer-events: none;
+    -webkit-mask: linear-gradient(to bottom, white 0%, white 45%, transparent 100%);
+    mask: linear-gradient(to bottom, white 0%, white 45%, transparent 100%);
+    opacity: 1;
+    transition: border-color 0.3s ease;
 }
 
 .cta-button:hover {
-    background: var(--text-primary);
-    color: var(--bg-primary);
+
+    box-shadow: 0 0 18px rgba(255, 90, 24, 0.35);
 }
 
 .stats-row {
@@ -250,8 +265,8 @@ body {
 }
 
 .jellyfish-img {
-    width: 100%;
-    max-width: 800px;
+    width: 120%;
+    max-width: 1000px;
     height: auto;
     object-fit: contain;
     filter: drop-shadow(0 0 60px rgba(232, 93, 4, 0.2));
@@ -308,7 +323,7 @@ body {
 
 .intro-text {
     font-size: 14px;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     line-height: 1.8;
     margin-bottom: 20px;
 }
@@ -392,6 +407,11 @@ body {
     opacity: 1;
 }
 
+highlight-txt {
+    color: var(--text-primary);
+    opacity: 1;
+}
+
 /* ========================================
    SEO Section
 ======================================== */
@@ -423,7 +443,7 @@ body {
 
 .seo-text {
     font-size: 16px;
-    color: var(--text-primary);
+    color: var(--text-muted);
     line-height: 1.9;
     margin-bottom: 20px;
 }
@@ -434,8 +454,8 @@ body {
 }
 
 .seo-subtext {
-    color: var(--text-pr);
-    font-size: 14px;
+    color: var(--text-muted);
+    font-size: 16px;
 }
 
 /* ========================================
@@ -487,11 +507,20 @@ body {
     padding: 20px;
 }
 
+/* .seo-card-full {
+    display: flex;
+
+    gap: 40px;
+    padding: 20px 32px;
+    
+    align-items: stretch;
+} */
 .seo-card-full {
     display: flex;
-    align-items: center;
-    gap: 40px;
-    padding: 30px 40px;
+    min-height: 280px;
+   
+    gap: 32px;
+    align-items: stretch;
 }
 
 .seo-card-reverse {
@@ -500,12 +529,15 @@ body {
 
 .seo-card-content {
     flex: 1;
+  
+    
 }
+
 
 .seo-card-title {
     font-size: 28px;
     font-weight: 600;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
 }
 
 .seo-card-title .accent {
@@ -515,19 +547,31 @@ body {
 .seo-card-text {
     font-size: 16px;
     color: var(--text-secondary);
-    line-height: 1.7;
+    line-height: 1.6;
 }
 
+/* .seo-card-image {
+    padding: 0;
+    height: 100%;
+    border-radius: 20px 0 0 20px;
+    overflow: hidden;
+    flex: 1;
+} */
 .seo-card-image {
-    flex-shrink: 0;
+    flex: 0 0 45%;
+    border-radius: 20px;
+    overflow: hidden;
 }
+
+
 
 .seo-card-image img {
-    width: 280px;
-    height: auto;
-    border-radius: 12px;
+    width: 400px;
+    height: 300px;
     object-fit: cover;
 }
+
+
 
 .seo-card-right .seo-card-image img {
     width: 180px;
@@ -643,6 +687,48 @@ body {
     position: relative;
     z-index: 1;
 }
+.icon-circle svg {
+            width: 40px;
+            height: 40px;
+
+        }
+.icon-circle {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+
+            /* INNER FILL */
+            background: radial-gradient(100.16% 77.67% at 50.15% 6.82%,
+                    #4D2F26 0%,
+                    #070707 100%);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* FADED STROKE */
+        .icon-circle::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 1px solid #aa563c;
+            pointer-events: none;
+
+            /* Fade border from bottom */
+            -webkit-mask: linear-gradient(to bottom,
+                    white 0%,
+                    white 45%,
+                    transparent 100%);
+            mask: linear-gradient(to bottom,
+                    white 0%,
+                    white 45%,
+                    transparent 100%);
+        }
+
 
 .why-content {
     margin-top: 50px;
