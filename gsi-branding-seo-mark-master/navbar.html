@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowthSphere Industries</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+             --color-bg-dark: #0C0C0C;
+            --color-bg-body: #1a1a1a;
+            --color-text-white: #FFFFFF;
+            --color-text-muted: #D2D0D0;
+            --color-accent-orange: #FF5A18;
+            --font-inter: 'Inter', sans-serif;
+            --font-jakarta: 'Plus Jakarta Sans', sans-serif;
+            --navbar-height: 80px;
+        }
+
+        body {
+            background-color: var(--color-bg-dark);
+            color: var(--color-text-white);
+            font-family: var(--font-inter);
+            padding-top: 20px;
+            /* Space for demo */
+            overflow-x: hidden;
+        }
+
+        /* --- Custom Pill Navbar Styles --- */
+        .custom-navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .navbar-custom {
+            min-height: var(--navbar-height);
+            background: var(--color-bg-dark);
+            border-radius: 50px;
+            padding: 8px 24px;
+
+            /* Gradient Border Trick */
+            border: 2px solid transparent;
+            background-clip: padding-box, border-box;
+            background-origin: padding-box, border-box;
+            background-image:
+                linear-gradient(var(--color-bg-dark), var(--color-bg-dark)),
+                linear-gradient(to bottom, #BB5636 0%, rgba(49, 48, 48, 0.8) 100%);
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Utility to hide the default dropdown caret */
+        .no-caret::after {
+            display: none !important;
+        }
+
+        .navbar-brand img {
+            height: 36px;
+            width: auto;
+        }
+
+        .nav-link {
+            font-family: var(--font-inter);
+            font-size: 14px;
+            color: var(--color-text-white) !important;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 10px !important;
+            white-space: nowrap;
+        }
+
+        .navbar-nav {
+            gap: 2px !important;
+        }
+
+        .nav-link:hover,
+        .nav-link.show {
+            color: var(--color-accent-orange) !important;
+        }
+
+        /* Mega Menu Core */
+        .dropdown-menu-custom {
+            background: rgba(12, 12, 12, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+            /* Increased margin */
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 90, 24, 0.1);
+
+            /* Constrain Width logic */
+            width: 100%;
+            /* Matches parent position context */
+            left: 0;
+            right: 0;
+
+            display: block;
+            visibility: hidden;
+            opacity: 0;
+            /* Top to Bottom Animation: Start slightly above */
+            transform: translateY(-20px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dropdown-menu.show {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Positioning on Desktop */
+        @media (min-width: 992px) {
+            .nav-item.dropdown {
+                position: static;
+                height: 100%;
+                /* Ensure full height for pseudo-element target */
+            }
+
+            /* Bridge the gap so hover isn't lost */
+            /* Bridge the gap so hover isn't lost - Attached to Link now */
+            .nav-item.dropdown .nav-link {
+                position: relative;
+            }
+
+            .nav-item.dropdown .nav-link::after {
+                content: '';
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                height: 45px;
+                /* Covers the margin-top distance + buffer */
+                background: transparent;
+            }
+
+            /* Hover Logic */
+            .nav-item.dropdown:hover .dropdown-menu-custom {
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            /* Fix: Prevent stickiness if clicked. If not hovering, FORCE HIDE even if .show is present */
+            .nav-item.dropdown:not(:hover) .dropdown-menu.show {
+                visibility: hidden;
+                opacity: 0;
+                transform: translateY(-20px);
+                pointer-events: none;
+            }
+
+            /* Hover Logic */
+            .nav-item.dropdown:hover .dropdown-menu-custom {
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            /* Make the container relative for the dropdown to size against it */
+            .custom-navbar-container {
+                position: relative;
+            }
+
+            .dropdown-menu-custom {
+                width: 96%;
+                /* Will match custom-navbar-container width */
+                left: 2%;
+                right: 2%;
+            }
+        }
+
+        /* --- Services Menu (Accordion Style) --- */
+        .services-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            align-items: start;
+        }
+
+        /* On smaller desktop/tablet, reduce columns */
+        @media (max-width: 1200px) {
+            .services-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .service-item {
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            /* Removed cursor:pointer from here since only button toggles now */
+            transition: background 0.2s ease;
+            border-bottom: none;
+        }
+
+        .service-name {
+            font-family: var(--font-inter);
+            font-weight: 500;
+            font-size: 16px;
+            color: var(--color-text-white);
+            transition: color 0.3s ease;
+            text-decoration: none;
+            /* It's a link now */
+            flex-grow: 1;
+            /* Make it take available space */
+        }
+
+        .service-name:hover {
+            color: var(--color-accent-orange);
+        }
+
+        .service-expand {
+            width: 24px;
+            height: 24px;
+            border: none;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.6);
+            transition: all 0.3s;
+            margin-left: 10px;
+            /* Separator */
+            z-index: 2;
+            /* Ensure clickable */
+        }
+
+        .service-item.active .service-expand,
+        .service-expand:hover {
+            background: transparent;
+            color: var(--color-accent-orange);
+        }
+
+        /* Icon Toggling Logic */
+        .service-expand .bi-plus-lg {
+            display: block;
+        }
+
+        .service-expand .bi-dash-lg {
+            display: none;
+        }
+
+        .service-item.active .service-expand .bi-plus-lg {
+            display: none;
+        }
+
+        .service-item.active .service-expand .bi-dash-lg {
+            display: block;
+        }
+
+
+        .service-submenu {
+            display: grid;
+            grid-template-rows: 0fr;
+            overflow: hidden;
+            transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease, padding 0.5s ease, margin 0.5s ease;
+            opacity: 0;
+            margin-top: 0;
+            padding-bottom: 0;
+        }
+
+        .service-item.active .service-submenu {
+            grid-template-rows: 1fr;
+            opacity: 1;
+            padding-bottom: 15px;
+            margin-top: 5px;
+        }
+
+        .service-submenu>* {
+            min-height: 0;
+        }
+
+        .submenu-item {
+            display: block;
+            padding: 8px 0 8px 0px;
+            font-family: var(--font-inter);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            margin-left: 5px;
+        }
+
+        .submenu-item:hover {
+            color: var(--color-accent-orange);
+            background: transparent;
+        }
+
+        /* Tech Section */
+        .tech-section {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 35px;
+            align-items: center;
+        }
+
+        .tech-title {
+            font-family: var(--font-jakarta);
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--color-text-white);
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            max-width: 1000px;
+        }
+
+        /* Enhanced Tech Pill Style matching reference */
+        .tech-pill {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 10px 24px 10px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: radial-gradient(50.51% 53.12% at 82.21% 11.15%, #262626 0%, #141414 100%);
+            font-family: var(--font-jakarta);
+            font-weight: 600;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            min-width: 140px;
+        }
+
+        /* The Gradient Circle for Icon */
+        .tech-icon-box {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, rgba(30, 30, 30, 1) 0%, #000 100%);
+            position: relative;
+            /* Gradient Border simulation */
+            border: 1px solid transparent;
+            background-clip: padding-box;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Pseudo-element for the gradient ring */
+        .tech-icon-box::before {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            /* Border thickness */
+            border-radius: 50%;
+            padding: 1px;
+            background: linear-gradient(135deg, #FF5A18 0%, #313030 100%);
+            /* Brighter orange */
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        /* Optional internal glow */
+        .tech-icon-box::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle at center, rgba(187, 86, 54, 0.2), transparent 70%);
+            z-index: 0;
+        }
+
+        .tech-pill i {
+            position: relative;
+            z-index: 1;
+            font-size: 18px;
+            color: #fff;
+            /* White icon as per image */
+        }
+
+        .tech-pill:hover {
+            transform: translateY(-3px);
+            background: #141414;
+            border-color: rgba(187, 86, 54, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .tech-pill:hover .tech-icon-box::after {
+            background: radial-gradient(circle at center, rgba(187, 86, 54, 0.4), transparent 70%);
+        }
+
+        /* --- Industries Grid --- */
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .industry-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.85);
+            transition: all 0.3s ease;
+        }
+
+        .industry-item:hover {
+            background: rgba(255, 90, 24, 0.08);
+            border-color: rgba(255, 90, 24, 0.25);
+            transform: translateY(-2px);
+            color: var(--color-accent-orange);
+        }
+
+        .industry-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.6);
+            transition: color 0.3s;
+        }
+
+        .industry-item:hover .industry-icon {
+            color: var(--color-accent-orange);
+            background: rgba(255, 90, 24, 0.1);
+        }
+
+        /* CTA Button */
+        .cus-btn {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            padding: 8px 18px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 63px;
+            /* Gradient Border Logic */
+            border: 1.5px solid transparent;
+            background-image:
+                radial-gradient(37.68% 85.68% at 50.15% 6.82%, #4D2F26 0%, #070707 100%),
+                linear-gradient(to bottom, #FF521C, #4D2F26);
+            background-origin: padding-box, border-box;
+            background-clip: padding-box, border-box;
+
+            color: #D2D0D0;
+            text-decoration: none;
+            gap: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+        }
+
+        .cus-btn:hover {
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(255, 90, 24, 0.2);
+            transform: translateY(-2px);
+            /* Optional: Brighten border on hover if needed, or keep same */
+        }
+
+        @media (max-width: 991px) {
+            .navbar-custom {
+                border-radius: 30px;
+                padding: 10px 20px;
+                height: auto;
+            }
+
+            .navbar-collapse {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: #000000;
+                z-index: 2000;
+                padding: 20px;
+                overflow-y: auto;
+                display: block;
+                transform: translateX(100%);
+                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            /* Bootstrap adds .show class when open. We interpret that as sliding in. */
+            .navbar-collapse.show {
+                transform: translateX(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .navbar-collapse.collapsing {
+                /* Override bootstrap collapsing animation to use our transform */
+                height: 100vh !important;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 2000;
+                background: #000;
+                transform: translateX(100%);
+                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                display: block;
+            }
+
+            .navbar-collapse.collapsing.show {
+                transform: translateX(0);
+            }
+
+            .btn-close-menu {
+                position: absolute;
+                top: 25px;
+                right: 25px;
+                background: rgba(255, 255, 255, 0.1);
+                border: none;
+                color: #fff;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+                cursor: pointer;
+            }
+
+            .navbar-nav {
+                width: 100%;
+                margin-top: 60px;
+                /* Space for close button */
+                gap: 0 !important;
+            }
+
+            .nav-item {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            }
+
+            .nav-link {
+                font-size: 18px;
+                padding: 20px 0 !important;
+                justify-content: space-between;
+                width: 100%;
+            }
+
+            /* Re-style dropdown for mobile */
+            .dropdown-menu-custom {
+                position: static !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
+                background: transparent !important;
+                border: none !important;
+                box-shadow: none !important;
+                transform: none !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                display: none;
+                border-radius: 0;
+            }
+
+            .dropdown-menu.show {
+                display: block;
+                padding-bottom: 20px !important;
+            }
+
+            .services-list {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .service-item {
+                background: rgba(255, 255, 255, 0.03);
+                border-radius: 12px;
+                margin-bottom: 8px;
+                padding: 0 15px;
+            }
+
+            .service-header {
+                padding: 15px 0;
+            }
+
+            .service-name {
+                font-size: 16px;
+                font-weight: 500;
+            }
+
+            /* Industries Mobile */
+            .industries-menu .industries-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                padding-top: 10px;
+            }
+
+            .industry-item {
+                background: rgba(255, 255, 255, 0.05);
+            }
+
+            .tech-grid {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+
+
+            .btn-book-call {
+                width: 100%;
+                justify-content: center;
+                margin: 30px 0;
+                padding: 15px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="custom-navbar-container">
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <div class="container-fluid">
+                <!-- Brand -->
+                <a class="navbar-brand" href="#">
+                    <img src="/gsi-branding-seo-mark-master/assets/logo-dark.svg" alt="GrowthSphere Logo">
+                </a>
+
+                <!-- Toggler -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Collapse Content -->
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <!-- Mobile Close Button -->
+                    <button class="btn-close-menu d-lg-none" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarContent" aria-label="Close">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-lg-center">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+
+                        <!-- Services Dropdown -->
+                        <li class="nav-item dropdown nav-item-services">
+                            <a class="nav-link dropdown-toggle no-caret" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Services
+                                <i class="bi bi-chevron-down ms-auto d-lg-none" style="font-size: 16px;"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-custom">
+                                <div class="services-wrapper">
+                                    <div class="services-list">
+
+                                        <!-- Service Item 1 -->
+                                        <div class="service-item">
+                                            <div class="service-header">
+                                                <a href="#" class="service-name">Website Development</a>
+                                                <button class="service-expand" aria-label="Expand">
+                                                    <i class="bi bi-plus-lg"></i>
+                                                    <i class="bi bi-dash-lg"></i>
+                                                </button>
+                                            </div>
+                                            <div class="service-submenu">
+                                                <div>
+                                                    <a href="#" class="submenu-item">Business Website Development</a>
+                                                    <a href="#" class="submenu-item">E-Commerce Website Development</a>
+                                                    <a href="#" class="submenu-item">Custom Website Development</a>
+                                                    <a href="#" class="submenu-item">Landing Pages Development</a>
+                                                    <a href="#" class="submenu-item">Dropshipping Website
+                                                        Development</a>
+                                                    <a href="#" class="submenu-item">Website Redesign</a>
+                                                    <a href="#" class="submenu-item">Website Customization</a>
+                                                    <a href="#" class="submenu-item">Website Maintenance</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Service Item 2 -->
+                                        <div class="service-item">
+                                            <div class="service-header">
+                                                <a href="#" class="service-name">UI/UX Design</a>
+                                                <button class="service-expand" aria-label="Expand">
+                                                    <i class="bi bi-plus-lg"></i>
+                                                    <i class="bi bi-dash-lg"></i>
+                                                </button>
+                                            </div>
+                                            <div class="service-submenu">
+                                                <div>
+                                                    <a href="#" class="submenu-item">Website UI/UX Design</a>
+                                                    <a href="#" class="submenu-item">Mobile App UI/UX Design</a>
+                                                    <a href="#" class="submenu-item">Landing Page UI/UX</a>
+                                                    <a href="#" class="submenu-item">Wireframing & Prototyping</a>
+                                                    <a href="#" class="submenu-item">User Flow & Journey Mapping</a>
+                                                    <a href="#" class="submenu-item">UX Audit & Usability Testing</a>
+                                                    <a href="#" class="submenu-item">Design Systems & Style Guides</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Service Item 3 -->
+                                        <div class="service-item">
+                                            <div class="service-header">
+                                                <a href="#" class="service-name">AI Development Services</a>
+                                                <button class="service-expand" aria-label="Expand">
+                                                    <i class="bi bi-plus-lg"></i>
+                                                    <i class="bi bi-dash-lg"></i>
+                                                </button>
+                                            </div>
+                                            <div class="service-submenu">
+                                                <div>
+                                                    <a href="#" class="submenu-item">AI Websites & Software</a>
+                                                    <a href="#" class="submenu-item">AI Mobile Apps</a>
+                                                    <a href="#" class="submenu-item">AI Chatbot Development</a>
+                                                    <a href="#" class="submenu-item">Rules-Based Chatbots</a>
+                                                    <a href="#" class="submenu-item">N8N Chatbot Automation</a>
+                                                    <a href="#" class="submenu-item">AI Integrations</a>
+                                                    <a href="#" class="submenu-item">AI Automations & AI Agents</a>
+                                                    <a href="#" class="submenu-item">AI Fine-Tuning</a>
+                                                    <a href="#" class="submenu-item">AI Technology Consulting</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Service Item 4 -->
+                                        <div class="service-item">
+                                            <div class="service-header">
+                                                <a href="#" class="service-name">Game Development Services</a>
+                                                <button class="service-expand" aria-label="Expand">
+                                                    <i class="bi bi-plus-lg"></i>
+                                                    <i class="bi bi-dash-lg"></i>
+                                                </button>
+                                            </div>
+                                            <div class="service-submenu">
+                                                <div>
+                                                    <a href="#" class="submenu-item">Unity Game Development</a>
+                                                    <a href="#" class="submenu-item">Unreal Engine Development</a>
+                                                    <a href="#" class="submenu-item">Roblox Game Development</a>
+                                                    <a href="#" class="submenu-item">FiveM Server & Scripts</a>
+                                                    <a href="#" class="submenu-item">Minecraft Server & Plugins</a>
+                                                    <a href="#" class="submenu-item">Simulation Games Development</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Service Item 5 -->
+                                        <div class="service-item">
+                                            <div class="service-header">
+                                                <a href="#" class="service-name">SEO & Marketing Services</a>
+                                                <button class="service-expand" aria-label="Expand">
+                                                    <i class="bi bi-plus-lg"></i>
+                                                    <i class="bi bi-dash-lg"></i>
+                                                </button>
+                                            </div>
+                                            <div class="service-submenu">
+                                                <div>
+                                                    <a href="#" class="submenu-item">Search Engine Optimization
+                                                        (SEO)</a>
+                                                    <a href="#" class="submenu-item">Local SEO</a>
+                                                    <a href="#" class="submenu-item">Technical SEO</a>
+                                                    <a href="#" class="submenu-item">On-Page SEO</a>
+                                                    <a href="#" class="submenu-item">Off-Page SEO / Backlinks</a>
+                                                    <a href="#" class="submenu-item">SEO Audit</a>
+                                                    <a href="#" class="submenu-item">Keyword Research</a>
+                                                    <a href="#" class="submenu-item">Content Strategy & SEO
+                                                        Copywriting</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Service Item 6 -->
+                                        <div class="service-item">
+                                            <div class="service-header">
+                                                <a href="#" class="service-name">Mobile App Development</a>
+                                                <button class="service-expand" aria-label="Expand">
+                                                    <i class="bi bi-plus-lg"></i>
+                                                    <i class="bi bi-dash-lg"></i>
+                                                </button>
+                                            </div>
+                                            <div class="service-submenu">
+                                                <div>
+                                                    <a href="#" class="submenu-item">Android App Development</a>
+                                                    <a href="#" class="submenu-item">iOS App Development</a>
+                                                    <a href="#" class="submenu-item">Cross-Platform App Development</a>
+                                                    <a href="#" class="submenu-item">React Native Development</a>
+                                                    <a href="#" class="submenu-item">Flutter Development</a>
+                                                    <a href="#" class="submenu-item">App Prototyping</a>
+                                                    <a href="#" class="submenu-item">Mobile App Maintenance</a>
+                                                    <a href="#" class="submenu-item">MVP App Development</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Service Item 7 -->
+                                        <div class="service-item">
+                                            <div class="service-header">
+                                                <a href="#" class="service-name">Software Development</a>
+                                                <button class="service-expand" aria-label="Expand">
+                                                    <i class="bi bi-plus-lg"></i>
+                                                    <i class="bi bi-dash-lg"></i>
+                                                </button>
+                                            </div>
+                                            <div class="service-submenu">
+                                                <div>
+                                                    <a href="#" class="submenu-item">Web Application Development</a>
+                                                    <a href="#" class="submenu-item">APIs & Integrations</a>
+                                                    <a href="#" class="submenu-item">Custom Software Solutions</a>
+                                                    <a href="#" class="submenu-item">Automations & Workflows</a>
+                                                    <a href="#" class="submenu-item">Databases & Backend Development</a>
+                                                    <a href="#" class="submenu-item">Troubleshooting & Improvements</a>
+                                                    <a href="#" class="submenu-item">QA Testing & User Testing</a>
+                                                    <a href="#" class="submenu-item">MVP Development</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Languages & Frameworks -->
+                                    <div class="tech-section">
+                                        <h3 class="tech-title">Languages & Frameworks</h3>
+                                        <div class="tech-grid">
+                                            <div class="tech-pill">
+                                                <div class="tech-icon-box">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                        viewBox="0 0 67 67" fill="none">
+                                                        <g clip-path="url(#clip0_561_893)">
+                                                            <path
+                                                                d="M33.3861 0C17.5674 0 17.3975 6.14025 17.3975 7.40411C17.3975 9.32153 17.3975 15.075 17.3975 15.075H33.6906V17.378C33.6906 17.378 16.7262 17.378 10.9259 17.378C6.08421 17.378 0 20.3217 0 33.3666C0 45.3493 4.74604 49.9832 9.53593 49.9832C10.9582 49.9832 15.2273 49.9832 15.2273 49.9832C15.2273 49.9832 15.2273 44.0354 15.2273 41.9889C15.2273 38.6444 16.8846 32.453 24.6109 32.453C34.3016 32.453 36.7751 32.453 40.7707 32.453C43.1474 32.453 49.8498 31.42 49.8498 23.6784C49.8498 15.4849 49.8498 12.7818 49.8498 8.92684C49.8504 7.00637 49.5221 0 33.3861 0ZM24.402 5.15839C26.0234 5.15839 27.3336 6.46794 27.3336 8.08995C27.3336 9.71074 26.0234 11.0215 24.402 11.0215C22.7806 11.0215 21.4705 9.71135 21.4705 8.08995C21.4705 6.46794 22.7806 5.15839 24.402 5.15839Z"
+                                                                fill="#D9D9D9" />
+                                                            <path
+                                                                d="M33.6128 66.9999C49.4242 66.9999 49.6209 60.744 49.6209 59.5958C49.6209 57.6784 49.6209 51.9249 49.6209 51.9249H33.3082V49.622C33.3082 49.622 50.3823 49.622 56.073 49.622C60.9512 49.622 66.9989 46.6045 66.9989 33.6333C66.9989 19.4281 60.5803 17.0167 57.4629 17.0167C56.0401 17.0167 51.7716 17.0167 51.7716 17.0167C51.7716 17.0167 51.7716 23.2392 51.7716 25.011C51.7716 28.3556 50.1691 34.547 42.3879 34.547C32.6973 34.547 30.5253 34.547 26.2275 34.547C23.857 34.547 17.1484 35.7018 17.1484 43.3215C17.1484 52.1381 17.1484 54.4466 17.1484 58.0731C17.1484 61.2587 19.0951 66.9999 33.6128 66.9999ZM42.5975 61.8416C40.9761 61.8416 39.6659 60.5314 39.6659 58.91C39.6659 57.2886 40.9755 55.9784 42.5975 55.9784C44.2183 55.9784 45.529 57.2886 45.529 58.91C45.529 60.5314 44.2183 61.8416 42.5975 61.8416Z"
+                                                                fill="#D9D9D9" />
+                                                        </g>
+                                                        <defs>
+                                                            <clipPath id="clip0_561_893">
+                                                                <rect width="67" height="67" fill="white" />
+                                                            </clipPath>
+                                                        </defs>
+                                                    </svg>
+                                                </div>
+                                                Python
+                                            </div>
+                                            <div class="tech-pill">
+                                                <div class="tech-icon-box">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                        viewBox="0 0 67 67" fill="none">
+                                                        <path
+                                                            d="M24.9228 51.3596C24.9228 51.3596 22.4276 52.8116 26.7009 53.3016C31.8787 53.8931 34.5247 53.8083 40.2291 52.73C40.2291 52.73 41.7319 53.6695 43.8267 54.484C31.0344 59.9644 14.8765 54.1663 24.9228 51.3596ZM23.3588 44.2068C23.3588 44.2068 20.5594 46.2791 24.8364 46.722C30.3676 47.293 34.7346 47.3396 42.2952 45.8845C42.2952 45.8845 43.3384 46.9444 44.9814 47.5233C29.518 52.0458 12.2949 47.8793 23.3588 44.2068Z"
+                                                            fill="#D9D9D9" />
+                                                        <path
+                                                            d="M36.5404 32.0715C39.6941 35.7016 35.7134 38.9652 35.7134 38.9652C35.7134 38.9652 43.7162 34.8347 40.0417 29.66C36.6085 24.8366 33.9766 22.4408 48.2257 14.1768C48.2257 14.1773 25.8586 19.7618 36.5404 32.0715Z"
+                                                            fill="#D9D9D9" />
+                                                        <path
+                                                            d="M53.4535 56.6511C53.4535 56.6511 55.3007 58.1743 51.4184 59.3515C44.0368 61.5876 20.6894 62.2618 14.2051 59.441C11.8753 58.4266 16.246 57.0201 17.6211 56.7233C19.0547 56.4129 19.8734 56.4695 19.8734 56.4695C17.2808 54.6442 3.1166 60.055 12.6798 61.607C38.758 65.8343 60.2168 59.7033 53.4535 56.6511ZM26.1243 36.7945C26.1243 36.7945 14.2496 39.6153 21.9195 40.6407C25.1586 41.0741 31.6125 40.9747 37.6284 40.4701C42.5435 40.0571 47.4758 39.1751 47.4758 39.1751C47.4758 39.1751 45.7443 39.9178 44.4901 40.7731C32.4291 43.9457 9.13508 42.468 15.8419 39.2248C21.5118 36.4825 26.1243 36.7945 26.1243 36.7945ZM47.4266 48.7011C59.6861 42.3325 54.0172 36.2119 50.0606 37.0363C49.0933 37.2378 48.6593 37.4132 48.6593 37.4132C48.6593 37.4132 49.0195 36.8484 49.7062 36.6055C57.5332 33.8549 63.5516 44.7204 47.1817 49.0241C47.1817 49.023 47.3696 48.8529 47.4266 48.7011Z"
+                                                            fill="#D9D9D9" />
+                                                        <path
+                                                            d="M40.0396 0.830688C40.0396 0.830688 46.8275 7.62281 33.5997 18.0638C22.9917 26.442 31.1809 31.2178 33.596 36.6767C27.4033 31.0901 22.8609 26.1713 25.9078 21.5939C30.3821 14.8761 42.7777 11.6177 40.0396 0.830688Z"
+                                                            fill="#D9D9D9" />
+                                                        <path
+                                                            d="M27.3328 65.9641C39.0976 66.7162 57.1687 65.5453 57.5964 59.978C57.5964 59.978 56.7741 62.0885 47.8725 63.763C37.8298 65.6537 25.4411 65.4333 18.0957 64.2205C18.0957 64.221 19.6006 65.4668 27.3328 65.9641Z"
+                                                            fill="#D9D9D9" />
+                                                    </svg>
+                                                </div>
+                                                Java
+                                            </div>
+                                            <div class="tech-pill">
+                                                <div class="tech-icon-box">
+                                                    <!-- Constructed JS Square Logo -->
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 67 67" fill="none">
+  <path d="M67 0V67H0V0H67ZM50.9941 30.4043C45.3717 30.4045 41.7744 33.9989 41.7744 38.7207C41.7744 43.8467 44.7927 46.2715 49.3359 48.207L50.9092 48.8828C53.7805 50.1387 55.493 50.9029 55.4932 53.0615C55.4932 54.8631 53.8265 56.167 51.2178 56.167C48.1124 56.167 46.3564 54.5473 45.0068 52.3438L39.8906 55.3164C41.7389 58.9684 45.5164 61.7548 51.3633 61.7549C57.3432 61.7549 61.7967 58.6496 61.7969 52.9814C61.7969 47.7236 58.7761 45.3848 53.4268 43.0908L51.8525 42.416C49.1515 41.2463 47.9814 40.4815 47.9814 38.5928C47.9816 37.0648 49.1504 35.8947 50.9941 35.8945C52.8021 35.8945 53.9674 36.6572 55.0469 38.5928L59.9492 35.4453C57.8754 31.7975 54.9971 30.4043 50.9941 30.4043ZM30.1914 30.7637V52.1719C30.1914 55.3185 28.8867 56.1279 26.8184 56.1279C24.6553 56.1279 23.7556 54.6443 22.7666 52.8896L17.6416 55.9922C19.1262 59.1342 22.0451 61.7431 27.0859 61.7432C32.665 61.7432 36.4873 58.776 36.4873 52.2568V30.7637H30.1914Z" fill="#D9D9D9"/>
+</svg>
+                                                </div>
+                                                JavaScript
+                                            </div>
+                                            <div class="tech-pill">
+                                                <div class="tech-icon-box">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                        viewBox="0 0 67 67" fill="none">
+                                                        <g clip-path="url(#clip0_561_905)">
+                                                            <path
+                                                                d="M33.5023 39.4671C36.7979 39.4671 39.4695 36.7955 39.4695 33.4999C39.4695 30.2043 36.7979 27.5327 33.5023 27.5327C30.2068 27.5327 27.5352 30.2043 27.5352 33.4999C27.5352 36.7955 30.2068 39.4671 33.5023 39.4671Z"
+                                                                fill="#D9D9D9" />
+                                                            <path
+                                                                d="M56.1645 23.6594C55.0129 23.2406 53.809 22.8219 52.5527 22.4555C52.8668 21.1992 53.1285 19.943 53.3379 18.7391C54.4371 11.8297 53.2332 6.96171 49.8832 5.07734C48.8887 4.50156 47.7895 4.23984 46.5332 4.23984C42.8691 4.23984 38.2105 6.96171 33.4996 11.5156C28.7887 6.96171 24.1301 4.23984 20.466 4.23984C19.2098 4.23984 18.1105 4.50156 17.116 5.07734C13.766 7.01406 12.5621 11.882 13.6613 18.7391C13.8707 19.943 14.1324 21.1992 14.4465 22.4555C13.1902 22.8219 11.9863 23.1883 10.8348 23.6594C4.2918 26.1719 0.732422 29.6266 0.732422 33.5C0.732422 37.3734 4.34414 40.8281 10.8348 43.3406C11.9863 43.7594 13.1902 44.1781 14.4465 44.5445C14.1324 45.8008 13.8707 47.057 13.6613 48.2609C12.5621 55.1703 13.766 60.0383 17.116 61.9227C18.1105 62.4984 19.2098 62.7602 20.466 62.7602C24.1824 62.7602 28.841 60.0383 33.4996 55.4844C38.2105 60.0383 42.8691 62.7602 46.5332 62.7602C47.7895 62.7602 48.8887 62.4984 49.8832 61.9227C53.2332 59.9859 54.4371 55.118 53.3379 48.2609C53.1285 47.057 52.8668 45.8008 52.5527 44.5445C53.809 44.1781 55.0129 43.8117 56.1645 43.3406C62.7074 40.8281 66.2668 37.3734 66.2668 33.5C66.2668 29.6266 62.7074 26.1719 56.1645 23.6594ZM48.4176 7.69452C50.5637 8.95077 51.2965 12.8242 50.4066 18.3203C50.2496 19.4195 49.9879 20.5711 49.6738 21.775C46.952 21.1469 44.073 20.7281 41.0371 20.4664C39.2574 17.9539 37.4254 15.7031 35.5934 13.6617C39.4668 9.84062 43.3926 7.22343 46.5855 7.22343C47.266 7.22343 47.8941 7.38046 48.4176 7.69452ZM42.5551 38.7344C41.6129 40.4094 40.5137 42.0844 39.3621 43.7594C37.4254 43.9164 35.4887 43.9687 33.4996 43.9687C31.4582 43.9687 29.5215 43.9164 27.6371 43.7594C26.4855 42.0844 25.4387 40.4094 24.4965 38.7344C23.502 37.007 22.5598 35.2273 21.7223 33.5C22.5598 31.7727 23.502 29.993 24.4965 28.2656C25.4387 26.5906 26.5379 24.9156 27.6895 23.2406C29.6262 23.0836 31.5629 23.0312 33.552 23.0312C35.5934 23.0312 37.5301 23.0836 39.4145 23.2406C40.566 24.9156 41.6129 26.5906 42.5551 28.2656C43.5496 29.993 44.4918 31.7727 45.3293 33.5C44.4395 35.2273 43.5496 36.9547 42.5551 38.7344ZM46.8996 37.007C47.6848 38.8391 48.3129 40.6187 48.8887 42.3984C47.109 42.8172 45.2246 43.1312 43.2355 43.393C43.8637 42.3984 44.5441 41.3516 45.1199 40.2523C45.748 39.1531 46.3238 38.0539 46.8996 37.007ZM33.4996 51.1922C32.2434 49.8312 31.0395 48.3656 29.8879 46.8477C31.0918 46.9 32.2957 46.9523 33.4996 46.9523C34.7035 46.9523 35.9074 46.9 37.1113 46.8477C35.9598 48.3656 34.7559 49.8312 33.4996 51.1922ZM23.7637 43.3406C21.7746 43.0789 19.8902 42.7648 18.1105 42.3461C18.6863 40.6187 19.3145 38.7867 20.0996 36.9547C20.6754 38.0016 21.2512 39.1008 21.8793 40.1476C22.5074 41.2992 23.1355 42.2937 23.7637 43.3406ZM20.0996 29.993C19.3145 28.1609 18.6863 26.3812 18.1105 24.6016C19.8902 24.1828 21.7746 23.8687 23.7637 23.607C23.1355 24.6016 22.4551 25.6484 21.8793 26.7477C21.2512 27.8469 20.6754 28.9461 20.0996 29.993ZM33.4996 15.8078C34.7559 17.1687 35.9598 18.6344 37.1113 20.1523C35.9074 20.1 34.7035 20.0476 33.4996 20.0476C32.2957 20.0476 31.0918 20.1 29.8879 20.1523C31.0395 18.6344 32.2434 17.1687 33.4996 15.8078ZM45.1199 26.8L43.2355 23.6594C45.2246 23.9211 47.109 24.2351 48.8887 24.6539C48.3129 26.3812 47.6848 28.2133 46.8996 30.0453C46.3238 28.9461 45.748 27.8469 45.1199 26.8ZM16.5926 18.3203C15.7027 12.8242 16.4355 8.95077 18.5816 7.69452C19.1051 7.38046 19.7332 7.22343 20.4137 7.22343C23.5543 7.22343 27.4801 9.78828 31.4059 13.6617C29.5738 15.6508 27.7418 17.9539 25.9621 20.4664C22.9262 20.7281 20.0473 21.1992 17.3254 21.775C17.0113 20.5711 16.802 19.4195 16.5926 18.3203ZM3.66367 33.5C3.66367 31.0398 6.64727 28.4226 11.8816 26.4859C12.9285 26.0672 14.0801 25.7008 15.2316 25.3867C16.0691 28.0039 17.116 30.7781 18.3723 33.5523C17.116 36.3266 16.0168 39.0484 15.2316 41.6656C8.0082 39.5719 3.66367 36.4312 3.66367 33.5ZM18.5816 59.3055C16.4355 58.0492 15.7027 54.1758 16.5926 48.6797C16.7496 47.5805 17.0113 46.4289 17.3254 45.225C20.0473 45.8531 22.9262 46.2719 25.9621 46.5336C27.7418 49.0461 29.5738 51.2969 31.4059 53.3383C27.5324 57.1594 23.6066 59.7766 20.4137 59.7766C19.7332 59.7766 19.1051 59.6195 18.5816 59.3055ZM50.4066 48.6797C51.2965 54.1758 50.5637 58.0492 48.4176 59.3055C47.8941 59.6195 47.266 59.7766 46.5855 59.7766C43.4449 59.7766 39.5191 57.2117 35.5934 53.3383C37.4254 51.3492 39.2574 49.0461 41.0371 46.5336C44.073 46.2719 46.952 45.8008 49.6738 45.225C49.9879 46.4289 50.1973 47.5805 50.4066 48.6797ZM55.1176 40.5141C54.0707 40.9328 52.9191 41.2992 51.7676 41.6133C50.9301 38.9961 49.8832 36.2219 48.627 33.4477C49.8832 30.6734 50.9824 27.9516 51.7676 25.3344C58.991 27.4281 63.3355 30.5687 63.3355 33.5C63.3355 35.9602 60.2996 38.5773 55.1176 40.5141Z"
+                                                                fill="#D9D9D9" />
+                                                        </g>
+                                                        <defs>
+                                                            <clipPath id="clip0_561_905">
+                                                                <rect width="67" height="67" fill="white" />
+                                                            </clipPath>
+                                                        </defs>
+                                                    </svg>
+                                                </div>
+                                                React
+                                            </div>
+                                            <div class="tech-pill">
+                                                <div class="tech-icon-box">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 67 67" fill="none">
+  <path d="M58.4492 16.9381L54.6445 49.9293L33.498 61.6412L12.3516 49.9293L8.54688 16.9381L33.498 8.03967L58.4492 16.9381ZM17.9043 48.9371H23.7197L26.8535 41.11H40.0928L43.2295 48.9371H49.0449L33.501 13.9635L17.9043 48.9371ZM38.0566 36.2867H28.9453L33.501 25.3258L38.0566 36.2867Z" fill="#D9D9D9"/>
+</svg>
+                                                </div>
+                                                Angular
+                                            </div>
+                                            <div class="tech-pill">
+                                                <div class="tech-icon-box">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="56" height="64"
+                                                        viewBox="0 0 56 64" fill="none"
+                                                        style="width: 22px; height: auto;">
+                                                        <path
+                                                            d="M53.7942 14.0245L30.7122 0.621844C29.2565 -0.207281 27.3611 -0.207281 25.8939 0.621844L2.56537 14.0245C1.0631 14.8887 0 16.5129 0 18.2502V45.0198C0 46.7571 1.09084 48.3819 2.59311 49.2508L8.75659 52.7515C11.7025 54.2025 12.7436 54.2025 14.0841 54.2025C18.4459 54.2025 20.9375 51.5649 20.9375 46.9644V20.536C20.9375 20.1628 20.7433 19.6074 20.3769 19.6074H17.4336C17.0609 19.6074 16.2266 20.1628 16.2266 20.5355V46.9639C16.2266 49.0032 14.382 51.0325 10.9346 49.3089L4.56595 45.638C4.34401 45.5176 4.1875 45.2753 4.1875 45.0198V18.2502C4.1875 17.9979 4.47801 17.7445 4.70152 17.6152L27.9547 4.23566C28.1719 4.11265 28.4912 4.11265 28.7079 4.23566L51.6774 17.6121C51.8973 17.7445 51.8198 17.99 51.8198 18.2502V45.0198C51.8198 45.2753 51.9156 45.5239 51.6983 45.6469L28.6221 59.0343C28.4242 59.1531 28.1787 59.1531 27.962 59.0343L22.0435 55.5016C21.865 55.398 21.653 55.3608 21.4819 55.4566C19.8351 56.3899 19.5315 56.514 17.9869 57.0495C17.6069 57.1819 17.0463 57.4117 18.2015 58.0592L25.9473 62.6413C26.6868 63.0685 27.5257 63.2934 28.3797 63.2935C29.2392 63.2935 30.0809 63.0706 30.8226 62.6413L53.7937 49.2508C55.2959 48.3756 56.0078 46.7571 56.0078 45.0198V18.2502C56.0078 16.5129 55.2959 14.8928 53.7942 14.0245ZM35.5466 40.7779C29.4088 40.7779 28.0568 39.0846 27.6061 36.0324C27.5538 35.7037 27.2748 35.3106 26.9403 35.3106H23.9405C23.5693 35.3106 23.271 35.7607 23.271 36.1303C23.271 40.0383 25.3956 44.7733 35.5472 44.7733C42.8957 44.7733 47.1089 41.9179 47.1089 36.8647C47.1089 31.8543 43.7238 30.5394 36.5972 29.5962C29.3936 28.6441 28.6619 28.163 28.6619 26.4755C28.6619 25.0842 29.2816 23.2286 34.6154 23.2286C39.3813 23.2286 41.138 24.2514 41.8609 27.4637C41.9226 27.7657 42.1985 27.9824 42.5099 27.9824H45.5218C45.7071 27.9824 45.884 27.9076 46.0138 27.7752C46.1394 27.6328 46.2059 27.4543 46.1892 27.2627C45.7228 21.731 42.0477 19.1531 34.6149 19.1531C28.0034 19.1531 24.0593 21.9451 24.0593 26.6252C24.0593 31.7015 27.9835 33.1043 34.3302 33.7319C41.9226 34.4762 42.5131 35.5859 42.5131 37.0793C42.5131 39.6729 40.4308 40.7779 35.5466 40.7779Z"
+                                                            fill="#D9D9D9" />
+                                                    </svg>
+                                                </div>
+                                                Node.js
+                                            </div>
+                                            <div class="tech-pill">
+                                                <div class="tech-icon-box">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 48 64" fill="none">
+  <path d="M23.8593 17.2708C10.6834 17.2708 0 13.5497 0 8.63672V54.6416C0 59.3693 10.4975 63.203 23.5238 63.2784H23.8593C37.0353 63.2784 47.7187 59.5552 47.7187 54.6416V8.63672C47.7187 13.4377 37.0353 17.2708 23.8593 17.2708Z" fill="#D9D9D9"/>
+  <path d="M47.7187 8.63672C47.7187 13.4377 37.0353 17.2708 23.8593 17.2708C10.6834 17.2708 0 13.5497 0 8.63672C0 3.72321 10.6834 0 23.8593 0C37.0353 0 47.7187 3.72321 47.7187 8.63672Z" fill="#0C0C0C"/>
+  <path d="M42.1717 7.92901C42.1717 10.9817 33.9444 13.4377 23.8577 13.4377C13.7711 13.4377 5.54368 10.9817 5.54368 7.92901C5.54368 4.87632 13.7711 2.45752 23.8577 2.45752C33.9444 2.45752 42.1717 4.91296 42.1717 7.92901Z" fill="#D9D9D9"/>
+  <path d="M23.8606 9.30515C18.948 9.18048 14.0504 9.89838 9.38024 11.4277C14.0547 12.9289 18.954 13.6089 23.8606 13.4377C28.7772 13.5812 33.6802 12.8501 38.341 11.2785C33.6574 9.82074 28.7635 9.15382 23.8606 9.30515Z" fill="#D9D9D9"/>
+  <path d="M38.3764 40.5722V27.9181H35.0254V43.2899H44.1834V40.5722H38.3764ZM11.7999 34.3563C11.1081 34.0781 10.4664 33.6886 9.90036 33.2032C9.75029 33.0443 9.63352 32.857 9.55693 32.6523C9.48034 32.4477 9.44548 32.2297 9.4544 32.0113C9.44304 31.7928 9.48853 31.5751 9.58642 31.3794C9.68431 31.1838 9.83125 31.0168 10.0129 30.8948C10.471 30.578 11.0206 30.4208 11.5769 30.4473C12.9024 30.3883 14.2103 30.7677 15.2986 31.5266V28.3269C14.1099 27.8831 12.8447 27.6808 11.5769 27.7317C10.1164 27.6534 8.6762 28.1018 7.5182 28.9953C7.01386 29.3845 6.60923 29.8879 6.33767 30.4642C6.0661 31.0405 5.93538 31.673 5.95626 32.3097C5.95626 34.2072 7.14604 35.6958 9.6779 36.8123C10.4997 37.162 11.2744 37.6116 11.9863 38.1534C12.1602 38.2992 12.3003 38.4813 12.3967 38.6869C12.493 38.8925 12.5434 39.1166 12.5442 39.3437C12.5442 39.8038 12.3213 40.233 11.9491 40.4989C11.4417 40.7949 10.8592 40.9369 10.2725 40.9077C8.77546 40.8952 7.33389 40.3394 6.21589 39.3437V42.8051C7.4451 43.4396 8.81681 43.7473 10.1992 43.6987C11.7591 43.7908 13.3048 43.3595 14.5909 42.4696C15.0449 42.0397 15.3924 41.5099 15.6057 40.9221C15.8191 40.3344 15.8924 39.7051 15.8199 39.084C15.8381 38.1312 15.5071 37.2045 14.8892 36.4789C14.0195 35.5628 12.967 34.8396 11.7999 34.3563ZM31.3042 40.2738C32.1492 38.8588 32.5752 37.233 32.5328 35.5854C32.4485 34.19 32.0269 32.8358 31.3042 31.6392C30.7232 30.4771 29.8185 29.5078 28.6991 28.8482C27.5644 28.2046 26.2804 27.8703 24.9759 27.8788C23.57 27.8485 22.1818 28.1959 20.9559 28.8848C19.8066 29.5259 18.8641 30.4813 18.2387 31.6392C17.5798 32.955 17.248 34.4103 17.2714 35.8816C17.2788 37.1751 17.5846 38.4494 18.1649 39.6054C18.7332 40.7546 19.6261 41.7121 20.7329 42.3592C21.8573 43.044 23.1388 43.4285 24.4545 43.4757L27.6564 47.1973H32.1606L27.5805 43.104C29.1228 42.6413 30.4455 41.636 31.3042 40.2738ZM27.5805 39.3437C27.242 39.7646 26.8105 40.1013 26.3198 40.3272C25.8292 40.5532 25.2928 40.6623 24.7529 40.646C24.2087 40.6639 23.6681 40.5517 23.1759 40.3188C22.6837 40.0858 22.2543 39.7388 21.9232 39.3065C21.1379 38.2312 20.7556 36.914 20.8433 35.5854C20.7578 34.2563 21.1398 32.9392 21.9232 31.8622C22.2734 31.4302 22.7161 31.0823 23.2186 30.844C23.7211 30.6058 24.2706 30.4833 24.8267 30.4855C25.3705 30.4615 25.9115 30.5751 26.3997 30.8157C26.888 31.0564 27.3076 31.4163 27.6198 31.8622C28.3525 32.9601 28.7051 34.2679 28.6237 35.5854C28.7545 36.9242 28.3827 38.2638 27.5805 39.3437Z" fill="#0C0C0C"/>
+</svg>
+                                                </div>
+                                                SQL
+                                            </div>
+                                            <div class="tech-pill">
+                                                <div class="tech-icon-box">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="55" height="67"
+                                                        viewBox="0 0 55 67" fill="none"
+                                                        style="width: 20px; height: auto;">
+                                                        <path
+                                                            d="M0 33.6047L33.5 0H54.1234L10.3641 43.7594L0 33.6047ZM33.5 67H54.1234L36.2742 49.1508L54.1234 30.9352H33.5L15.6508 48.9414L33.5 67Z"
+                                                            fill="#DDDDDD" />
+                                                    </svg>
+                                                </div>
+                                                Flutter
+                                            </div>
+                                        </div>
+                                        <div class="tech-title fs-6 text-muted font-weight-normal mt-2">And Much More
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Industries Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle no-caret" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Industries
+                                <i class="bi bi-chevron-down ms-auto d-lg-none" style="font-size: 16px;"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-custom industries-menu">
+                                <div class="industries-grid">
+                                    <!-- Industry Items -->
+                                    <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-tree"></i></div>
+                                        <span>Agriculture</span>
+                                    </a>
+                                    <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-globe-americas"></i></div>
+                                        <span>Environment</span>
+                                    </a>
+                                    <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-gear-wide-connected"></i></div>
+                                        <span>Manufacturing</span>
+                                    </a>
+                                    <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-people"></i></div>
+                                        <span>Public Services</span>
+                                    </a>
+                                    <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-bank"></i></div>
+                                        <span>Banking</span>
+                                    </a>
+                                    <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-heart-pulse"></i></div>
+                                        <span>Health Care</span>
+                                    </a>
+                                    <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-megaphone"></i></div>
+                                        <span>Marketing & Ads</span>
+                                    </a>
+                                    <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-houses"></i></div>
+                                        <span>Real Estate</span>
+                                    </a>
+                                    <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-bricks"></i></div>
+                                        <span>Construction</span>
+                                    </a>
+                                    <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-laptop"></i></div>
+                                        <span>Information Technology</span>
+                                    </a>
+                                    <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-camera-reels"></i></div>
+                                        <span>Media</span>
+                                    </a>
+                                    <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-shop"></i></div>
+                                        <span>Restaurants</span>
+                                    </a>
+                                      <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-tree"></i></div>
+                                        <span>Consulting</span>
+                                    </a>
+                                      <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-tree"></i></div>
+                                        <span>Insurance</span>
+                                    </a>
+                                      <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-tree"></i></div>
+                                        <span>Mining</span>
+                                    </a>
+                                      <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-tree"></i></div>
+                                        <span>Retail</span>
+                                    </a>
+                                      <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-tree"></i></div>
+                                        <span>Consumer Goods</span>
+                                    </a>
+                                      <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-tree"></i></div>
+                                        <span>Investment</span>
+                                    </a>
+                                      <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-tree"></i></div>
+                                        <span>Oil & Gas</span>
+                                    </a>
+                                      <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-tree"></i></div>
+                                        <span>Science</span>
+                                    </a>
+                                      <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-tree"></i></div>
+                                        <span>Education</span>
+                                    </a>
+                                      <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-tree"></i></div>
+                                        <span>Legal Services</span>
+                                    </a>
+                                      <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-tree"></i></div>
+                                        <span>Payments</span>
+                                    </a>
+                                      <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-tree"></i></div>
+                                        <span>Software Products</span>
+                                    </a>
+                                      <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-tree"></i></div>
+                                        <span>Entertainment</span>
+                                    </a>
+                                      <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-tree"></i></div>
+                                        <span>Lending</span>
+                                    </a>
+                                      <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-tree"></i></div>
+                                        <span>Professional Services</span>
+                                    </a>
+                                      <a href="#" class="industry-item">
+                                        <div class="industry-icon"><i class="bi bi-tree"></i></div>
+                                        <span>Telecommunications</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="#">Hire Developer</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Managed IT</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Case Studies</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Blogs</a></li>
+
+                    </ul>
+
+                    <!-- CTA -->
+                    <a href="#" class="cus-btn ms-3 mt-3 mt-lg-0">
+                        Book a call
+                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                            <g clip-path="url(#clip0_595_24160)">
+                                <path
+                                    d="M12.4436 6.22221L17.1102 1.55554M17.1102 1.55554V6.22221M17.1102 1.55554H12.4436M10.7574 12.8862C10.918 12.96 11.099 12.9768 11.2704 12.934C11.4419 12.8912 11.5937 12.7912 11.7008 12.6505L11.9769 12.2889C12.1218 12.0957 12.3097 11.9389 12.5257 11.8309C12.7417 11.7229 12.9799 11.6667 13.2214 11.6667H15.5547C15.9672 11.6667 16.3629 11.8305 16.6546 12.1223C16.9464 12.414 17.1102 12.8096 17.1102 13.2222V15.5555C17.1102 15.9681 16.9464 16.3638 16.6546 16.6555C16.3629 16.9472 15.9672 17.1111 15.5547 17.1111C11.8417 17.1111 8.2807 15.6361 5.65519 13.0106C3.02968 10.3851 1.55469 6.82413 1.55469 3.1111C1.55469 2.69854 1.71858 2.30288 2.0103 2.01115C2.30202 1.71943 2.69768 1.55554 3.11102 1.55554H5.44358C5.85614 1.55554 6.2518 1.71943 6.54352 2.01115C6.83524 2.30288 6.99913 2.69854 6.99913 3.1111V5.44443C6.99913 5.68592 6.94291 5.9241 6.83491 6.1401C6.72691 6.35609 6.5701 6.54398 6.37691 6.68888L6.01291 6.96188C5.87012 7.0709 5.76948 7.226 5.72808 7.40081C5.68668 7.57563 5.70707 7.75939 5.7858 7.92088C6.84877 10.0799 8.59702 11.8259 10.7574 12.8862Z"
+                                    stroke="#D2D0D0" stroke-width="1.55556" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_595_24160">
+                                    <rect width="18.6667" height="18.6667" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+   
+
+    <!-- Bootstrap Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Logic for Service Accordion with "One-Open-At-A-Time" Rule
+        function toggleItem(item) {
+            // If the item is already active, just close it
+            if (item.classList.contains('active')) {
+                item.classList.remove('active');
+                return;
+            }
+
+            // Close ALL other items first (One at a time rule)
+            document.querySelectorAll('.service-item.active').forEach(activeItem => {
+                activeItem.classList.remove('active');
+            });
+
+            // Open the clicked item
+            item.classList.add('active');
+        }
+
+        // Attach Click Handler to Button
+        document.querySelectorAll('.service-expand').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.stopPropagation();
+                e.preventDefault();
+                toggleItem(this.closest('.service-item'));
+            });
+        });
+
+        // Removed the header click listener to prevent title click from toggling
+        // Now clicking the anchor tag "service-name" will just follow the link (or do nothing if href="#")
+
+        // Prevent closing when clicking inside the mega menu
+        document.querySelectorAll('.dropdown-menu-custom').forEach(menu => {
+            menu.addEventListener('click', function (e) {
+                e.stopPropagation();
+            });
+        });
+
+        // CSS hiding for caret and style injections
+        const style = document.createElement('style');
+        style.innerHTML = `
+        .dropdown-toggle.no-caret::after { display: none !important; }
+    `;
+        document.head.appendChild(style);
+
+    </script>
+
+</body>
+
+</html>

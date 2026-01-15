@@ -11,7 +11,7 @@
     --accent-orange: #E85D04;
     --accent-orange-light: #FF6B00;
 
-    --text-primary: #FFFFFF;
+    /* --text-primary: #FFFFFF; */
     --text-secondary: #888888;
     --text-muted: #666666;
 
@@ -676,7 +676,7 @@ highlight-txt {
     left: 0;
     right: 0;
     height: 300px;
-    background: linear-gradient(to top, rgba(232, 93, 4, 0.12), transparent);
+    /* background: linear-gradient(to top, rgba(232, 93, 4, 0.12), transparent); */
     pointer-events: none;
 }
 
@@ -758,6 +758,7 @@ highlight-txt {
     flex-direction: column;
     align-items: center;
     gap: 20px;
+     padding-bottom: 120px;
 }
 
 .process-row {
@@ -851,6 +852,28 @@ highlight-txt {
 .process-arrow svg {
     width: 100%;
     height: 100%;
+}
+.process-row-wrapper {
+    position: relative;
+    width: fit-content;
+    margin-bottom: 70px;
+}
+
+.process-arrow-vertical {
+    position: absolute;
+    top: 100%;
+    width: 24px;
+    height: 40px;
+}
+
+.down-from-right {
+    right: 0;
+    transform: translateX(-130px) translateY(55px);
+}
+
+.down-from-left {
+    left: 0;
+    transform: translateX(-250px) translateY(50px);
 }
 
 .process-arrow-vertical {
@@ -973,12 +996,23 @@ highlight-txt {
     max-width: 700px;
     margin: 0 auto 60px;
 }
-
-.industries-grid {
+/* 
+ .industries-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 40px 80px;
     max-width: 600px;
+    margin: 0 auto 50px;
+} */
+.industries-grid {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    column-gap: 140px;
+    row-gap: 32px;
+
+    justify-content: center;
+    align-items: center;
+
     margin: 0 auto 50px;
 }
 
@@ -1030,6 +1064,103 @@ highlight-txt {
 .industries-cta:hover {
     border-color: var(--accent-orange);
     color: var(--accent-orange);
+} 
+.industries-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 120px;
+    row-gap: 28px;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+/* Left column (default) */
+.industry-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    justify-self: start;
+}
+
+/* Right column */
+.industry-card.right-align {
+    justify-self: end;
+}
+
+/* Icon */
+.industry-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.industry-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Text */
+.industry-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--accent-orange);
+    white-space: nowrap;
+}
+
+
+/* CTA */
+.industries-cta {
+    /* position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+     font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+
+
+    border-radius: 21.31px;
+    background: radial-gradient(37.68% 85.68% at 50.15% 6.82%, #4D2F26 0%, #070707 100%);
+    color: #D2D0D0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease; */
+       display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+
+
+    border-radius: 21.31px;
+    background: radial-gradient(37.68% 85.68% at 50.15% 6.82%, #4D2F26 0%, #070707 100%);
+    color: #D2D0D0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+
+}
+.industries-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 2px solid #9f553e;
+    pointer-events: none;
+    -webkit-mask: linear-gradient(to bottom, white 0%, white 45%, transparent 100%);
+    mask: linear-gradient(to bottom, white 0%, white 45%, transparent 100%);
+    opacity: 1;
+    transition: border-color 0.3s ease;
+}
+.industries-cta:hover {
+    box-shadow: 0 0 18px rgba(255, 90, 24, 0.35);
 }
 
 /* ========================================
@@ -1271,29 +1402,29 @@ highlight-txt {
 }
 
 .approach-label-top {
-    top: 0;
+    top: 17%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-60%);
 }
 
 .approach-label-left {
     top: 35%;
-    left: 5%;
+    left: 11%;
 }
 
 .approach-label-right {
     top: 35%;
-    right: 5%;
+    right: 11%;
 }
 
 .approach-label-bottom-left {
-    bottom: 20%;
-    left: 5%;
+    bottom: 35%;
+    left: 1%;
 }
 
 .approach-label-bottom-right {
-    bottom: 20%;
-    right: 5%;
+    bottom: 35%;
+    right: 1%;
 }
 
 /* Rocket Container */
@@ -1341,11 +1472,13 @@ highlight-txt {
 }
 
 .results-card {
-    background: #161616;
+ 
+background: radial-gradient(512.1% 49.67% at 89.51% 22.53%, #212121 0.69%, #141414 100%);
     border: 1px solid #2a2a2a;
     border-radius: 16px;
     padding: 28px 24px;
     display: flex;
+    height: 150px;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
@@ -1440,22 +1573,38 @@ highlight-txt {
 .projects-cta {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px 24px;
-    background: transparent;
-    border: 1px solid var(--border-color);
-    border-radius: 50px;
-    color: var(--text-primary);
+    gap: 10px;
+    padding: 14px 28px;
+
+    font-family: var(--font-primary);
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
+    cursor: pointer;
+
+
+    border-radius: 21.31px;
+    background: radial-gradient(37.68% 85.68% at 50.15% 6.82%, #4D2F26 0%, #070707 100%);
+    color: #D2D0D0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
+.projects-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 2px solid #9f553e;
+    pointer-events: none;
+    -webkit-mask: linear-gradient(to bottom, white 0%, white 45%, transparent 100%);
+    mask: linear-gradient(to bottom, white 0%, white 45%, transparent 100%);
+    opacity: 1;
+    transition: border-color 0.3s ease;
+}
+
+
 .projects-cta:hover {
-    border-color: var(--accent-orange);
-    color: var(--accent-orange);
+   box-shadow: 0 0 18px rgba(255, 90, 24, 0.35);
 }
 
 .projects-grid {
@@ -1480,7 +1629,7 @@ highlight-txt {
 
 .project-image {
     width: 100%;
-    height: 200px;
+    height: 220px;
     overflow: hidden;
 }
 
@@ -1488,6 +1637,7 @@ highlight-txt {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
     transition: transform 0.4s ease;
 }
 
@@ -1498,7 +1648,9 @@ highlight-txt {
 .project-card-featured .project-image {
     height: 220px;
 }
-
+.image-2{
+    display:block;
+}
 .project-info {
     padding: 20px;
     border-top: 3px solid var(--accent-orange);
@@ -1944,10 +2096,10 @@ highlight-txt {
 /* Jellyfish Background */
 .testimonials-jellyfish {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 48%;
+    left: 60%;
     transform: translate(-50%, -50%);
-    width: 500px;
+    width: 650px;
     height: auto;
     z-index: 1;
     pointer-events: none;
@@ -1958,6 +2110,7 @@ highlight-txt {
     height: auto;
     object-fit: contain;
     opacity: 0.95;
+    margin-top: 25px;
 }
 
 /* Testimonials Section */
@@ -2026,6 +2179,7 @@ highlight-txt {
     width: 100%;
     height: 100%;
     object-fit: cover;
+ 
 }
 
 .testimonial-info {
@@ -2055,32 +2209,32 @@ highlight-txt {
 /* Top card: right of center, above jellyfish */
 .testimonial-card-top {
     top: 0;
-    left: 50%;
+    left: 35%;
     transform: translateX(20px);
 }
 
 /* Left upper: far left, about 1/4 down */
 .testimonial-card-left-upper {
-    top: 100px;
+    top: 80px;
     left: 5%;
 }
 
 /* Right upper: far right, slightly lower than top */
 .testimonial-card-right-upper {
     top: 80px;
-    right: 0;
+    right: 3%;
 }
 
 /* Left lower: far left, 2/3 down */
 .testimonial-card-left-lower {
     top: 320px;
-    left: 5%;
+    left: -5%;
 }
 
 /* Right lower: far right, slightly lower than left lower */
 .testimonial-card-right-lower {
     top: 340px;
-    right: 0;
+    right: -5%;
 }
 
 /* ========================================
@@ -2208,7 +2362,9 @@ highlight-txt {
     line-height: 1.7;
     margin: 0;
 }
-
+.spacer-2line{
+    height: 40px;
+}
 /* ========================================
    Testimonials & FAQ Responsive
 ======================================== */

@@ -28,29 +28,7 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <a href="#" class="nav-logo">
-                <img src="assets/Logo.svg" alt="GrowthSphere Industries">
-            </a>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Industries</a></li>
-                <li><a href="#">Hire A Developer</a></li>
-                <li><a href="#">Managed IT</a></li>
-                <li><a href="#">Case Studies</a></li>
-                <li><a href="#">Blogs</a></li>
-            </ul>
-            <a href="#" class="nav-cta">
-                Book a call
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path
-                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
-            </a>
-        </div>
-    </nav>
+   <div id="navbar"></div>
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
@@ -78,7 +56,7 @@
                             <path d="M7 17L17 7M17 7H7M17 7V17" />
                         </svg>
                     </a>
-
+                <div class="spacer-2line"></div>
                     <div class="row g-3 stats-row fade-in">
                         <div class="col-sm-6">
                             <div class="stat-card">
@@ -403,8 +381,8 @@
             </div>
 
             <!-- Process Flow Cards -->
-            <div class="process-flow">
-                <!-- Row 1 -->
+            <!-- <div class="process-flow">
+              
                 <div class="process-row">
                     <div class="process-card fade-in" data-step="1">
                         <div class="process-card-inner">
@@ -432,7 +410,7 @@
                     </div>
                 </div>
 
-                <!-- Arrow Down from Row 1 to Row 2 -->
+               
                 <div class="process-arrow-vertical fade-in" data-step="2">
                     <svg viewBox="0 0 24 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path class="arrow-path" d="M12 0V45M12 45L2 35M12 45L22 35" stroke="#E85D04" stroke-width="2"
@@ -440,7 +418,6 @@
                     </svg>
                 </div>
 
-                <!-- Row 2 -->
                 <div class="process-row">
                     <div class="process-card fade-in" data-step="3">
                         <div class="process-card-inner">
@@ -468,7 +445,6 @@
                     </div>
                 </div>
 
-                <!-- Arrow Down from Row 2 to Row 3 -->
                 <div class="process-arrow-vertical arrow-left-offset fade-in" data-step="4">
                     <svg viewBox="0 0 24 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path class="arrow-path" d="M12 0V45M12 45L2 35M12 45L22 35" stroke="#E85D04" stroke-width="2"
@@ -476,7 +452,6 @@
                     </svg>
                 </div>
 
-                <!-- Row 3 -->
                 <div class="process-row">
                     <div class="process-card fade-in" data-step="5">
                         <div class="process-card-inner">
@@ -505,7 +480,120 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
+<section class="process-flow">
+
+    <!-- ROW 1 -->
+    <div class="process-row-wrapper">
+
+        <div class="process-row">
+            <div class="process-card fade-in">
+                <div class="process-card-inner">
+                    <div class="process-icon">
+                        <img src="assets/SEO attracts qualified users.svg" alt="SEO">
+                    </div>
+                    <h4 class="process-title">SEO attracts qualified users</h4>
+                </div>
+            </div>
+
+            <div class="process-arrow arrow-right">
+                <svg viewBox="0 0 60 24">
+                    <path d="M0 12H55M55 12L45 2M55 12L45 22"
+                          stroke="#E85D04" stroke-width="2"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+
+            <div class="process-card fade-in">
+                <div class="process-card-inner">
+                    <div class="process-icon">
+                        <img src="assets/Content builds trust & authority.svg" alt="Content">
+                    </div>
+                    <h4 class="process-title">Content builds trust & authority</h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- Down arrow from RIGHT card -->
+        <div class="process-arrow-vertical down-from-right">
+            <svg viewBox="0 0 24 50">
+                <path d="M12 0V45M12 45L2 35M12 45L22 35"
+                      stroke="#E85D04" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+
+    </div>
+
+    <!-- ROW 2 -->
+    <div class="process-row-wrapper">
+
+        <div class="process-row">
+            <div class="process-card fade-in">
+                <div class="process-card-inner">
+                    <div class="process-icon">
+                        <img src="assets/Funnels guide decision making.svg" alt="Funnels">
+                    </div>
+                    <h4 class="process-title">Funnels guide decision making</h4>
+                </div>
+            </div>
+
+            <div class="process-arrow arrow-right">
+                <svg viewBox="0 0 60 24">
+                    <path d="M0 12H55M55 12L45 2M55 12L45 22"
+                          stroke="#E85D04" stroke-width="2"/>
+                </svg>
+            </div>
+
+            <div class="process-card fade-in">
+                <div class="process-card-inner">
+                    <div class="process-icon">
+                        <img src="assets/Paid campaigns accelerate reach.svg" alt="Paid">
+                    </div>
+                    <h4 class="process-title">Paid campaigns accelerate reach</h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- Down arrow from LEFT card -->
+        <div class="process-arrow-vertical down-from-left">
+            <svg viewBox="0 0 24 50">
+                <path d="M12 0V45M12 45L2 35M12 45L22 35"
+                      stroke="#E85D04" stroke-width="2"/>
+            </svg>
+        </div>
+
+    </div>
+
+    <!-- ROW 3 -->
+    <div class="process-row">
+        <div class="process-card fade-in">
+            <div class="process-card-inner">
+                <div class="process-icon">
+                    <img src="assets/CRO maximizes conversions.svg" alt="CRO">
+                </div>
+                <h4 class="process-title">CRO maximizes conversions</h4>
+            </div>
+        </div>
+
+        <div class="process-arrow arrow-right">
+            <svg viewBox="0 0 60 24">
+                <path d="M0 12H55M55 12L45 2M55 12L45 22"
+                      stroke="#E85D04" stroke-width="2"/>
+            </svg>
+        </div>
+
+        <div class="process-card fade-in">
+            <div class="process-card-inner">
+                <div class="process-icon">
+                    <img src="assets/Email nurtures relationships.svg" alt="Email">
+                </div>
+                <h4 class="process-title">Email nurtures relationships</h4>
+            </div>
+        </div>
+    </div>
+
+</section>
 
     <!-- Industries Section -->
     <section class="industries-section" id="industries">
@@ -520,9 +608,9 @@
                 competition, and
                 business objectives.
             </p>
-
-            <div class="row g-4 justify-content-center industries-grid">
-                <div class="col-6 col-md-3">
+<!-- 
+            <div class=" justify-content-center industries-grid">
+                <div class=" col-md-3">
                     <div class="industry-card fade-in">
                         <div class="industry-icon">
                             <img src="assets/Information Technology.png" alt="Information Technology">
@@ -565,7 +653,47 @@
                     <path d="M7 17L17 7M17 7H7M17 7V17" />
                 </svg>
             </a>
+        </div> -->
+     <div class="industries-grid">
+
+    <div class="industry-card">
+        <div class="industry-icon">
+            <img src="assets/Information Technology.png" alt="">
         </div>
+        <span class="industry-name">Information Technology</span>
+    </div>
+
+    <div class="industry-card">
+        <div class="industry-icon">
+            <img src="assets/Health Care.png" alt="">
+        </div>
+        <span class="industry-name">Health Care</span>
+    </div>
+
+    <div class="industry-card">
+        <div class="industry-icon">
+            <img src="assets/Marketing & Advertisment.png" alt="">
+        </div>
+        <span class="industry-name">Marketing & Advertisement</span>
+    </div>
+
+    <div class="industry-card">
+        <div class="industry-icon">
+            <img src="assets/Real Estate.png" alt="">
+        </div>
+        <span class="industry-name">Real Estate</span>
+    </div>
+
+</div>
+
+
+<a href="#" class="industries-cta fade-in">
+    View More
+    <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M7 17L17 7M17 7H7M17 7V17" />
+    </svg>
+</a>
+
     </section>
 
     <!-- Five Pillars Section -->
@@ -601,7 +729,7 @@
                         <!-- Gradient definitions - orange at outer edge, fading to transparent at center -->
                         <defs>
                             <!-- Top line gradient (center to top) -->
-                            <linearGradient id="lineGrad1" x1="0%" y1="100%" x2="0%" y2="0%">
+                            <linearGradient id="lineGrad1"  x1="275" y1="275" x2="275" y2="55" gradientUnits="userSpaceOnUse">
                                 <stop offset="0%" stop-color="#3A1B0E" stop-opacity="0" />
                                 <stop offset="100%" stop-color="#E85D04" stop-opacity="1" />
                             </linearGradient>
@@ -629,7 +757,9 @@
 
                         <!-- Lines from center to each pillar with gradients -->
                         <!-- Top: 275, 55 -->
-                        <line x1="275" y1="275" x2="275" y2="55" stroke="url(#lineGrad1)" stroke-width="1.5" />
+                <line x1="275" y1="275" x2="275" y2="55" stroke="url(#lineGrad1)" stroke-width="1.5" stroke-linecap="round"/>
+
+
                         <!-- Top-right: 484, 155 (72°) -->
                         <line x1="275" y1="275" x2="484" y2="155" stroke="url(#lineGrad2)" stroke-width="1.5" />
                         <!-- Bottom-right: 404, 453 (144°) -->
@@ -638,7 +768,6 @@
                         <line x1="275" y1="275" x2="146" y2="453" stroke="url(#lineGrad4)" stroke-width="1.5" />
                         <!-- Top-left: 66, 155 (288°) -->
                         <line x1="275" y1="275" x2="66" y2="155" stroke="url(#lineGrad5)" stroke-width="1.5" />
-
                         <!-- Dots at pentagon points -->
                         <circle cx="275" cy="55" r="8" fill="#0A0A0A" stroke="#E85D04" stroke-width="2" />
                         <circle cx="484" cy="155" r="8" fill="#0A0A0A" stroke="#E85D04" stroke-width="2" />
@@ -673,15 +802,18 @@
             <!-- Rocket Visual with Labels -->
             <div class="approach-visual fade-in">
                 <!-- Labels around the rocket -->
-                <div class="approach-label approach-label-top">Research and analysis</div>
-                <div class="approach-label approach-label-left">Strategy development</div>
+                <!-- <div class="approach-label approach-label-top">Research and analysis</div> -->
+                  <div class="approach-label approach-label-left">Strategy development</div>
                 <div class="approach-label approach-label-right">Performance tracking</div>
                 <div class="approach-label approach-label-bottom-left">Execution and optimization</div>
                 <div class="approach-label approach-label-bottom-right">Continuous improvement</div>
 
                 <!-- Rocket Image/Video Container -->
                 <div class="rocket-container">
-                    <img src="assets/rocket.png" alt="Rocket to Success" class="rocket-img">
+                     <img src="assets/rocket.png" alt="Rocket to Success" class="rocket-img">
+                      <div class="approach-label approach-label-top">Research and analysis</div>
+               
+                   
                 </div>
             </div>
         </div>
@@ -828,7 +960,7 @@
                 </h2>
                 <a href="#" class="projects-cta fade-in">
                     Case Studies
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M7 17L17 7M17 7H7M17 7V17" />
                     </svg>
                 </a>
@@ -853,6 +985,10 @@
                     <div class="project-image">
                         <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop"
                             alt="Project 2">
+                    </div>
+                      <div class="project-info">
+                        <h3 class="project-name">Aura Tech Services - Paid Performance Marketing</h3>
+                        <p class="project-desc">Some description about the project<br>and some more</p>
                     </div>
                 </div>
 
@@ -1085,7 +1221,14 @@
             </div>
         </div>
     </section>
-
+   <!-- Bootstrap 5.3 JS Bundle -->
+    <script >
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+    </script>
     <!-- Bootstrap 5.3 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
