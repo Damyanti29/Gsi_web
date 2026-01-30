@@ -630,6 +630,7 @@ highlight-txt {
     height: 240px;
     border-radius: 18px;
     overflow: hidden;
+    padding-left: 8px;
   }
 
   /* image */
@@ -638,7 +639,7 @@ highlight-txt {
     height: 100% !important;
     object-fit: fill;
     display: block;
-     border-radius: 18px 18px 18px 18px !important;
+     border-radius: 18px!important;
      padding-top: 13px;
   }
 
